@@ -3,6 +3,7 @@ session_start();
  ?>
 <!DOCTYPE html>
 <html>
+<title>Ontario Shores</title>
 <link rel="stylesheet" href="css/frontpage.css">
 <body>
 <a href="<?php echo "header.php"; ?>"
