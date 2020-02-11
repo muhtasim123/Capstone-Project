@@ -34,7 +34,7 @@
 					$_SESSION['name'] = $username;
 					$_SESSION['password'] = $password;
 
-					//header( "Location: homepage.php");
+					header( "Location: homepage.php");
 					echo '<script type="text/javascript">alert("Database Worked")</script>';
 
 					}
