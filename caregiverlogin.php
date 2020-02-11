@@ -18,7 +18,7 @@
 				<label><b>Password</b></label>
 				<input type="password" placeholder="Enter Password" name="password" required>
 				<button class="login_button" name="login" type="submit">Login</button>
-				<button type="button" class="register_btn" onclick="windows.local.href = 'https://ontario-shores.herokuapp.com/frontpage.php';">Back</button></a>
+				<button type="button" class="register_btn" onclick="window.local.href = 'https://ontario-shores.herokuapp.com/frontpage.php';">Back</button>
 			</div>
 		</form>
 	</div>
