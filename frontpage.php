@@ -3,7 +3,7 @@ session_start();
  ?>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="frontpage.css">
+<link rel="stylesheet" href="css/frontpage.css">
 <body>
 <a href="<?php echo "header.php"; ?>"
 <div class="split left">
