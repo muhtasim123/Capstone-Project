@@ -18,7 +18,7 @@ session_start();
   </div>
 </div>
 </a>
-<a href="<?php echo "careGiverLogin.php" ?>"
+<a href="<?php echo "caregiverlogin.php" ?>"
 <div class="split right">
   <div class="parent">
     <div>
