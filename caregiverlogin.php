@@ -15,7 +15,7 @@
 			<div class="imgcontainer">
 				<img src="logo100.png" alt="Avatar" class="avatar">
 			</div>
-		<form action="index.php" method="post">
+		<form action="" method="post">
 <?php
 			if(isset($_POST['login']))
 			{
