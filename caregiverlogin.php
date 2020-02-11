@@ -18,7 +18,7 @@
 				<label><b>Password</b></label>
 				<input type="password" placeholder="Enter Password" name="password" required>
 				<button class="login_button" name="login" type="submit">Login</button>
-				<a href="register.php"><button type="button" class="register_btn">Register</button></a>
+				<a href="frontpage.php"><button type="button" class="register_btn">Back</button></a>
 			</div>
 		</form>
 	</div>
