@@ -18,7 +18,7 @@ include("dbconnection.php");
 			<div class="imgcontainer">
 				<img src="logo100.png" alt="Avatar" class="avatar">
 			</div>
-		<form action="" method="post">
+		<form action="stafflogin.php" method="post">
 <?php
 if(isset($_POST['login']))
 			{
