@@ -1,15 +1,6 @@
 <?php
-define('DB_SERVER','localhost');
-define('DB_USER','root');
-define('DB_PASS' ,'');
-define('DB_NAME', 'loginsystem');
-$con = mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
-
-// Check connection
-if (mysqli_connect_errno())
-{
-echo "Failed to connect to MySQL: " . mysqli_connect_error();
- }
+$con=mysqli_connect ("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6") or die ('I cannot connect to the database because: ' . mysql_error());
+mysqli_select_db ($con,'heroku_dbefbfd5b04ac35');
 
 ?>
 
