@@ -101,16 +101,16 @@ echo "<script>alert('Data deleted');</script>";
                               </tr>
                               </thead>
                               <tbody>
-                              <?php $ret=mysqli_query($con,"select * from users");
+                              <?php $ret=mysqli_query($con,"select * from staff");
 							  $cnt=1;
 							  while($row=mysqli_fetch_array($ret))
 							  {?>
                               <tr>
                               <td><?php echo $cnt;?></td>
-                                  <td><?php echo $row['fname'];?></td>
-                                  <td><?php echo $row['lname'];?></td>
+                                  <td><?php echo $row['name'];?></td>
+                                 
                                   <td><?php echo $row['email'];?></td>
-                                  <td><?php echo $row['contactno'];?></td>  <td><?php echo $row['posting_date'];?></td>
+                                  <td><?php echo $row['datejoined'];?></td>  
                                   <td>
                                      
                                      <a href="update-profile.php?uid=<?php echo $row['id'];?>"> 
