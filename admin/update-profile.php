@@ -12,7 +12,6 @@ if(isset($_POST['Submit']))
 	$question1=$_POST['question1'];
 	$question2=$_POST['question2'];
 	$question3=$_POST['question3'];
-<<<<<<< HEAD
 	
   $uid=intval($_GET['uid']);
 $query=mysqli_query($con,"update patient set fname='$fname' ,lname='$lname', question1=$question1, question2=$question2, question3=$question3 where id='$uid'");
