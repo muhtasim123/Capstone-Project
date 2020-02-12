@@ -5,7 +5,7 @@ include'dbconnection.php';
 
 
 // for updating user info    
-if(isset($_POST['Submit']))
+if(isset($_POST['submit']))
 {
 	$fname=$_POST['fname'];
 	$lname=$_POST['lname'];
@@ -141,7 +141,7 @@ $query=mysqli_query($con,"update patient set fname='$fname' ,lname='$lname', que
                               </div>
                           </div>
                           <div style="margin-left:100px;">
-                          <input type="submit" name="Submit" value="Update" class="btn btn-theme"></div>
+                          <input type="submit" name="submit" value="Update" class="btn btn-theme"></div>
                           </form>
                       </div>
                   </div>
