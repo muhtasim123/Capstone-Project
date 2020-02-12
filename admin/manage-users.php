@@ -10,7 +10,7 @@ if (strlen($_SESSION['id']==0)) {
 if(isset($_GET['id']))
 {
 $adminid=$_GET['id'];
-$msg=mysqli_query($con,"delete from users where id='$adminid'");
+$msg=mysqli_query($con,"delete from staff where id='$adminid'");
 if($msg)
 {
 echo "<script>alert('Data deleted');</script>";
