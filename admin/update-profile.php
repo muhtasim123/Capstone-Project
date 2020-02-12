@@ -16,9 +16,7 @@ if(isset($_POST['Submit']))
   $uid=intval($_GET['uid']);
 $query=mysqli_query($con,"update patient set fname='$fname' ,lname='$lname', question1=$question1, question2=$question2, question3=$question3 where id='$uid';");
 
-	if ($conn->query($query) === TRUE) {
-		$_SESSION['msg']="Profile Updated successfully";
-	}
+$_SESSION['msg']="Profile Updated successfully";
 }
 ?>
 
