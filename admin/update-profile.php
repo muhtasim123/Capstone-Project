@@ -2,9 +2,7 @@
 session_start();
 include'dbconnection.php';
 //Checking session is valid or not
-if (strlen($_SESSION['id']==0)) {
-  header('location:logout.php');
-  } else{
+
 
 // for updating user info    
 if(isset($_POST['Submit']))
@@ -153,4 +151,3 @@ $_SESSION['msg']="Profile Updated successfully";
 
   </body>
 </html>
-<?php } ?>
