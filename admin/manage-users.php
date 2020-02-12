@@ -96,8 +96,8 @@ if (strlen($_SESSION['id']==0)) {
                                   <th>Sno.</th>
                                   <th class="hidden-phone">First Name</th>
                                   <th> Last Name</th>
-                                  <th> Email Id</th>
-                                  <th>Contact no.</th>
+                                 
+                                 
                                   <th>Reg. Date</th>
                               </tr>
                               </thead>
