@@ -5,7 +5,7 @@ if(isset($_POST['login']))
 {
   $adminusername=$_POST['username'];
   $pass=md5($_POST['password']);
-$ret=mysqli_query($con,"SELECT * FROM admin WHERE username='$adminusername' and password='$pass'");
+$ret=mysqli_query($con,"SELECT * FROM staff WHERE name='$adminusername' and password='$pass'");
 $num=mysqli_fetch_array($ret);
 if($num>0)
 {
@@ -39,7 +39,7 @@ exit();
 			<div class="imgcontainer">
 				<img src="logo100.png" alt="Avatar" class="avatar">
 			</div>
-		<form action="stafflogin.php" method="post">
+		<form action="manage-users.php" method="post">
 
 			<div class="inner_container">
 				<label><b>Username</b></label>

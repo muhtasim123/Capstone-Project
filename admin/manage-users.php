@@ -9,8 +9,8 @@ if (strlen($_SESSION['id']==0)) {
 // for deleting user
 if(isset($_GET['id']))
 {
-$adminid=$_GET['id'];
-$msg=mysqli_query($con,"delete from staff where id='$adminid'");
+$userid=$_GET['id'];
+$msg=mysqli_query($con,"delete from patient where id='$userid'");
 if($msg)
 {
 echo "<script>alert('Data deleted');</script>";
@@ -101,15 +101,15 @@ echo "<script>alert('Data deleted');</script>";
                               </tr>
                               </thead>
                               <tbody>
-                              <?php $ret=mysqli_query($con,"select * from staff");
+                              <?php $ret=mysqli_query($con,"select * from patient");
 							  $cnt=1;
 							  while($row=mysqli_fetch_array($ret))
 							  {?>
                               <tr>
                               <td><?php echo $cnt;?></td>
-                                  <td><?php echo $row['name'];?></td>
+                                  <td><?php echo $row['fname'];?></td>
+                                 <td><?php echo $row['lname'];?></td>
                                  
-                                  <td><?php echo $row['email'];?></td>
                                   <td><?php echo $row['datejoined'];?></td>  
                                   <td>
                                      
