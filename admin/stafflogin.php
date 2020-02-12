@@ -1,8 +1,6 @@
 <?php
 session_start();
 include("dbconnection.php");
-
-
 ?>
 
 
@@ -61,7 +59,7 @@ if(isset($_POST['login']))
 				<label><b>Password</b></label>
 				<input type="password" placeholder="Enter Password" name="password" required>
 				<button class="login_button" name="login" type="submit">Login</button>
-				
+
 				<a href="frontpage.php"><button type="button" class="back_btn">Back</button></a>
 			</div>
 		</form>
