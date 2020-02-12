@@ -9,6 +9,10 @@ if(isset($_POST['Submit']))
 {
 	$fname=$_POST['fname'];
 	$lname=$_POST['lname'];
+	$question1=$_POST['question1'];
+	$question2=$_POST['question2'];
+	$question3=$_POST['question3'];
+	
   $uid=intval($_GET['uid']);
 $query=mysqli_query($con,"update patient set fname='$fname' ,lname='$lname', question1=$question1, question2=$question2, question3=$question3 where id='$uid'");
 $_SESSION['msg']="Profile Updated successfully";
@@ -111,19 +115,19 @@ $_SESSION['msg']="Profile Updated successfully";
                                <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 1 </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="contact" value="<?php echo $row['question1'];?>" >
+                                  <input type="text" class="form-control" name="question1" value="<?php echo $row['question1'];?>" >
                               </div>
                           </div>
 						  <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 2 </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="contact" value="<?php echo $row['question2'];?>" >
+                                  <input type="text" class="form-control" name="question2" value="<?php echo $row['question2'];?>" >
                               </div>
                           </div>
 						  <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 3 </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="contact" value="<?php echo $row['question3'];?>" >
+                                  <input type="text" class="form-control" name="question3" value="<?php echo $row['question3'];?>" >
                               </div>
                           </div>
                             <div class="form-group">
