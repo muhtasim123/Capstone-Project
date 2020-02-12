@@ -6,7 +6,7 @@ session_start();
 <title>Ontario Shores</title>
 <link rel="stylesheet" href="css/frontpage.css">
 <body>
-<a href="<?php echo "header.php"; ?>"
+<a href="<?php echo "admin/stafflogin.php"; ?>"
 <div class="split left">
   <div class="parent">
     <div>
