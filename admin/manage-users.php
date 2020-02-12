@@ -16,7 +16,7 @@ if (strlen($_SESSION['id']==0)) {
 		echo "<script>alert('Data deleted');</script>";
 		}
 	}
-  }
+  
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
