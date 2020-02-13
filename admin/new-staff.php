@@ -52,7 +52,7 @@
 						}
 						else
 						{
-							$query = "INSERT staff set(name='$username',password='$password', email=$email, datejoined=CURRENT_TIMESTAMP)";
+							$query = "INSERT staff set name='$username',password='$password', email=$email, datejoined=CURRENT_TIMESTAMP";
 							$query_run = mysqli_query($con,$query);
 							if($query_run)
 							{
