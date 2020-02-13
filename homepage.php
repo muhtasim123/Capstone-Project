@@ -104,32 +104,12 @@
               </div>
 		</section>
         <?php } ?>
-		<form action="homepage.php" method="post">
 			<div class="imgcontainer">
 				<img src="logo100.png" alt="Avatar" class="avatar">
 			</div>
 			<div class="inner_container">
-				<form method="POST" action="caregiverlogin.php" enctype="multipart/form-data">
-					<div id="content">
-			 	   <form method="POST" action="homepage.php" enctype="multipart/form-data">
-			 	   	<input type="hidden" name="size" value="1000000">
-			 	   	<div>
-			 	   	  <input type="file" name="image">
-			 	   	</div>
-			 	   	<div>
-			 	       <textarea
-			 	       	id="text"
-			 	       	cols="40"
-			 	       	rows="4"
-			 	       	name="text"
-			 	       	placeholder="Say something about this image..."></textarea>
-			 	   	</div>
-			 	   	<div>
-			 	   		<button type="submit" name="upload">POST</button>
-			 	   	</div>
-			 	   </form>
-			 	 </div>
-				<button class="logout_button" name="logout" type="submit">Log Out</button>
+			</div>
+			<button class="logout_button" name="logout" type="submit">Log Out</button>
 			</div>
 		</form>
 		<?php
