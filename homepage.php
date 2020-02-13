@@ -33,9 +33,9 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
           <section class="wrapper">
           	<h3><?php echo $row['fname'];?>'s Information</h3>
 
-				
-                 
-                      
+				<div class="row">
+                  <div class="col-md-12">
+                      <div class="content-panel">
 
                           
                           <div class="form-group">
@@ -81,7 +81,7 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
                           
                       </div>
                   </div>
-              
+              </div>
 		</section>
         <?php } ?>
 				<?php
@@ -127,6 +127,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
 				    </body>
 				</html>
 
-	
+	</div>
 </body>
 </html>
