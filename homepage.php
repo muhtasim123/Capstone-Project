@@ -11,7 +11,7 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 <html>
 <head>
 <title>Home Page</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div id="main-wrapper">
@@ -31,7 +31,7 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 	  {?>
       <section id="main-content">
           <section class="wrapper">
-          	<h3><?php echo $row['fname'];?>'s Information</h3>
+          	<center><h3><?php echo $row['fname'];?>'s Information</h3></center>
 
 				<div class="row">
                   <div class="col-md-12">
@@ -39,39 +39,39 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 
                           
                           <div class="form-group">
-                              <label style="padding-left:40px;">First Name </label>
+                              <label style="padding-left:20px;">First Name </label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="lname" value="<?php echo $row['fname'];?>" >
                               </div>
                           </div>
 
                               <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Last Name</label>
+                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:20px;">Last Name</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="lname" value="<?php echo $row['lname'];?>" >
                               </div>
                           </div>
 
                                <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 1 </label>
+                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:20px;">Question 1 </label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="question1" value="<?php echo $row['question1'];?>" >
                               </div>
                           </div>
 						  <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 2 </label>
+                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:20px;">Question 2 </label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="question2" value="<?php echo $row['question2'];?>" >
                               </div>
                           </div>
 						  <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 3 </label>
+                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:20px;">Question 3 </label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="question3" value="<?php echo $row['question3'];?>" >
                               </div>
                           </div>
                             <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Registration Date </label>
+                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:20px;">Registration Date </label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="regdate" value="<?php echo $row['datejoined'];?>" readonly >
                               </div>
@@ -124,6 +124,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
 				<?php } catch(Exception $e) { ?>
 				        <p>error :(</p>
 				<?php }  ?>
+				<a href="logout.php"><button type="button" class="back_btn">Logout</button></a>
 				    </body>
 				</html>
 
