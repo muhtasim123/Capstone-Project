@@ -61,7 +61,7 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">First Name </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="lname" value="<?php echo $row['lname'];?>" >
+                                  <input type="text" class="form-control" name="lname" value="<?php echo $row['fname'];?>" >
                               </div>
                           </div>
 
