@@ -70,6 +70,22 @@ include'dbconnection.php';
                       </a>
 
                   </li>
+				  
+				  <li class="sub-menu">
+                      <a href="new-staff.php" >
+                          <i class="fa fa-users"></i>
+                          <span>Add Staff</span>
+                      </a>
+
+                  </li>
+				  
+				  <li class="sub-menu">
+                      <a href="new-caregiver.php" >
+                          <i class="fa fa-users"></i>
+                          <span>Add Caregiver</span>
+                      </a>
+
+                  </li>
 
 
               </ul>
@@ -85,8 +101,9 @@ include'dbconnection.php';
                   <div class="col-md-12">
                       <div class="content-panel">
                           <table class="table table-striped table-advance table-hover">
-	                  	  	  <h4><i class="fa fa-angle-right"></i> All User Details </h4><ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="new-patient.php">Add Patients</a></li>
+	                  	  	  <h4><i class="fa fa-angle-right"></i> All Patient Details </h4>
+							  <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="new-patient.php" style="margin-top:-35px";>Add Patient</a></li>
             	</ul>
 							  
 	                  	  	  <hr>

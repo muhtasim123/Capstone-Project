@@ -12,9 +12,9 @@ if(isset($_POST['submit']))
 	$question1=$_POST['question1'];
 	$question2=$_POST['question2'];
 	$question3=$_POST['question3'];
-	$id=$_SESSION['id'];
-  	//$uid=intval($_GET['uid']);
-	$query=mysqli_query($con,"update patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3' where id='$id'");
+	//$id=$_SESSION['id'];
+  	$uid=intval($_GET['uid']);
+	$query=mysqli_query($con,"UPDATE patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3' where id='$uid'");
 
 	if($query)
 		{
@@ -77,6 +77,22 @@ if(isset($_POST['submit']))
                       <a href="manage-patients.php" >
                           <i class="fa fa-users"></i>
                           <span>Manage Patients</span>
+                      </a>
+
+                  </li>
+				  
+				   <li class="sub-menu">
+                      <a href="new-staff.php" >
+                          <i class="fa fa-users"></i>
+                          <span>Add Staff</span>
+                      </a>
+
+                  </li>
+				  
+				  <li class="sub-menu">
+                      <a href="new-caregiver.php" >
+                          <i class="fa fa-users"></i>
+                          <span>Add Caregiver</span>
                       </a>
 
                   </li>
