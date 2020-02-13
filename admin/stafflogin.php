@@ -35,7 +35,7 @@ if(isset($_POST['login']))
 					$_SESSION['name'] = $username;
 					$_SESSION['password'] = $password;
 
-					header( "Location: manage-users.php");
+					header( "Location: manage-patients.php");
 					echo '<script type="text/javascript">alert("Database Worked")</script>';
 
 					}

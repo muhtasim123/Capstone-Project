@@ -22,7 +22,7 @@ include'dbconnection.php';
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Admin | Manage Users</title>
+    <title>Admin | Manage Patients</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet">
@@ -64,9 +64,9 @@ include'dbconnection.php';
                   </li>
 
                   <li class="sub-menu">
-                      <a href="manage-users.php" >
+                      <a href="manage-patients.php" >
                           <i class="fa fa-users"></i>
-                          <span>Manage Users</span>
+                          <span>Manage Patients</span>
                       </a>
                    
                   </li>
@@ -77,7 +77,7 @@ include'dbconnection.php';
       </aside>
       <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> Manage Users</h3>
+          	<h3><i class="fa fa-angle-right"></i> Manage Patients</h3>
 				<div class="row">
 				
                   
@@ -112,7 +112,7 @@ include'dbconnection.php';
                                      
                                      <a href="update-profile.php?uid=<?php echo $row['id'];?>"> 
                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                     <a href="manage-users.php?id=<?php echo $row['id'];?>"> 
+                                     <a href="manage-patients.php?id=<?php echo $row['id'];?>"> 
                                      <button class="btn btn-danger btn-xs" onClick="return confirm('Do you really want to delete');"><i class="fa fa-trash-o "></i></button></a>
                                   </td>
                               </tr>

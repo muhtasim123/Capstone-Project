@@ -74,9 +74,9 @@ if(isset($_POST['submit']))
                   </li>
 
                   <li class="sub-menu">
-                      <a href="manage-users.php" >
+                      <a href="manage-patients.php" >
                           <i class="fa fa-users"></i>
-                          <span>Manage Users</span>
+                          <span>Manage Patients</span>
                       </a>
                    
                   </li>
