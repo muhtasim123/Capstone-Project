@@ -96,9 +96,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
 <?php } catch(Exception $e) { ?>
         <p>Upload error :(</p>
 <?php } } ?>
-        <h2>Upload a file</h2>
-        <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
-            <input name="userfile" type="file"><input type="submit" value="Upload">
+      <center><h2>Upload a file</h2></center>
+        <center><form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"></center>
+            <center><input name="userfile" type="file"><input type="submit" value="Upload"></center>
         </form>
 
 				<?php
@@ -110,7 +110,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
 				<html>
 				    <head><meta charset="UTF-8"></head>
 				    <body>
-				        <h1>Your Stored Files</h1>
+				       <center><h1>Your Stored Files</h1></center>
 				<?php
 					try {
 						$objects = $s3->getIterator('ListObjects', array(
@@ -118,7 +118,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
 						));
 						foreach ($objects as $object) {
 				?>
-						<p> <a href="<?=htmlspecialchars($s3->getObjectUrl($bucket, $object['Key']))?>"> <?echo $object['Key'] . "<br>";?></a></p>
+						<center><p><a href="<?=htmlspecialchars($s3->getObjectUrl($bucket, $object['Key']))?>"> <?echo $object['Key'] . "<br>";?></a></p></center>
 
 				<?		}?>
 
