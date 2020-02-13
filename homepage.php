@@ -68,32 +68,32 @@
                               <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Last Ename</label>
                               <div class="col-sm-10">
-                                  <p><?php echo $row['lname'];?></p>
+                                  <input type="text" class="form-control" name="lname" value="<?php echo $row['lname'];?>" >
                               </div>
                           </div>
                           
                                <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 1 </label>
                               <div class="col-sm-10">
-                                  <p><?php echo $row['question1'];?></p>
+                                  <input type="text" class="form-control" name="question1" value="<?php echo $row['question1'];?>" >
                               </div>
                           </div>
 						  <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 2 </label>
                               <div class="col-sm-10">
-                                  <p><?php echo $row['question2'];?></p>
+                                  <input type="text" class="form-control" name="question2" value="<?php echo $row['question2'];?>" >
                               </div>
                           </div>
 						  <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 3 </label>
                               <div class="col-sm-10">
-                                  <p><?php echo $row['question3'];?></p>
+                                  <input type="text" class="form-control" name="question3" value="<?php echo $row['question3'];?>" >
                               </div>
                           </div>
                             <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Registration Date </label>
                               <div class="col-sm-10">
-                                  <p><?php echo $row['datejoined'];?></p>
+                                  <input type="text" class="form-control" name="regdate" value="<?php echo $row['datejoined'];?>" readonly >
                               </div>
                           </div>
                           <div style="margin-left:100px;">
@@ -104,12 +104,32 @@
               </div>
 		</section>
         <?php } ?>
+		<form action="homepage.php" method="post">
 			<div class="imgcontainer">
 				<img src="logo100.png" alt="Avatar" class="avatar">
 			</div>
 			<div class="inner_container">
-			</div>
-			<button class="logout_button" name="logout" type="submit">Log Out</button>
+				<form method="POST" action="caregiverlogin.php" enctype="multipart/form-data">
+					<div id="content">
+			 	   <form method="POST" action="homepage.php" enctype="multipart/form-data">
+			 	   	<input type="hidden" name="size" value="1000000">
+			 	   	<div>
+			 	   	  <input type="file" name="image">
+			 	   	</div>
+			 	   	<div>
+			 	       <textarea
+			 	       	id="text"
+			 	       	cols="40"
+			 	       	rows="4"
+			 	       	name="text"
+			 	       	placeholder="Say something about this image..."></textarea>
+			 	   	</div>
+			 	   	<div>
+			 	   		<button type="submit" name="upload">POST</button>
+			 	   	</div>
+			 	   </form>
+			 	 </div>
+				<button class="logout_button" name="logout" type="submit">Log Out</button>
 			</div>
 		</form>
 		<?php
