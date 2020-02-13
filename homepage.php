@@ -37,7 +37,10 @@
 		<center><h2>Home Page</h2></center>
 		<center><h3>Welcome <?php echo $_SESSION['name']; ?></h3></center>
 <?php
-		$firstname=$_SESSION['name'];
+		
+		$firstname=$_SESSION['name'];?>
+		<p>Name: <?phpecho $firstname;?>
+		<?php
 		$ret=mysqli_query($con,"select * from patient where fname=$firstname");
 	  while($row=mysqli_fetch_array($ret))
 	  
