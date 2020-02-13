@@ -11,13 +11,15 @@
 </head>
 <body style="background-color:#bdc3c7">
 	<div id="main-wrapper">
-	<center><h2>Sign Up Form</h2></center>
+	<center><h2>Staff Sign Up Form</h2></center>
 		<form action="register.php" method="post">
 			<div class="imgcontainer">
 				<img src="logo100.png" alt="Avatar" class="avatar">
 			</div>
 			<div class="inner_container">
 				<label><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" name="username" required>
+				<label><b>Email</b></label>
 				<input type="text" placeholder="Enter Username" name="username" required>
 				<label><b>Password</b></label>
 				<input type="password" placeholder="Enter Password" name="password" required>
@@ -38,7 +40,7 @@
 
 				if($password==$cpassword)
 				{
-					$query = "select * from userinfotbl where username='$username'";
+					$query = "select * from staff where name='$username'";
 					//echo $query;
 				$query_run = mysqli_query($con,$query);
 				//echo mysql_num_rows($query_run);
@@ -50,14 +52,14 @@
 						}
 						else
 						{
-							$query = "insert into userinfotbl values('$username','$password')";
+							$query = "INSERT staff set(name='$username',password='$password', email=$email, datejoined=CURRENT_TIMESTAMP)";
 							$query_run = mysqli_query($con,$query);
 							if($query_run)
 							{
 								echo '<script type="text/javascript">alert("User Registered.. Welcome")</script>';
 								$_SESSION['username'] = $username;
 								$_SESSION['password'] = $password;
-								header( "Location: homepage.php");
+								header( "Location: manage-patients.php");
 							}
 							else
 							{
