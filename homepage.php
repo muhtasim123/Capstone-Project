@@ -68,32 +68,32 @@
                               <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Last Ename</label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="lname" value="<?php echo $row['lname'];?>" >
+                                  <p><?php echo $row['lname'];?></p>
                               </div>
                           </div>
                           
                                <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 1 </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="question1" value="<?php echo $row['question1'];?>" >
+                                  <p><?php echo $row['question1'];?></p>
                               </div>
                           </div>
 						  <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 2 </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="question2" value="<?php echo $row['question2'];?>" >
+                                  <p><?php echo $row['question2'];?></p>
                               </div>
                           </div>
 						  <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 3 </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="question3" value="<?php echo $row['question3'];?>" >
+                                  <p><?php echo $row['question3'];?></p>
                               </div>
                           </div>
                             <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Registration Date </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="regdate" value="<?php echo $row['datejoined'];?>" readonly >
+                                  <p><?php echo $row['datejoined'];?></p>
                               </div>
                           </div>
                           <div style="margin-left:100px;">
