@@ -4,7 +4,7 @@ include'dbconnection.php';
 //Checking session is valid or not
 
 
-// for updating user info    
+// for updating user info
 if(isset($_POST['submit']))
 {
 	$fname=$_POST['fname'];
@@ -45,10 +45,10 @@ if(isset($_POST['submit']))
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
-            <a href="#" class="logo"><b>Admin Dashboard</b></a>
+            <a href="#" class="logo"><b>Staff Dashboard</b></a>
             <div class="nav notify-row" id="top_menu">
-               
-                         
+
+
                    
                 </ul>
             </div>
@@ -61,10 +61,10 @@ if(isset($_POST['submit']))
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
-              
+
               	  <p class="centered"><a href="#"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
-              	  	
+
                   <li class="mt">
                       <a href="change-password.php">
                           <i class="fa fa-file"></i>
@@ -77,22 +77,22 @@ if(isset($_POST['submit']))
                           <i class="fa fa-users"></i>
                           <span>Manage Patients</span>
                       </a>
-                   
+
                   </li>
-              
-                 
+
+
               </ul>
           </div>
       </aside>
-   
+
       <section id="main-content">
           <section class="wrapper">
           	<h3><i class="fa fa-angle-right"></i> New Patient's Information</h3>
-             	
+
 				<div class="row">
-				
-                  
-	                  
+
+
+
                   <div class="col-md-12">
                       <div class="content-panel">
                       <p align="center" style="color:#F00;"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']=""; ?></p>
@@ -104,14 +104,14 @@ if(isset($_POST['submit']))
                                   <input type="text" class="form-control" name="fname"  >
                               </div>
                           </div>
-                          
+
                               <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Last Name</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="lname"  >
                               </div>
                           </div>
-                          
+
                                <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 1 </label>
                               <div class="col-sm-10">
