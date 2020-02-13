@@ -13,7 +13,7 @@ if(isset($_POST['submit']))
 	$question2=$_POST['question2'];
 	$question3=$_POST['question3'];
 	$query=mysqli_query($con,"INSERT INTO 'patient' ('fname', 'lname', 'question1', 'question2', 'question3', 'datejoined')
-							VALUES ('{$fname}', '{$lname}', '{$question1}', '{$question2}', '{$question3}', CURRENT_TIMESTAMP"));
+							VALUES ('{$fname}', '{$lname}', '{$question1}', '{$question2}', '{$question3}', CURRENT_TIMESTAMP)");
 
 	if($query)
 		{
