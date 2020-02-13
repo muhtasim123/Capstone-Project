@@ -37,22 +37,22 @@
 		<center><h2>Home Page</h2></center>
 		<center><h3>Welcome <?php echo $_SESSION['name']; ?></h3></center>
 <?php
-		
+
 		$firstname=$_SESSION['name'];?>
 		<p>Name: <?php echo $firstname;?></p>
 		<?php
 		$ret=mysqli_query($con,"select * from patient where fname='$firstname'");
 	  while($row=mysqli_fetch_array($ret))
-	  
+
 	  {?>
       <section id="main-content">
           <section class="wrapper">
           	<h3><i class="fa fa-angle-right"></i> <?php echo $row['fname'];?>'s Information</h3>
-             	
+
 				<div class="row">
-				
-                  
-	                  
+
+
+
                   <div class="col-md-12">
                       <div class="content-panel">
                       <p align="center" style="color:#F00;"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']=""; ?></p>
@@ -64,14 +64,14 @@
                                   <input type="text" class="form-control" name="fname" value="<?php echo $row['fname'];?>" >
                               </div>
                           </div>
-                          
+
                               <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Last Ename</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="lname" value="<?php echo $row['lname'];?>" >
                               </div>
                           </div>
-                          
+
                                <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 1 </label>
                               <div class="col-sm-10">
@@ -113,6 +113,21 @@
 			</div>
 		</form>
 		<?php
+		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
+
+	    try{
+//Uploading
+		    $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
+	                                                ?>
+ <p>Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)</p>
+ <?php } catch(Exception $e) { ?>
+ <p>Upload error :(</p>
+ <?php } } ?>
+  <h2>Upload a File</h2>
+  <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
+  <input name="userfile" type="file"><input type="submit" value="Upload"><br><br>
+	
+	<?php
 			if(isset($_POST['logout']))
 			{
 				session_destroy();
