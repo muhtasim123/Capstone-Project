@@ -55,13 +55,13 @@
 	                  
                   <div class="col-md-12">
                       <div class="content-panel">
-                      <p align="center" style="color:#F00;"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']=""; ?></p>
-                           <form class="form-horizontal style-form" name="form1" method="post" action="" onSubmit="return valid();">
+                      
+                           
                            <p style="color:#F00"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']="";?></p>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">First Name </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="fname" value="<?php echo $row['fname'];?>" >
+                                  <p><?php echo $row['fname'];?></p>
                               </div>
                           </div>
                           
@@ -97,7 +97,7 @@
                               </div>
                           </div>
                           <div style="margin-left:100px;">
-                          <input type="submit" name="Submit" value="Update" class="btn btn-theme"></div>
+                         
                           </form>
                       </div>
                   </div>
