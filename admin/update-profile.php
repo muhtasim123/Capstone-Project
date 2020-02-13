@@ -5,20 +5,20 @@ include'dbconnection.php';
 
 
 // for updating user info    
-if(isset($_POST['Submit']))
+if(isset($_POST['submit']))
 {
 	$fname=$_POST['fname'];
 	$lname=$_POST['lname'];
 	$question1=$_POST['question1'];
 	$question2=$_POST['question2'];
 	$question3=$_POST['question3'];
-	
-  $uid=intval($_GET['uid']);
-$query=mysqli_query($con,"update patient set fname='$fname' ,lname='$lname', question1=$question1, question2=$question2, question3=$question3 where id='$uid'");
+	$id=$_SESSION['id'];
+  	//$uid=intval($_GET['uid']);
+	$query=mysqli_query($con,"update patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3' where id='$id'");
 
 	if($query)
 		{
-		echo "<script>alert('Data deleted');</script>";
+		echo "<script>alert('Data updated');</script>";
 		}
 }
 ?>
@@ -141,7 +141,7 @@ $query=mysqli_query($con,"update patient set fname='$fname' ,lname='$lname', que
                               </div>
                           </div>
                           <div style="margin-left:100px;">
-                          <input type="submit" name="Submit" value="Update" class="btn btn-theme"></div>
+                          <input type="submit" name="submit" value="Update" class="btn btn-theme"></div>
                           </form>
                       </div>
                   </div>
