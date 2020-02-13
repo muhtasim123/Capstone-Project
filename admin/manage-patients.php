@@ -86,9 +86,8 @@ include'dbconnection.php';
                       <div class="content-panel">
                           <table class="table table-striped table-advance table-hover">
 	                  	  	  <h4><i class="fa fa-angle-right"></i> All User Details </h4>
-							  <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="new-patient.php">Add Users</a></li>
-            	</ul>
+							<a class="logout" href="new-patient.php">Add Patients</a>
+							  
 	                  	  	  <hr>
                               <thead>
                               <tr>
