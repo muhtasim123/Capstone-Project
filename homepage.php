@@ -36,7 +36,9 @@
 	<div id="main-wrapper">
 		<center><h2>Home Page</h2></center>
 		<center><h3>Welcome <?php echo $_SESSION['name']; ?></h3></center>
-<?php $ret=mysqli_query($con,"select * from patient where id='".$_GET['uid']."'");
+<?php
+		$firstname=$_SESSION['name'];
+		$ret=mysqli_query($con,"select * from patient where fname=$firstname");
 	  while($row=mysqli_fetch_array($ret))
 	  
 	  {?>
