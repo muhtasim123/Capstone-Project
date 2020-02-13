@@ -41,7 +41,7 @@
 		$firstname=$_SESSION['name'];?>
 		<p>Name: <?php echo $firstname;?></p>
 		<?php
-		$ret=mysqli_query($con,"select * from patient where fname=$firstname");
+		$ret=mysqli_query($con,"select * from patient where fname='$firstname'");
 	  while($row=mysqli_fetch_array($ret))
 	  
 	  {?>
