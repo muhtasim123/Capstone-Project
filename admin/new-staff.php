@@ -12,7 +12,7 @@
 <body style="background-color:#bdc3c7">
 	<div id="main-wrapper">
 	<center><h2>Staff Sign Up Form</h2></center>
-		<form action="register.php" method="post">
+		<form action="new-staff.php" method="post">
 			<div class="imgcontainer">
 				<img src="logo100.png" alt="Avatar" class="avatar">
 			</div>
@@ -27,7 +27,7 @@
 				<input type="password" placeholder="Enter Password" name="cpassword" required>
 				<button name="register" class="sign_up_btn" type="submit">Sign Up</button>
 
-				<a href="stafflogin.php"><button type="button" class="back_btn"><< Back to Login</button></a>
+				<a href="manage-patients.php"><button type="button" class="back_btn">Back to Dashboard</button></a>
 			</div>
 		</form>
 
