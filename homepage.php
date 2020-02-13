@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	require_once('dbconfig/config.php');
+	$s3 = Aws\S3\S3Client::factory();
+$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 	//phpinfo();
 	$msg = "";
 
@@ -105,10 +107,7 @@
 		</section>
         <?php } ?>
 				<?php
-				$s3 = Aws\S3\S3Client::factory();
-  			$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-
-				if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
     // FIXME: add more validation, e.g. using ext/fileinfo
     try {
         // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
@@ -122,7 +121,7 @@
         <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
             <input name="userfile" type="file"><input type="submit" value="Upload">
         </form>
-				 ?>
+
 	</div>
 </body>
 </html>
