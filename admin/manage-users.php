@@ -89,7 +89,7 @@ include'dbconnection.php';
 	                  	  	  <hr>
                               <thead>
                               <tr>
-                                  <th>Sno.</th>
+                                  <th></th>
                                   <th class="hidden-phone">First Name</th>
                                   <th> Last Name</th>
                                  
