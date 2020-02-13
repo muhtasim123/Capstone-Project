@@ -17,6 +17,9 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 	<div id="main-wrapper">
 		<center><h2>Home Page</h2></center>
 		<center><h3>Welcome <?php echo $_SESSION['name']; ?></h3></center>
+		<div class="imgcontainer">
+				<img src="logo100.png" alt="Avatar" class="avatar">
+			</div>
 <?php
 
 		$firstname=$_SESSION['name'];?>
