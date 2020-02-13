@@ -39,7 +39,7 @@
 <?php
 		
 		$firstname=$_SESSION['name'];?>
-		<p>Name: <?php echo $firstname;?></p>
+	
 		<?php
 		$ret=mysqli_query($con,"select * from patient where fname='$firstname'");
 	  while($row=mysqli_fetch_array($ret))
@@ -61,12 +61,12 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">First Name </label>
                               <div class="col-sm-10">
-                                  <p><?php echo $row['fname'];?></p>
+                                  <input type="text" class="form-control" name="lname" value="<?php echo $row['lname'];?>" >
                               </div>
                           </div>
                           
                               <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Last Ename</label>
+                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Last Name</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="lname" value="<?php echo $row['lname'];?>" >
                               </div>
