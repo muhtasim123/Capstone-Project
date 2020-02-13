@@ -14,7 +14,7 @@ if(isset($_POST['submit']))
 	$question3=$_POST['question3'];
 	$id=$_SESSION['id'];
   	//$uid=intval($_GET['uid']);
-	$query=mysqli_query($con,"update patient set fname='$fname' ,lname='$lname', question1=$question1, question2=$question2, question3=$question3 where id='$id'");
+	$query=mysqli_query($con,"update patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3' where id='$id'");
 
 	if($query)
 		{
