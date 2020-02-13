@@ -1,30 +1,11 @@
 <?php
 	session_start();
 	require_once('dbconfig/config.php');
+	require('vendor/autoload.php');
+// this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
+$s3 = Aws\S3\S3Client::factory();
+$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 	//phpinfo();
-	$msg = "";
-
-  // If upload button is clicked ...
-  if (isset($_POST['upload'])) {
-		// Get image name
-  	$image = $_FILES['image']['name'];
-  	// Get text
-  	$image_text = mysqli_real_escape_string($con, $_POST['text']);
-
-  	// image file directory
-  	$target = "images/".basename($image);
-
-  	$sql = "INSERT INTO images (id, image, text) VALUES ('$id','$image', '$image_text')";
-  	// execute query
-  	mysqli_query($con, $sql);
-
-  	if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-  		$msg = "Image uploaded successfully";
-  	}else{
-  		$msg = "Failed to upload image";
-  	}
-  }
-  $result = mysqli_query($con, "SELECT * FROM images");
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,12 +31,8 @@
           	<h3><i class="fa fa-angle-right"></i> <?php echo $row['fname'];?>'s Information</h3>
 
 				<div class="row">
-
-
-
                   <div class="col-md-12">
                       <div class="content-panel">
-
 
                            <p style="color:#F00"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']="";?></p>
                           <div class="form-group">
@@ -104,6 +81,21 @@
               </div>
 		</section>
         <?php } ?>
+				<?php
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
+    // FIXME: add more validation, e.g. using ext/fileinfo
+    try {
+        // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
+        $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
+?>
+        <p>Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)</p>
+<?php } catch(Exception $e) { ?>
+        <p>Upload error :(</p>
+<?php } } ?>
+        <h2>Upload a file</h2>
+        <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
+            <input name="userfile" type="file"><input type="submit" value="Upload">
+        </form>
 	</div>
 </body>
 </html>
