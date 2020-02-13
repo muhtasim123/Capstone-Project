@@ -39,7 +39,7 @@
 <?php
 
 		$firstname=$_SESSION['name'];?>
-		<p>Name: <?php echo $firstname;?></p>
+	
 		<?php
 		$ret=mysqli_query($con,"select * from patient where fname='$firstname'");
 	  while($row=mysqli_fetch_array($ret))
@@ -55,18 +55,18 @@
 
                   <div class="col-md-12">
                       <div class="content-panel">
-                      <p align="center" style="color:#F00;"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']=""; ?></p>
-                           <form class="form-horizontal style-form" name="form1" method="post" action="" onSubmit="return valid();">
+                      
+                           
                            <p style="color:#F00"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']="";?></p>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">First Name </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="fname" value="<?php echo $row['fname'];?>" >
+                                  <input type="text" class="form-control" name="lname" value="<?php echo $row['lname'];?>" >
                               </div>
                           </div>
 
                               <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Last Ename</label>
+                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Last Name</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="lname" value="<?php echo $row['lname'];?>" >
                               </div>
@@ -97,19 +97,39 @@
                               </div>
                           </div>
                           <div style="margin-left:100px;">
-                          <input type="submit" name="Submit" value="Update" class="btn btn-theme"></div>
+                         
                           </form>
                       </div>
                   </div>
               </div>
 		</section>
         <?php } ?>
+		<form action="homepage.php" method="post">
 			<div class="imgcontainer">
 				<img src="logo100.png" alt="Avatar" class="avatar">
 			</div>
 			<div class="inner_container">
-			</div>
-			<button class="logout_button" name="logout" type="submit">Log Out</button>
+				<form method="POST" action="caregiverlogin.php" enctype="multipart/form-data">
+					<div id="content">
+			 	   <form method="POST" action="homepage.php" enctype="multipart/form-data">
+			 	   	<input type="hidden" name="size" value="1000000">
+			 	   	<div>
+			 	   	  <input type="file" name="image">
+			 	   	</div>
+			 	   	<div>
+			 	       <textarea
+			 	       	id="text"
+			 	       	cols="40"
+			 	       	rows="4"
+			 	       	name="text"
+			 	       	placeholder="Say something about this image..."></textarea>
+			 	   	</div>
+			 	   	<div>
+			 	   		<button type="submit" name="upload">POST</button>
+			 	   	</div>
+			 	   </form>
+			 	 </div>
+				<button class="logout_button" name="logout" type="submit">Log Out</button>
 			</div>
 		</form>
 		<?php
