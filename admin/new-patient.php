@@ -12,8 +12,7 @@ if(isset($_POST['submit']))
 	$question1=$_POST['question1'];
 	$question2=$_POST['question2'];
 	$question3=$_POST['question3'];
-	$sql="INSERT INTO 'patient' ('fname', 'lname', 'question1', 'question2', 'question3', 'datejoined') VALUES ('{$fname}', '{$lname}', '{$question1}', '{$question2}', '{$question3}', CURRENT_TIMESTAMP)";
-	$query=mysqli_query($con, $sql);
+	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3' datejoined=CURRENT_TIMESTAMP");
 
 	if($query)
 		{
@@ -23,8 +22,8 @@ if(isset($_POST['submit']))
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
   <head>
+<html lang="en">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
