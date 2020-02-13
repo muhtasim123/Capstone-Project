@@ -78,6 +78,22 @@ if(isset($_POST['submit']))
                       </a>
 
                   </li>
+				  
+				   <li class="sub-menu">
+                      <a href="new-staff.php" >
+                          <i class="fa fa-users"></i>
+                          <span>Add Staff</span>
+                      </a>
+
+                  </li>
+				  
+				  <li class="sub-menu">
+                      <a href="new-caregiver.php" >
+                          <i class="fa fa-users"></i>
+                          <span>Add Caregiver</span>
+                      </a>
+
+                  </li>
 
 
               </ul>
