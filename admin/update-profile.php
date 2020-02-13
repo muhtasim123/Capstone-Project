@@ -158,6 +158,7 @@ if(isset($_POST['submit']))
                           </div>
                           <div style="margin-left:100px;">
                           <input type="submit" name="submit" value="Update" class="btn btn-theme"></div>
+													<input type="submit" name="upload" value="Upload" class="btn btn-theme"></div>
                           </form>
                       </div>
                   </div>
