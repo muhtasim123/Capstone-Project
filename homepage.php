@@ -106,8 +106,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
 				<html>
 				    <head><meta charset="UTF-8"></head>
 				    <body>
-				        <h1>S3 Download example</h1>
-						<h3>S3 Files</h3>
+				        <h1>Your Stored Files</h1>
 				<?php
 					try {
 						$objects = $s3->getIterator('ListObjects', array(
