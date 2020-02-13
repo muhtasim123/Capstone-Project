@@ -37,7 +37,7 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
                   <div class="col-md-12">
                       <div class="content-panel">
 
-                          
+
                           <div class="form-group">
                               <label style="padding-left:20px;">First Name </label>
                               <div class="col-sm-10">
@@ -78,12 +78,13 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
                           </div>
                           <div style="margin-left:100px;">
 
-                          
+
                       </div>
                   </div>
               </div>
 		</section>
         <?php } ?>
+				<section class="wrapper">
 				<?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
     // FIXME: add more validation, e.g. using ext/fileinfo
@@ -124,6 +125,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
 				<?php } catch(Exception $e) { ?>
 				        <p>error :(</p>
 				<?php }  ?>
+			</section>
 				<a href="logout.php"><button type="button" class="back_btn">Logout</button></a>
 				    </body>
 				</html>
