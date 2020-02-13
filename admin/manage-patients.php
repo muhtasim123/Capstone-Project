@@ -12,7 +12,7 @@ include'dbconnection.php';
 		echo "<script>alert('Data deleted');</script>";
 		}
 	}
-  
+
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,9 +38,9 @@ include'dbconnection.php';
               </div>
             <a href="#" class="logo"><b>Admin Dashboard</b></a>
             <div class="nav notify-row" id="top_menu">
-               
-                         
-                   
+
+
+
                 </ul>
             </div>
             <div class="top-menu">
@@ -52,10 +52,10 @@ include'dbconnection.php';
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
-              
-              	  <p class="centered"><a href="#"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+
+              	  <p class="centered"><a href="#"><img src="assets/img/logo-100.png" class="img-circle" width="60"></a></p>
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
-              	  	
+
                   <li class="mt">
                       <a href="change-password.php">
                           <i class="fa fa-file"></i>
@@ -68,10 +68,10 @@ include'dbconnection.php';
                           <i class="fa fa-users"></i>
                           <span>Manage Patients</span>
                       </a>
-                   
+
                   </li>
-              
-                 
+
+
               </ul>
           </div>
       </aside>
@@ -79,9 +79,9 @@ include'dbconnection.php';
           <section class="wrapper">
           	<h3><i class="fa fa-angle-right"></i> Manage Patients</h3>
 				<div class="row">
-				
-                  
-	                  
+
+
+
                   <div class="col-md-12">
                       <div class="content-panel">
                           <table class="table table-striped table-advance table-hover">
@@ -92,8 +92,8 @@ include'dbconnection.php';
                                   <th></th>
                                   <th class="hidden-phone">First Name</th>
                                   <th> Last Name</th>
-                                 
-                                 
+
+
                                   <th>Reg. Date</th>
                               </tr>
                               </thead>
@@ -106,18 +106,18 @@ include'dbconnection.php';
                               <td><?php echo $cnt;?></td>
                                   <td><?php echo $row['fname'];?></td>
                                  <td><?php echo $row['lname'];?></td>
-                                 
-                                  <td><?php echo $row['datejoined'];?></td>  
+
+                                  <td><?php echo $row['datejoined'];?></td>
                                   <td>
-                                     
-                                     <a href="update-profile.php?uid=<?php echo $row['id'];?>"> 
+
+                                     <a href="update-profile.php?uid=<?php echo $row['id'];?>">
                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                     <a href="manage-patients.php?id=<?php echo $row['id'];?>"> 
+                                     <a href="manage-patients.php?id=<?php echo $row['id'];?>">
                                      <button class="btn btn-danger btn-xs" onClick="return confirm('Do you really want to delete');"><i class="fa fa-trash-o "></i></button></a>
                                   </td>
                               </tr>
                               <?php $cnt=$cnt+1; }?>
-                             
+
                               </tbody>
                           </table>
                       </div>
