@@ -1,4 +1,7 @@
 /*CSS file*/
+body {
+background-color:#6BC7F1;
+}
 
 input{
     width: 430px;
