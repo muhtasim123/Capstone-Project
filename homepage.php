@@ -97,7 +97,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
         <p>Upload error :(</p>
 <?php } } ?>
       <center><h2>Upload a file</h2></center>
-        <center><form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"></center>
+        <center><form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"></center><br><br>
             <center><input name="userfile" type="file"><input type="submit" value="Upload"></center>
         </form>
 
@@ -129,7 +129,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
 				<a href="logout.php"><button type="button" class="back_btn">Logout</button></a>
 				    </body>
 				</html>
-
 	</div>
 </body>
 </html>
