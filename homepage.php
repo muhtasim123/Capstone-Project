@@ -33,7 +33,7 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
           <section class="wrapper">
           	<center><h3><?php echo $row['fname'];?>'s Information</h3></center>
 
-				<div class="row">
+				<div class="inner_container">
                   <div class="col-md-12">
                       <div class="content-panel">
 
