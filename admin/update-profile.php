@@ -80,7 +80,7 @@ if(isset($_POST['submit']))
                       </a>
 
                   </li>
-				  
+
 				   <li class="sub-menu">
                       <a href="new-staff.php" >
                           <i class="fa fa-users"></i>
@@ -88,7 +88,7 @@ if(isset($_POST['submit']))
                       </a>
 
                   </li>
-				  
+
 				  <li class="sub-menu">
                       <a href="new-caregiver.php" >
                           <i class="fa fa-users"></i>
@@ -158,6 +158,7 @@ if(isset($_POST['submit']))
                           </div>
                           <div style="margin-left:100px;">
                           <input type="submit" name="submit" value="Update" class="btn btn-theme"></div>
+													<div style="margin-left:200px;">
 													<input type="submit" name="upload" value="Upload" class="btn btn-theme"></div>
                           </form>
                       </div>
