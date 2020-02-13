@@ -104,56 +104,6 @@
               </div>
 		</section>
         <?php } ?>
-		<form action="homepage.php" method="post">
-			<div class="imgcontainer">
-				<img src="logo100.png" alt="Avatar" class="avatar">
-			</div>
-			<div class="inner_container">
-				<form method="POST" action="caregiverlogin.php" enctype="multipart/form-data">
-					<div id="content">
-			 	   <form method="POST" action="homepage.php" enctype="multipart/form-data">
-			 	   	<input type="hidden" name="size" value="1000000">
-			 	   	<div>
-			 	   	  <input type="file" name="image">
-			 	   	</div>
-			 	   	<div>
-			 	       <textarea
-			 	       	id="text"
-			 	       	cols="40"
-			 	       	rows="4"
-			 	       	name="text"
-			 	       	placeholder="Say something about this image..."></textarea>
-			 	   	</div>
-			 	   	<div>
-			 	   		<button type="submit" name="upload">POST</button>
-			 	   	</div>
-			 	   </form>
-			 	 </div>
-				<button class="logout_button" name="logout" type="submit">Log Out</button>
-			</div>
-		</form>
-		<?php
-		if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
-
-	    try{
-//Uploading
-		    $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
-	                                                ?>
- <p>Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)</p>
- <?php } catch(Exception $e) { ?>
- <p>Upload error :(</p>
- <?php } } ?>
-  <h2>Upload a File</h2>
-  <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
-  <input name="userfile" type="file"><input type="submit" value="Upload"><br><br>
-	
-	<?php
-			if(isset($_POST['logout']))
-			{
-				session_destroy();
-				header("location:caregiverlogin.php");
-			}
-		?>
 	</div>
 </body>
 </html>
