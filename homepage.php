@@ -96,6 +96,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
         <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
             <input name="userfile" type="file"><input type="submit" value="Upload">
         </form>
+
+			<a href="https://ontario-shores.herokuapp.com/list.php">Files List</a>
 	</div>
 </body>
 </html>
