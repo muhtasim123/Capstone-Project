@@ -17,15 +17,13 @@ session_start();
                 <div class="col-lg-7 col-md-10">
                     <div class="section_title text-center mb-95">
                         <h3>Dementia Advisor</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
                     </div>
                 </div>
             </div>
             
 			<div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6">
-			
-								 <a href="<?php echo "admin/stafflogin.php"; ?>">
+								 <a style="text-decoration:none; color:black" href="<?php echo "admin/stafflogin.php"; ?>">
                     <div class="single_service">
                          <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
 							 <div class="service_icon">
@@ -35,7 +33,6 @@ session_start();
                          </div>
                          <div class="service_content text-center">
                             <h3>STAFF</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
                          </div>
                     </div></a>
 					
@@ -43,7 +40,7 @@ session_start();
 				
 				
                 <div class="col-lg-4 col-md-6">
-                                 <a href="<?php echo "adminlogin.php"; ?>">
+                                 <a style="text-decoration:none; color:black" href="<?php echo "adminlogin.php"; ?>">
                     <div class="single_service active">
                          <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
                              <div class="service_icon">
@@ -53,7 +50,6 @@ session_start();
 
                          <div class="service_content text-center">
                             <h3>ADMIN</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
                          </div>
                     </div>
 					 				 </a>
