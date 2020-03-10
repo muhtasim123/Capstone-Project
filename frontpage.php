@@ -59,12 +59,13 @@ session_start();
 			
 				
                 <div class="col-lg-4 col-md-6">
+			
+                                 <a href="<?php echo "caregiverlogin.php"; ?>">
                     <div class="single_service">
                          <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
                              <div class="service_icon">
-                                 <a href="<?php echo "caregiverlogin.php"; ?>">
 								 <img src="img/service/service_icon_3.png" alt="">
-								 </a>
+								 
                              </div>
                          </div>
                          <div class="service_content text-center">
@@ -72,6 +73,7 @@ session_start();
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
                          </div>
                     </div>
+			</a>
                 </div>
             </div>
         </div>
