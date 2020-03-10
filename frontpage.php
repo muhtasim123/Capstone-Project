@@ -16,7 +16,7 @@ session_start();
             <div class="row justify-content-center ">
                 <div class="col-lg-7 col-md-10">
                     <div class="section_title text-center mb-95">
-                        <h3>Dementia Advisor</h3>
+                        <h3>Reminiscence Therapy</h3>
                     </div>
                 </div>
             </div>
