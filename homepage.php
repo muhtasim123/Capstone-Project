@@ -97,6 +97,23 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
         <p>Upload error :(</p>
 <?php } } ?>
       <center><h2>Upload a file</h2></center>
+
+			<?php
+if(isset($_POST['submit'])){
+
+ // Count total files
+ $countfiles = count($_FILES['file']['name']);
+
+ // Looping all files
+ for($i=0;$i<$countfiles;$i++){
+  $filename = $_FILES['file']['name'][$i];
+
+  // Upload file
+  move_uploaded_file($_FILES['file']['tmp_name'][$i],'upload/'.$filename);
+
+ }
+}
+?>
         <center><form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"></center><br><br>
             <center><input name="userfile" type="file"><input type="submit" value="Upload"></center>
         </form>
