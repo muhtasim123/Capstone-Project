@@ -50,13 +50,14 @@ session_start();
 								 <img src="img/service/service_icon_2.png" alt="">
                              </div>
 				 </div>
-				 </a>
 
                          <div class="service_content text-center">
                             <h3>ADMIN</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
                          </div>
                     </div>
+					 				 </a>
+
                 </div>
 			
 				
