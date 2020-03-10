@@ -115,7 +115,7 @@ if(isset($_POST['submit'])){
 }
 ?>
         <center><form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"></center><br><br>
-            <center><input name="userfile" type="file"><input type="submit" value="Upload"></center>
+            <center><input name="file[]" type="file"><input type="submit" value="Upload" name="submit"></center>
         </form>
 
 				<?php
