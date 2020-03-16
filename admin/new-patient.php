@@ -127,25 +127,15 @@ if(isset($_POST['submit']))
                               </div>
                           </div>
 
-                               <div class="form-group">
+                               <div class="form-group"  id="dynamic_field">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 1 </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="question1" >
-                              </div>
-                          </div>
-						  <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 2 </label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="question2" >
-                              </div>
-                          </div>
-						  <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 3 </label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="question3">
+                                  <input type="text" class="form-control" name="lname" value="question1" >
+								  <input type="text" class="form-control" name="lname" value="answer1" >
                               </div>
                           </div>
                           <div style="margin-left:100px;">
+						  <button type="button" name="add" id="add" class="btn btn-success">Add More Questions</button>
                           <input type="submit" name="submit" value="Add" class="btn btn-theme"></div>
                           </form>
                       </div>
@@ -160,6 +150,13 @@ if(isset($_POST['submit']))
     <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="assets/js/common-scripts.js"></script>
   <script>
+   $(document).ready(function(){  
+      var i=1;  
+      $('#add').click(function(){  
+           i++;  
+           $('#dynamic_field').append('<label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question '+i+'</label><div class="col-sm-10"><input type="text" class="form-control" name="lname" placeholder="question'+i+'" ><input type="text" class="form-control" name="lname" placeholder="answer '+i+'"></div>');	   
+      });   
+ });  
       $(function(){
           $('select.styled').customSelect();
       });
