@@ -130,8 +130,8 @@ if(isset($_POST['submit']))
                                <div class="form-group"  id="dynamic_field">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 1 </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="lname" value="question1" >
-								  <input type="text" class="form-control" name="lname" value="answer1" >
+                                  <input type="text" class="form-control" name="question" value="question1" >
+								  <input type="text" class="form-control" name="answer" value="answer1" >
                               </div>
                           </div>
                           <div style="margin-left:100px;">
@@ -154,7 +154,7 @@ if(isset($_POST['submit']))
       var i=1;  
       $('#add').click(function(){  
            i++;  
-           $('#dynamic_field').append('<label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question '+i+'</label><div class="col-sm-10"><input type="text" class="form-control" name="lname" placeholder="question'+i+'" ><input type="text" class="form-control" name="lname" placeholder="answer '+i+'"></div>');	   
+           $('#dynamic_field').append('<label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question '+i+'</label><div class="col-sm-10"><input type="text" class="form-control" name="question" placeholder="question'+i+'" ><input type="text" class="form-control" name="answer" placeholder="answer '+i+'"></div>');	   
       });   
  });  
       $(function(){
