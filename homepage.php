@@ -5,6 +5,8 @@
 	require('vendor/autoload.php');
 // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
 $s3 = Aws\S3\S3Client::factory();
+use Aws\CommandPool;
+use Guzzle\Service\Exception\CommandTransferException;
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 	//phpinfo();
 ?>
@@ -87,21 +89,31 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
         <?php } ?>
 				<section class="wrapper">
 				<?php
+				$upload = array();
+foreach ( $objects as $key => $file ) {
+    $fileContent = $file['body'];
+        $objParams = array (
+            'ACL' => 'bucket-owner-full-control',
+            'Bucket' => 'bucket_name',
+            'Key' => 's3_path',
+            'Body' => $fileContent
+        );
+				  $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
     // FIXME: add more validation, e.g. using ext/fileinfo
     try {
         // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
-				$album=$_POST['album'];
-				$uid=intval($_GET['uid']);
-				$link=htmlspecialchars($upload->get('ObjectURL'));
-				$query=mysqli_query($con,"INSERT INTO media (patientid, album, link)
-				VALUES ($uid, $album, $link)");
-        $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
+			$results = CommandPool::batch($clientS3, $upload);
 ?>
         <p>Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)</p>
-<?php } catch(Exception $e) { ?>
+<?php } catch(CommandTransferException $e) { ?>
         <p>Upload error :(</p>
-<?php } } ?>
+<?php
+$succeeded = $e->getSuccessfulCommands();
+        echo "Failed Commands:\n";
+        foreach ($e->getFailedCommands() as $failedCommand) {
+            echo $e->getExceptionForFailedCommand($failedCommand)->getMessage() . "\n";
+} } ?>
       <center><h2>Upload a file</h2></center>
 
         <center><form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"></center><br><br>
