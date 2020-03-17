@@ -11,7 +11,14 @@ if(isset($_POST['submit']))
 	$question1=$_POST['question1'];
 	$question2=$_POST['question2'];
 	$question3=$_POST['question3'];
-	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', datejoined=CURRENT_TIMESTAMP");
+	$question4=$_POST['question4'];
+	$question5=$_POST['question5'];
+	$answer1=$_POST['answer1'];
+	$answer2=$_POST['answer2'];
+	$answer3=$_POST['answer3'];
+	$answer4=$_POST['answer4'];
+	$answer5=$_POST['answer5'];
+	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', question5='$question5', answer1 = '$answer1', answer2 = '$answer2', answer3 = '$answer3',answer4 = '$answer4',answer5 = '$answer5', datejoined=CURRENT_TIMESTAMP");
 
 	if($query)
 		{
@@ -130,24 +137,43 @@ if(isset($_POST['submit']))
         <option  value="Question 1">Question 1</option>
         <option  value="Question 2">Question 2</option>
 		<option  value="Question 3">Question 3</option>
+		<option  value="Question 4">Question 4</option>
+		<option  value="Question 5">Question 5</option>
     </select>
     </div>
 
 			<div class="form-group" id="q1Type">
 			<div class="col-sm-10">
 				<input id="question1" type="text" class="form-control" name="question1">
+				<input id="answer1" type="text" class="form-control" name="answer1">
 				</div>
 			</div>
 
 			<div class="form-group" id="q2Type" style="display:none;">
 			<div class="col-sm-10">
 				<input id="question2" type="text" class="form-control" name="question2">
+				<input id="answer2" type="text" class="form-control" name="answer2">
 			</div>
 			</div>
 
 			<div class="form-group" id="q3Type" style="display:none;">
 			<div class="col-sm-10">
 				<input id="question3" type="text" class="form-control" name="question3">
+				<input id="answer3" type="text" class="form-control" name="answer3">
+			</div>
+			</div>
+			
+			<div class="form-group" id="q4Type" style="display:none;">
+			<div class="col-sm-10">
+				<input id="question4" type="text" class="form-control" name="question4">
+				<input id="answer4" type="text" class="form-control" name="answer4">
+			</div>
+			</div>
+			
+			<div class="form-group" id="q5Type" style="display:none;">
+			<div class="col-sm-10">
+				<input id="question5" type="text" class="form-control" name="question5">
+				<input id="answer5" type="text" class="form-control" name="answer5">
 			</div>
 			</div>
 
@@ -194,6 +220,24 @@ if(isset($_POST['submit']))
         else {
             $('#q3Type').hide();
 
+        }
+		
+		if($(this).val() == 'Question 4') {
+            $('#q4Type').show();
+            
+        }
+        else {
+            $('#q4Type').hide();
+            
+        }
+		
+		if($(this).val() == 'Question 5') {
+            $('#q5Type').show();
+            
+        }
+        else {
+            $('#q5Type').hide();
+            
         }
 
     });
