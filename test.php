@@ -1,6 +1,9 @@
 <?php
 session_start();
 include'dbconnection.php';
+include'dbconnection.php';
+require_once('dbconfig/config.php');
+require('vendor/autoload.php');
 //Checking session is valid or not
 
 
