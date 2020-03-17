@@ -78,7 +78,7 @@ if(isset($_POST['submit']))
                       </a>
 
                   </li>
-				  
+
 				   <li class="sub-menu">
                       <a href="new-staff.php" >
                           <i class="fa fa-users"></i>
@@ -86,7 +86,7 @@ if(isset($_POST['submit']))
                       </a>
 
                   </li>
-				  
+
 				  <li class="sub-menu">
                       <a href="new-caregiver.php" >
                           <i class="fa fa-users"></i>
@@ -105,8 +105,6 @@ if(isset($_POST['submit']))
           	<h3><i class="fa fa-angle-right"></i> New Patient's Information</h3>
 
 				<div class="row">
-
-
 
                   <div class="col-md-12">
                       <div class="content-panel">
@@ -180,7 +178,7 @@ if(isset($_POST['submit']))
             $('#q1Type').hide();
             $('#question1').prop('disabled',true);
         }
-		
+
 		if($(this).val() == 'Question 2') {
             $('#q2Type').show();
             $('#question2').prop('disabled',false);
@@ -189,7 +187,7 @@ if(isset($_POST['submit']))
             $('#q2Type').hide();
             $('#question2').prop('disabled',true);
         }
-		
+
 		if($(this).val() == 'Question 3') {
             $('#q3Type').show();
             $('#question3').prop('disabled',false);
@@ -198,7 +196,7 @@ if(isset($_POST['submit']))
             $('#q3Type').hide();
             $('#question3').prop('disabled',true);
         }
-		
+
     });
 });
 

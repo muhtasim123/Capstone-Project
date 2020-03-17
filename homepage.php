@@ -116,7 +116,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
 					<label for="album">Album Name:</label>
   				<input type="text" id="album" name="album"><br><br>
             <center><input name="userfile" type="file"><br><br>
-							<input type="submit" value="Upload""></center>
+							<input type="submit" value="Upload"></center>
         </form>
 
 				<?php

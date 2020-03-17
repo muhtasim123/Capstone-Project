@@ -1,9 +1,6 @@
 <?php
 session_start();
 include'dbconnection.php';
-include'dbconnection.php';
-require_once('dbconfig/config.php');
-require('vendor/autoload.php');
 //Checking session is valid or not
 
 
@@ -15,8 +12,7 @@ if(isset($_POST['submit']))
 	$question1=$_POST['question1'];
 	$question2=$_POST['question2'];
 	$question3=$_POST['question3'];
-	$question4=$_POST['question4'];
-	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', datejoined=CURRENT_TIMESTAMP");
+	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', datejoined=CURRENT_TIMESTAMP");
 
 	if($query)
 		{
@@ -43,12 +39,6 @@ if(isset($_POST['submit']))
 
   <body>
 
-    		<?php
-    		$pid=$_SESSION['pid'];
-    		$ret=mysqli_query($con,"select * from patient where id='$pid'");
-    	  while($row=mysqli_fetch_array($ret))
-
-    	  {?>
   <section id="container" >
       <header class="header black-bg">
               <div class="sidebar-toggle-box">
@@ -111,59 +101,28 @@ if(isset($_POST['submit']))
       </aside>
 
       <section id="main-content">
-          <section class="wrapper">
-            <center><h3><?php echo $row['fname'];?>'s Information</h3></center>
+        <center><form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"></center><br><br>
+<?php
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
+// FIXME: add more validation, e.g. using ext/fileinfo
+try {
+// FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
+$upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
+?>
+<input type="hidden" name="link" value="<?=htmlspecialchars($upload->get('ObjectURL'))?>">
+<input type="hidden" name="mediaid" value="<?php echo $row['mediaid'];?>">
 
-				<div class="inner_container">
-                  <div class="col-md-12">
-                      <div class="content-panel">
+<?php } catch(Exception $e) { ?>
+<p>Upload error :(</p>
+<?php } } ?>
+<center><h2>Upload a file</h2></center>
 
+<label for="album">Album Name:</label>
+<input type="text" id="album" name="album"><br><br>
+  <center><input name="userfile" type="file"><br><br>
+    <input type="submit" value="Upload"></center>
+</form>
 
-                          <div class="form-group">
-                              <label style="padding-left:20px;">First Name </label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="lname" value="<?php echo $row['fname'];?>" >
-                              </div>
-                          </div>
-
-                              <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:20px;">Last Name</label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="lname" value="<?php echo $row['lname'];?>" >
-                              </div>
-                          </div>
-
-                               <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:20px;">Question 1 </label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="question1" value="<?php echo $row['question1'];?>" >
-                              </div>
-                          </div>
-						  <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:20px;">Question 2 </label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="question2" value="<?php echo $row['question2'];?>" >
-                              </div>
-                          </div>
-						  <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:20px;">Question 3 </label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="question3" value="<?php echo $row['question3'];?>" >
-                              </div>
-                          </div>
-                            <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:20px;">Registration Date </label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="regdate" value="<?php echo $row['datejoined'];?>" readonly >
-                              </div>
-                          </div>
-                          <div style="margin-left:100px;">
-
-
-                      </div>
-                  </div>
-              </div>
-		</section>
       </section></section>
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -201,16 +160,12 @@ if(isset($_POST['submit']))
             $('#question3').prop('disabled',true);
         }
 
-		if($(this).val() == 'Question 4') {
-            $('#q4Type').show();
-            $('#question4').prop('disabled',false);
-        }
-        else {
-            $('#q4Type').hide();
-            $('#question4').prop('disabled',true);
-        }
     });
 });
+
+$(function(){
+          $('select.styled').customSelect();
+      });
 
   </script>
 
