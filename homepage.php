@@ -90,6 +90,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
     // FIXME: add more validation, e.g. using ext/fileinfo
     try {
         // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
+				$album=$_POST['album'];
+				$uid=intval($_GET['uid']);
+				$query=mysqli_query($con,"INSERT INTO media set album='$album' where id='$uid'");
         $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
 ?>
         <p>Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)</p>
@@ -99,7 +102,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
       <center><h2>Upload a file</h2></center>
 
         <center><form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"></center><br><br>
-            <center><input name="userfile" type="file"><input type="submit" value="Upload"></center>
+					<label for="album">Album Name:</label>
+  				<input type="text" id="album" name="album"><br><br>
+            <center><input name="userfile" type="file"><br><br>
+							<input type="submit" value="Upload""></center>
         </form>
 
 				<?php
