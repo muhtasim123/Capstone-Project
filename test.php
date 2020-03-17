@@ -31,10 +31,10 @@ if(isset($_POST['submit']))
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
     <title>Admin | Create Profile</title>
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link href="admin/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="admin/assets/css/style.css" rel="stylesheet">
+    <link href="admin/assets/css/style-responsive.css" rel="stylesheet">
   </head>
 
   <body>
@@ -61,7 +61,7 @@ if(isset($_POST['submit']))
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
 
-              	  <p class="centered"><a href="#"><img src="assets/img/logo100.png" class="img-circle" width="100"></a></p>
+              	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" class="img-circle" width="100"></a></p>
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
 
                   <li class="mt">
@@ -101,7 +101,7 @@ if(isset($_POST['submit']))
       </aside>
 
       <section id="main-content">
-        <center><form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"></center><br><br>
+        <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"><br><br>
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
 // FIXME: add more validation, e.g. using ext/fileinfo
@@ -115,12 +115,12 @@ $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userf
 <?php } catch(Exception $e) { ?>
 <p>Upload error :(</p>
 <?php } } ?>
-<center><h2>Upload a file</h2></center>
+<h3><i class="fa fa-angle-right"></i>Upload</h3>
 
 <label for="album">Album Name:</label>
 <input type="text" id="album" name="album"><br><br>
-  <center><input name="userfile" type="file"><br><br>
-    <input type="submit" value="Upload"></center>
+  <input name="userfile" type="file"><br><br>
+    <input type="submit" value="Upload">
 </form>
 
       </section></section>
