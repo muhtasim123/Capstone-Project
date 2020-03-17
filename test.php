@@ -101,6 +101,7 @@ if(isset($_POST['submit']))
       </aside>
 
       <section id="main-content">
+        <section class="wrapper">
         <div class="row">
         <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"><br><br>
 <?php
@@ -118,12 +119,13 @@ $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userf
 <?php } } ?>
 <h3><i class="fa fa-angle-right"></i>Upload</h3>
 
-<label for="album" style="padding-left:40px;">Album Name:</label>
+<label for="album">Album Name:</label>
 <input type="text" id="album" name="album"><br><br>
   <input name="userfile" type="file"><br><br>
     <input type="submit" value="Upload">
 </form>
 </div>
+</section>
       </section></section>
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
