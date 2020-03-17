@@ -26,7 +26,7 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 		$pid=$_SESSION['patientid'];?>
 
 		<?php
-		$ret=mysqli_query($con,"select * from patient where patientid='$pid'");
+		$ret=mysqli_query($con,"select * from patient where id='$pid'");
 	  while($row=mysqli_fetch_array($ret))
 
 	  {?>
