@@ -3,7 +3,6 @@ session_start();
 include'dbconnection.php';
 //Checking session is valid or not
 
-
 // for updating user info
 if(isset($_POST['submit']))
 {
@@ -172,29 +171,29 @@ if(isset($_POST['submit']))
     $('select[name=qp_type]').change(function(){
         if($(this).val() == 'Question 1') {
             $('#q1Type').show();
-           
+
         }
         else {
             $('#q1Type').hide();
-            
+
         }
 
 		if($(this).val() == 'Question 2') {
             $('#q2Type').show();
-          
+
         }
         else {
             $('#q2Type').hide();
-          
+
         }
 
 		if($(this).val() == 'Question 3') {
             $('#q3Type').show();
-            
+
         }
         else {
             $('#q3Type').hide();
-            
+
         }
 
     });
