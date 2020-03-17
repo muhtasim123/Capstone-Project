@@ -174,29 +174,29 @@ if(isset($_POST['submit']))
     $('select[name=qp_type]').change(function(){
         if($(this).val() == 'Question 1') {
             $('#q1Type').show();
-            $('#question1').prop('disabled',false);
+           
         }
         else {
             $('#q1Type').hide();
-            $('#question1').prop('disabled',true);
+            
         }
 		
 		if($(this).val() == 'Question 2') {
             $('#q2Type').show();
-            $('#question2').prop('disabled',false);
+          
         }
         else {
             $('#q2Type').hide();
-            $('#question2').prop('disabled',true);
+          
         }
 		
 		if($(this).val() == 'Question 3') {
             $('#q3Type').show();
-            $('#question3').prop('disabled',false);
+            
         }
         else {
             $('#q3Type').hide();
-            $('#question3').prop('disabled',true);
+            
         }
 		
     });
