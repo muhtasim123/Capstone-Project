@@ -93,7 +93,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
         // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
 				$album=$_POST['album'];
 				$uid=intval($_GET['uid']);
-				$query=mysqli_query($con,"INSERT INTO media set album='$album' where id='$uid'");
+				$query=mysqli_query($con,"INSERT INTO media (patientid, album)
+				VALUES ($uid, $album)");
         $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
 ?>
         <p>Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)</p>
