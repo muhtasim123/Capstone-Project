@@ -101,7 +101,7 @@ if(isset($_POST['submit']))
       </aside>
 
       <section id="main-content">
-        <center><form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"></center><br><br>
+        <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"><br><br>
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
 // FIXME: add more validation, e.g. using ext/fileinfo
@@ -115,12 +115,12 @@ $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userf
 <?php } catch(Exception $e) { ?>
 <p>Upload error :(</p>
 <?php } } ?>
-<center><h3><i class="fa fa-angle-right"></i> New Patient's Information</h3></center>
+<h3><i class="fa fa-angle-right"></i>Upload</h3>
 
 <label for="album">Album Name:</label>
 <input type="text" id="album" name="album"><br><br>
-  <center><input name="userfile" type="file"><br><br>
-    <input type="submit" value="Upload"></center>
+  <input name="userfile" type="file"><br><br>
+    <input type="submit" value="Upload">
 </form>
 
       </section></section>
