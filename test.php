@@ -61,7 +61,7 @@ if(isset($_POST['submit']))
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
 
-              	  <p class="centered"><a href="#"><img src="assets/img/logo100.png" class="img-circle" width="100"></a></p>
+              	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" class="img-circle" width="100"></a></p>
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
 
                   <li class="mt">
@@ -115,7 +115,7 @@ $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userf
 <?php } catch(Exception $e) { ?>
 <p>Upload error :(</p>
 <?php } } ?>
-<center><h2>Upload a file</h2></center>
+<center><h3><i class="fa fa-angle-right"></i> New Patient's Information</h3></center>
 
 <label for="album">Album Name:</label>
 <input type="text" id="album" name="album"><br><br>
