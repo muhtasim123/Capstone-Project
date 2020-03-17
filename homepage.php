@@ -5,8 +5,6 @@
 	require('vendor/autoload.php');
 // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
 $s3 = Aws\S3\S3Client::factory();
-use Aws\CommandPool;
-use Guzzle\Service\Exception\CommandTransferException;
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 	//phpinfo();
 ?>
@@ -25,10 +23,10 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 			</div>
 <?php
 
-		$firstname=$_SESSION['name'];?>
+		$pid=$_SESSION['patientid'];?>
 
 		<?php
-		$ret=mysqli_query($con,"select * from patient where fname='$firstname'");
+		$ret=mysqli_query($con,"select * from patient where patientid='$pid'");
 	  while($row=mysqli_fetch_array($ret))
 
 	  {?>
