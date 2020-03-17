@@ -23,10 +23,10 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 			</div>
 <?php
 
-		$firstname=$_SESSION['name'];?>
+		$pid=$_SESSION['pid'];?>
 
 		<?php
-		$ret=mysqli_query($con,"select * from patient where fname='$firstname'");
+		$ret=mysqli_query($con,"select * from patient where id='$pid'");
 	  while($row=mysqli_fetch_array($ret))
 
 	  {?>
@@ -93,8 +93,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
         // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
 				$album=$_POST['album'];
 				$uid=intval($_GET['uid']);
-				$query=mysqli_query($con,"INSERT INTO media (patientid, album)
-				VALUES ($uid, $album)");
+				$link=htmlspecialchars($upload->get('ObjectURL'));
+				$query=mysqli_query($con,"INSERT INTO media (patientid, album, link)
+				VALUES ($uid, $album, $link)");
         $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
 ?>
         <p>Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)</p>
