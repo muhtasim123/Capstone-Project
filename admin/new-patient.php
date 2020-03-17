@@ -12,8 +12,7 @@ if(isset($_POST['submit']))
 	$question1=$_POST['question1'];
 	$question2=$_POST['question2'];
 	$question3=$_POST['question3'];
-	$question4=$_POST['question4'];
-	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', datejoined=CURRENT_TIMESTAMP");
+	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', datejoined=CURRENT_TIMESTAMP");
 
 	if($query)
 		{
@@ -134,7 +133,6 @@ if(isset($_POST['submit']))
         <option  value="Question 1">Question 1</option>
         <option  value="Question 2">Question 2</option>
 		<option  value="Question 3">Question 3</option>
-		<option  value="Question 4">Question 4</option>
     </select>
     </div>
 
@@ -156,11 +154,6 @@ if(isset($_POST['submit']))
 			</div>
 			</div>
 
-			<div class="form-group" id="q4Type" style="display:none;">
-			<div class="col-sm-10">
-        <input id="question4" type="text" class="form-control" name="qp_type">
-			</div>
-			</div>
                           </div>
                           <div style="margin-left:100px;">
                           <input type="submit" name="submit" value="Add" class="btn btn-theme"></div>
@@ -206,16 +199,12 @@ if(isset($_POST['submit']))
             $('#question3').prop('disabled',true);
         }
 		
-		if($(this).val() == 'Question 4') {
-            $('#q4Type').show();
-            $('#question4').prop('disabled',false);
-        }
-        else {
-            $('#q4Type').hide();
-            $('#question4').prop('disabled',true);
-        }
     });
 });
+
+$(function(){
+          $('select.styled').customSelect();
+      });
 
   </script>
 
