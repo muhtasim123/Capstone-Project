@@ -12,7 +12,8 @@ if(isset($_POST['submit']))
 	$question1=$_POST['question1'];
 	$question2=$_POST['question2'];
 	$question3=$_POST['question3'];
-	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', datejoined=CURRENT_TIMESTAMP");
+	$question3=$_POST['question4'];
+	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', datejoined=CURRENT_TIMESTAMP");
 
 	if($query)
 		{
@@ -127,15 +128,41 @@ if(isset($_POST['submit']))
                               </div>
                           </div>
 
-                               <div class="form-group"  id="dynamic_field">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 1 </label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="question1">
-								  <input type="text" class="form-control" name="answer1">
-                              </div>
+                               <div class="form-group">
+                              <div class="col-sm-2 col-sm-2 control-label">
+    <select class="form-control" name="qp_type" id="p_type" required>
+        <option  value="Question 1">Question 1</option>
+        <option  value="Question 2">Question 2</option>
+		<option  value="Question 3">Question 3</option>
+		<option  value="Question 4">Question 4</option>
+    </select>
+    </div>
+
+			<div class="form-group" id="q1Type">
+			<div class="col-sm-10">
+				<input id="question1" type="text" class="form-control" name="qp_type">
+				</div>
+			</div>
+
+			<div class="form-group" id="q2Type" style="display:none;">
+			<div class="col-sm-10">
+				<input id="question2" type="text" class="form-control" name="qp_type">
+			</div>
+			</div>
+
+			<div class="form-group" id="q3Type" style="display:none;">
+			<div class="col-sm-10">
+				<input id="question3" type="text" class="form-control" name="qp_type">
+			</div>
+			</div>
+
+			<div class="form-group" id="q4Type" style="display:none;">
+			<div class="col-sm-10">
+        <input id="question4" type="text" class="form-control" name="qp_type">
+			</div>
+			</div>
                           </div>
                           <div style="margin-left:100px;">
-						  <button type="button" name="add" id="add" class="btn btn-success">Add More Questions</button>
                           <input type="submit" name="submit" value="Add" class="btn btn-theme"></div>
                           </form>
                       </div>
@@ -150,16 +177,45 @@ if(isset($_POST['submit']))
     <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="assets/js/common-scripts.js"></script>
   <script>
-   $(document).ready(function(){  
-      var i=1;  
-      $('#add').click(function(){  
-           i++;  
-           $('#dynamic_field').append('<label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question '+i+'</label><div class="col-sm-10"><input type="text" class="form-control" name="question'+i+'" placeholder="question'+i+'" ><input type="text" class="form-control" name="answer'+i+'" placeholder="answer '+i+'"></div>');	   
-      });   
- });  
-      $(function(){
-          $('select.styled').customSelect();
-      });
+   $(document).ready(function(){
+    $('select[name=qp_type]').change(function(){
+        if($(this).val() == 'Question 1') {
+            $('#q1Type').show();
+            $('#question1').prop('disabled',false);
+        }
+        else {
+            $('#q1Type').hide();
+            $('#question1').prop('disabled',true);
+        }
+		
+		if($(this).val() == 'Question 2') {
+            $('#q2Type').show();
+            $('#question2').prop('disabled',false);
+        }
+        else {
+            $('#q2Type').hide();
+            $('#question2').prop('disabled',true);
+        }
+		
+		if($(this).val() == 'Question 3') {
+            $('#q3Type').show();
+            $('#question3').prop('disabled',false);
+        }
+        else {
+            $('#q3Type').hide();
+            $('#question3').prop('disabled',true);
+        }
+		
+		if($(this).val() == 'Question 4') {
+            $('#q4Type').show();
+            $('#question4').prop('disabled',false);
+        }
+        else {
+            $('#q4Type').hide();
+            $('#question4').prop('disabled',true);
+        }
+    });
+});
 
   </script>
 
