@@ -34,6 +34,8 @@
 					$_SESSION['name'] = $username;
 					$_SESSION['password'] = $password;
 
+					$_SESSION['pid'] = $row['patientid'];
+
 					header( "Location: homepage.php");
 					echo '<script type="text/javascript">alert("Database Worked")</script>';
 
