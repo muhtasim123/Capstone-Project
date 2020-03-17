@@ -138,19 +138,19 @@ if(isset($_POST['submit']))
 
 			<div class="form-group" id="q1Type">
 			<div class="col-sm-10">
-				<input id="question1" type="text" class="form-control" name="qp_type">
+				<input id="question1" type="text" class="form-control" name="question1">
 				</div>
 			</div>
 
 			<div class="form-group" id="q2Type" style="display:none;">
 			<div class="col-sm-10">
-				<input id="question2" type="text" class="form-control" name="qp_type">
+				<input id="question2" type="text" class="form-control" name="question2">
 			</div>
 			</div>
 
 			<div class="form-group" id="q3Type" style="display:none;">
 			<div class="col-sm-10">
-				<input id="question3" type="text" class="form-control" name="qp_type">
+				<input id="question3" type="text" class="form-control" name="question3">
 			</div>
 			</div>
 
