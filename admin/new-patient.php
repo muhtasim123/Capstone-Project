@@ -130,8 +130,8 @@ if(isset($_POST['submit']))
                                <div class="form-group"  id="dynamic_field">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 1 </label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="question" value="question1" >
-								  <input type="text" class="form-control" name="answer" value="answer1" >
+                                  <input type="text" class="form-control" name="question1">
+								  <input type="text" class="form-control" name="answer1">
                               </div>
                           </div>
                           <div style="margin-left:100px;">
