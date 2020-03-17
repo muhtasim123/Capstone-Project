@@ -105,7 +105,7 @@ if(isset($_POST['submit']))
         <div class="row">
           <div class="col-md-12">
               <div class="content-panel">
-        <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"><br><br>
+        <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST" style="padding-left:1%; margin-top:-3.5% padding-bottom: 1%"><br><br>
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
 // FIXME: add more validation, e.g. using ext/fileinfo
