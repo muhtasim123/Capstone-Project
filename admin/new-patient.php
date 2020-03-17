@@ -13,7 +13,7 @@ if(isset($_POST['submit']))
 	$question2=$_POST['question2'];
 	$question3=$_POST['question3'];
 	$question4=$_POST['question4'];
-	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', datejoined=CURRENT_TIMESTAMP");
+	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', datejoined=CURRENT_TIMESTAMP");
 
 	if($query)
 		{
