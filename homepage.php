@@ -7,6 +7,18 @@
 $s3 = Aws\S3\S3Client::factory();
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 	//phpinfo();
+
+if(isset($_POST['submit'])){
+	$album=$_POST['album'];
+	$link=$_POST['link'];
+	$uid=$_POST['mediaid'];
+	$query=mysqli_query($con,"INSERT INTO media (patientid, album, link)
+	VALUES ($uid, $album, $link)");
+
+	if($query){
+		echo "<script>alert('patient added');</script>";
+	}
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,11 +33,9 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 		<div class="imgcontainer">
 				<img src="logo100.png" alt="Avatar" class="avatar">
 			</div>
-<?php
-
-		$pid=$_SESSION['pid'];?>
 
 		<?php
+		$pid=$_SESSION['pid'];
 		$ret=mysqli_query($con,"select * from patient where id='$pid'");
 	  while($row=mysqli_fetch_array($ret))
 
@@ -86,25 +96,23 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 		</section>
         <?php } ?>
 				<section class="wrapper">
+
+									<center><form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"></center><br><br>
 				<?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
     // FIXME: add more validation, e.g. using ext/fileinfo
     try {
         // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
-				$album=$_POST['album'];
-				$uid=intval($_GET['uid']);
-				$link=htmlspecialchars($upload->get('ObjectURL'));
-				$query=mysqli_query($con,"INSERT INTO media (patientid, album, link)
-				VALUES ($uid, $album, $link)");
         $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
 ?>
-        <p>Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)</p>
+				<input type="hidden" name="link" value="<?=htmlspecialchars($upload->get('ObjectURL'))?>">
+				<input type="hidden" name="mediaid" value="<?php echo $row['mediaid'];?>">
+
 <?php } catch(Exception $e) { ?>
         <p>Upload error :(</p>
 <?php } } ?>
       <center><h2>Upload a file</h2></center>
 
-        <center><form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"></center><br><br>
 					<label for="album">Album Name:</label>
   				<input type="text" id="album" name="album"><br><br>
             <center><input name="userfile" type="file"><br><br>
