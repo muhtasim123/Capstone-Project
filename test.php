@@ -103,6 +103,8 @@ if(isset($_POST['submit']))
       <section id="main-content">
         <section class="wrapper">
         <div class="row">
+          <div class="col-md-12">
+              <div class="content-panel">
         <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST"><br><br>
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
@@ -124,6 +126,7 @@ $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userf
   <input name="userfile" type="file"><br><br>
     <input type="submit" value="Upload">
 </form>
+</div></div>
 </div>
 </section>
       </section></section>
