@@ -202,6 +202,10 @@ if(isset($_POST['submit']))
     });
 });
 
+$(function(){
+          $('select.styled').customSelect();
+      });
+
   </script>
 
   </body>
