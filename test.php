@@ -2,7 +2,11 @@
 session_start();
 include'dbconnection.php';
 //Checking session is valid or not
-
+require_once('dbconfig/config.php');
+require('vendor/autoload.php');
+// this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
+$s3 = Aws\S3\S3Client::factory();
+$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 
 // for updating user info
 if(isset($_POST['submit']))
@@ -130,6 +134,30 @@ $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userf
 </div>
 </section>
       </section></section>
+      <?php
+      require('vendor/autoload.php');
+      // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
+      $s3 = Aws\S3\S3Client::factory();
+      $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+      ?>
+      <html>
+          <head><meta charset="UTF-8"></head>
+          <body>
+             <center><h1>Your Stored Files</h1></center>
+      <?php
+        try {
+          $objects = $s3->getIterator('ListObjects', array(
+            "Bucket" => $bucket
+          ));
+          foreach ($objects as $object) {
+      ?>
+          <center><p><a href="<?=htmlspecialchars($s3->getObjectUrl($bucket, $object['Key']))?>"> <?echo $object['Key'] . "<br>";?></a></p></center>
+
+      <?		}?>
+
+      <?php } catch(Exception $e) { ?>
+              <p>error :(</p>
+      <?php }  ?>
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
