@@ -18,7 +18,7 @@ if(isset($_POST['submit']))
 	$answer3=$_POST['answer3'];
 	$answer4=$_POST['answer4'];
 	$answer5=$_POST['answer5'];
-	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', question5='$question5', answer1='$answer1', answer2='$answer2', answer3='$answer3',answer4='$answer4',answer5='$answer5', datejoined=CURRENT_TIMESTAMP");
+	$query=mysqli_query($con,"INSERT INTO patient (fname, lname, question1, question2, question3, question4, question5, answer1, answer2, answer3, answer4, answer5, datejoined) VALUES ($fname, $lname, $question1, $question2, $question3, $question4, $answer1, $answer2, $answer3, $answer4, $answer5, CURRENT_TIMESTAMP)") ;
 
 	if($query)
 		{
