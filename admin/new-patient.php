@@ -19,6 +19,7 @@ if(isset($_POST['submit']))
 		{
 		echo "<script>alert('Patient Added');</script>";
 		}
+		else echo "<script>alert('No Patient Added');</script>";
 }
 ?>
 
