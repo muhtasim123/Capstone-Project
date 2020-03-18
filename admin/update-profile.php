@@ -152,35 +152,35 @@ if(isset($_POST['submit']))
     </div>
 
 			<div class="form-group" id="q1Type">
-			<div class="col-sm-10" style="padding-left:250px;margin-top:-35px">
+			<div class="col-sm-10" style=" padding: 20px 250px 10px;">
 				<input id="question1" type="text" class="form-control" name="question1" value="<?php echo $row['question1'];?>">
 				<input id="answer1" type="text" class="form-control" name="answer1" value="<?php echo $row['answer1'];?>">
 				</div>
 			</div>
 
 			<div class="form-group" id="q2Type" style="display:none;">
-			<div class="col-sm-10" style="padding-left:250px;margin-top:-35px">
+			<div class="col-sm-10" style=" padding: 20px 250px 10px;">
 				<input id="question2" type="text" class="form-control" name="question2" value="<?php echo $row['question2'];?>">
 				<input id="answer2" type="text" class="form-control" name="answer2" value="<?php echo $row['answer2'];?>">
 			</div>
 			</div>
 
 			<div class="form-group" id="q3Type" style="display:none;">
-			<div class="col-sm-10" style="padding-left:250px;margin-top:-35px">
+			<div class="col-sm-10" style=" padding: 20px 250px 10px;">
 				<input id="question3" type="text" class="form-control" name="question3" value="<?php echo $row['question3'];?>">
 				<input id="answer3" type="text" class="form-control" name="answer3" value="<?php echo $row['answer3'];?>">
 			</div>
 			</div>
 			
 			<div class="form-group" id="q4Type" style="display:none;">
-			<div class="col-sm-10" style="padding-left:250px;margin-top:-35px">
+			<div class="col-sm-10" style=" padding: 20px 250px 10px;">
 				<input id="question4" type="text" class="form-control" name="question4" value="<?php echo $row['question4'];?>">
 				<input id="answer4" type="text" class="form-control" name="answer4" value="<?php echo $row['answer4'];?>">
 			</div>
 			</div>
 			
 			<div class="form-group" id="q5Type" style="display:none;">
-			<div class="col-sm-10" style="padding-left:250px;margin-top:-35px">
+			<div class="col-sm-10" style=" padding: 20px 250px 10px;">
 				<input id="question5" type="text" class="form-control" name="question5" value="<?php echo $row['question5'];?>">
 				<input id="answer5" type="text" class="form-control" name="answer5" value="<?php echo $row['answer5'];?>">
 			</div>
