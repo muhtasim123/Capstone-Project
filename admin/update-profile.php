@@ -12,9 +12,11 @@ if(isset($_POST['submit']))
 	$question1=$_POST['question1'];
 	$question2=$_POST['question2'];
 	$question3=$_POST['question3'];
+	$question4=$_POST['question4'];
+	$question5=$_POST['question5'];
 	//$id=$_SESSION['id'];
   	$uid=intval($_GET['uid']);
-	$query=mysqli_query($con,"UPDATE patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3' where id='$uid'");
+	$query=mysqli_query($con,"UPDATE patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', question5='$question5' where id='$uid'");
 
 	if($query)
 		{
@@ -133,14 +135,48 @@ if(isset($_POST['submit']))
                           </div>
 
                                
-                <div class="form-group" id="dynamic_field">  
-                     
-                         <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question 1</label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="lname" value="<?php echo $row['question1'];?>" >
-								  <input type="text" class="form-control" name="lname" value="<?php echo $row['answer1'];?>" >
-                              </div>	  
-                </div>
+                <div class="form-group">
+                              <div class="col-sm-2 col-sm-2 control-label">
+    <select class="form-control" name="qp_type" id="p_type" required>
+        <option  value="Question 1">Question 1</option>
+        <option  value="Question 2">Question 2</option>
+		<option  value="Question 3">Question 3</option>
+		<option  value="Question 4">Question 4</option>
+		<option  value="Question 5">Question 5</option>
+    </select>
+    </div>
+
+			<div class="form-group" id="q1Type">
+			<div class="col-sm-10">
+				<input id="question1" type="text" class="form-control" name="question1" value="<?php echo $row['question1'];?>">
+				</div>
+			</div>
+
+			<div class="form-group" id="q2Type" style="display:none;">
+			<div class="col-sm-10">
+				<input id="question2" type="text" class="form-control" name="question2" value="<?php echo $row['question2'];?>">
+			</div>
+			</div>
+
+			<div class="form-group" id="q3Type" style="display:none;">
+			<div class="col-sm-10">
+				<input id="question3" type="text" class="form-control" name="question3" value="<?php echo $row['question3'];?>">
+			</div>
+			</div>
+			
+			<div class="form-group" id="q4Type" style="display:none;">
+			<div class="col-sm-10">
+				<input id="question4" type="text" class="form-control" name="question4" value="<?php echo $row['question4'];?>">
+			</div>
+			</div>
+			
+			<div class="form-group" id="q5Type" style="display:none;">
+			<div class="col-sm-10">
+				<input id="question5" type="text" class="form-control" name="question5" value="<?php echo $row['question5'];?>">
+			</div>
+			</div>
+
+                          </div>
                             <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Registration Date </label>
                               <div class="col-sm-10">
@@ -166,12 +202,55 @@ if(isset($_POST['submit']))
     <script src="assets/js/common-scripts.js"></script>
   <script>
   $(document).ready(function(){  
-      var i=1;  
-      $('#add').click(function(){  
-           i++;  
-           $('#dynamic_field').append('<label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question '+i+'</label><div class="col-sm-10"><input type="text" class="form-control" name="lname" placeholder="question'+i+'" ><input type="text" class="form-control" name="lname" placeholder="answer '+i+'"></div>');  	
-	  });    
- });  
+     $(document).ready(function(){
+    $('select[name=qp_type]').change(function(){
+        if($(this).val() == 'Question 1') {
+            $('#q1Type').show();
+
+        }
+        else {
+            $('#q1Type').hide();
+
+        }
+
+		if($(this).val() == 'Question 2') {
+            $('#q2Type').show();
+
+        }
+        else {
+            $('#q2Type').hide();
+
+        }
+
+		if($(this).val() == 'Question 3') {
+            $('#q3Type').show();
+
+        }
+        else {
+            $('#q3Type').hide();
+
+        }
+		
+		if($(this).val() == 'Question 4') {
+            $('#q4Type').show();
+            
+        }
+        else {
+            $('#q4Type').hide();
+            
+        }
+		
+		if($(this).val() == 'Question 5') {
+            $('#q5Type').show();
+            
+        }
+        else {
+            $('#q5Type').hide();
+            
+        }
+
+    });
+});
       $(function(){
           $('select.styled').customSelect();
       });
