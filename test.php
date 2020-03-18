@@ -68,33 +68,19 @@ if(isset($_POST['submit']))
               	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" class="img-circle" width="100"></a></p>
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
 
-                  <li class="mt">
-                      <a href="change-password.php">
-                          <i class="fa fa-file"></i>
-                          <span>Change Password</span>
-                      </a>
-                  </li>
-
-                  <li class="sub-menu">
-                      <a href="manage-patients.php" >
-                          <i class="fa fa-users"></i>
-                          <span>Manage Patients</span>
-                      </a>
-
-                  </li>
 
 				   <li class="sub-menu">
                       <a href="new-staff.php" >
                           <i class="fa fa-users"></i>
-                          <span>Add Staff</span>
+                          <span>Questions</span>
                       </a>
 
                   </li>
 
 				  <li class="sub-menu">
-                      <a href="new-caregiver.php" >
+                      <a href="test.php" >
                           <i class="fa fa-users"></i>
-                          <span>Add Caregiver</span>
+                          <span>Upload</span>
                       </a>
 
                   </li>
