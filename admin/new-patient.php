@@ -13,13 +13,13 @@ if(isset($_POST['submit']))
 	$question3=$_POST['question3'];
 	$question4=$_POST['question4'];
 	$question5=$_POST['question5'];
-	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', question5='$question5'");
+
+	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', question5='$question5', datejoined=CURRENT_TIMESTAMP");
 
 	if($query)
 		{
 		echo "<script>alert('Patient Added');</script>";
 		}
-		else echo "<script>alert('No Patient Added');</script>";
 }
 ?>
 
