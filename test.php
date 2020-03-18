@@ -11,17 +11,7 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 // for updating user info
 if(isset($_POST['submit']))
 {
-	$fname=$_POST['fname'];
-	$lname=$_POST['lname'];
-	$question1=$_POST['question1'];
-	$question2=$_POST['question2'];
-	$question3=$_POST['question3'];
-	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', datejoined=CURRENT_TIMESTAMP");
 
-	if($query)
-		{
-		echo "<script>alert('Patient Added');</script>";
-		}
 }
 ?>
 
@@ -141,50 +131,7 @@ $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userf
       <?php } catch(Exception $e) { ?>
               <p>error :(</p>
       <?php }  ?>
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="assets/js/common-scripts.js"></script>
-  <script>
-   $(document).ready(function(){
-    $('select[name=qp_type]').change(function(){
-        if($(this).val() == 'Question 1') {
-            $('#q1Type').show();
-            $('#question1').prop('disabled',false);
-        }
-        else {
-            $('#q1Type').hide();
-            $('#question1').prop('disabled',true);
-        }
 
-		if($(this).val() == 'Question 2') {
-            $('#q2Type').show();
-            $('#question2').prop('disabled',false);
-        }
-        else {
-            $('#q2Type').hide();
-            $('#question2').prop('disabled',true);
-        }
-
-		if($(this).val() == 'Question 3') {
-            $('#q3Type').show();
-            $('#question3').prop('disabled',false);
-        }
-        else {
-            $('#q3Type').hide();
-            $('#question3').prop('disabled',true);
-        }
-
-    });
-});
-
-$(function(){
-          $('select.styled').customSelect();
-      });
-
-  </script>
 
   </body>
 </html>
