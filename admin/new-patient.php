@@ -121,21 +121,12 @@ if(isset($_POST['submit']))
                               </div>
                           </div>
 
-                               <div class="form-group">
-                              <div class="col-sm-2 col-sm-2 control-label">
-    <select class="form-control" name="qp_type" id="p_type" required>
-        <option  value="Question 1">Question 1</option>
-        <option  value="Question 2">Question 2</option>
-		<option  value="Question 3">Question 3</option>
-		<option  value="Question 4">Question 4</option>
-		<option  value="Question 5">Question 5</option>
-    </select>
-    </div>
-
-			<div class="form-group" id="q1Type">
-			<div class="col-sm-10">
-				<input id="question1" type="text" class="form-control" name="question1">
-              </div>
+                              </div>
+                          <div style="margin-left:50px;">
+                          <input type="submit" name="submit" value="Add" class="btn btn-theme"></div>
+                          </form>
+                      </div>
+                  </div>
 		</section>
       </section></section>
     <script src="assets/js/jquery.js"></script>
