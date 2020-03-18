@@ -3,7 +3,6 @@ session_start();
 include'dbconnection.php';
 //Checking session is valid or not
 
-
 // for updating user info
 if(isset($_POST['submit']))
 {
@@ -14,12 +13,11 @@ if(isset($_POST['submit']))
 	$question3=$_POST['question3'];
 	$question4=$_POST['question4'];
 	$question5=$_POST['question5'];
-	//$id=$_SESSION['id'];
-	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', question5='$question5'");
+	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', question5='$question5', datejoined=CURRENT_TIMESTAMP");
 
 	if($query)
 		{
-		echo "<script>alert('Data updated');</script>";
+		echo "<script>alert('Patient Added');</script>";
 		}
 }
 ?>
@@ -148,29 +146,33 @@ if(isset($_POST['submit']))
 			<div class="form-group" id="q2Type" style="display:none;">
 			<div class="col-sm-10">
 				<input id="question2" type="text" class="form-control" name="question2">
+				
 			</div>
 			</div>
 
 			<div class="form-group" id="q3Type" style="display:none;">
 			<div class="col-sm-10">
 				<input id="question3" type="text" class="form-control" name="question3">
+				
 			</div>
 			</div>
 			
 			<div class="form-group" id="q4Type" style="display:none;">
 			<div class="col-sm-10">
 				<input id="question4" type="text" class="form-control" name="question4">
+				
 			</div>
 			</div>
 			
 			<div class="form-group" id="q5Type" style="display:none;">
 			<div class="col-sm-10">
 				<input id="question5" type="text" class="form-control" name="question5">
+				
 			</div>
 			</div>
 
                           </div>
-                          <div style="margin-left:100px;">
+                          <div style="margin-left:50px;">
                           <input type="submit" name="submit" value="Add" class="btn btn-theme"></div>
                           </form>
                       </div>

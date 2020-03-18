@@ -130,7 +130,9 @@ include'dbconnection.php';
                                   <td><?php echo $row['datejoined'];?></td>
                                   <td>
 
-                                     <a href="update-profile.php?uid=<?php echo $row['id'];?>">
+                                     <a href="update-files.php?uid=<?php echo $row['id'];?>">
+                                     <button class="btn btn-primary btn-xs"><i class="fa fa-upload"></i></button></a>
+									 <a href="update-profile.php?uid=<?php echo $row['id'];?>">
                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
                                      <a href="manage-patients.php?id=<?php echo $row['id'];?>">
                                      <button class="btn btn-danger btn-xs" onClick="return confirm('Do you really want to delete');"><i class="fa fa-trash-o "></i></button></a>
