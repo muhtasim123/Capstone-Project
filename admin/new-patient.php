@@ -121,7 +121,6 @@ if(isset($_POST['submit']))
                               </div>
                           </div>
 
-                              </div>
                           <div style="margin-left:50px;">
                           <input type="submit" name="submit" value="Add" class="btn btn-theme"></div>
                           </form>
@@ -129,68 +128,6 @@ if(isset($_POST['submit']))
                   </div>
 		</section>
       </section></section>
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="assets/js/common-scripts.js"></script>
-  <script>
-   $(document).ready(function(){
-    $('select[name=qp_type]').change(function(){
-        if($(this).val() == 'Question 1') {
-            $('#q1Type').show();
-
-        }
-        else {
-            $('#q1Type').hide();
-
-        }
-
-		if($(this).val() == 'Question 2') {
-            $('#q2Type').show();
-
-        }
-        else {
-            $('#q2Type').hide();
-
-        }
-
-		if($(this).val() == 'Question 3') {
-            $('#q3Type').show();
-
-        }
-        else {
-            $('#q3Type').hide();
-
-        }
-		
-		if($(this).val() == 'Question 4') {
-            $('#q4Type').show();
-            
-        }
-        else {
-            $('#q4Type').hide();
-            
-        }
-		
-		if($(this).val() == 'Question 5') {
-            $('#q5Type').show();
-            
-        }
-        else {
-            $('#q5Type').hide();
-            
-        }
-
-    });
-});
-
-$(function(){
-          $('select.styled').customSelect();
-      });
-
-  </script>
 
   </body>
 </html>
