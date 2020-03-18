@@ -85,7 +85,6 @@ if(isset($_POST['submit']))
 
                   </li>
 
-
               </ul>
           </div>
       </aside>
@@ -103,8 +102,6 @@ try {
 // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
 $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
 ?>
-<input type="hidden" name="link" value="<?=htmlspecialchars($upload->get('ObjectURL'))?>">
-<input type="hidden" name="mediaid" value="<?php echo $row['mediaid'];?>">
 
 <?php } catch(Exception $e) { ?>
 <p>Upload error :(</p>
