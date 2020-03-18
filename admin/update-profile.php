@@ -200,8 +200,7 @@ if(isset($_POST['submit']))
     <script src="assets/js/jquery.scrollTo.min.js"></script>
     <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="assets/js/common-scripts.js"></script>
-  <script>
-  $(document).ready(function(){  
+  <script>  
      $(document).ready(function(){
     $('select[name=qp_type]').change(function(){
         if($(this).val() == 'Question 1') {
