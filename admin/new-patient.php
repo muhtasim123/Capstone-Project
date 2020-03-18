@@ -3,6 +3,7 @@ session_start();
 include'dbconnection.php';
 //Checking session is valid or not
 
+
 // for updating user info
 if(isset($_POST['submit']))
 {
@@ -13,12 +14,12 @@ if(isset($_POST['submit']))
 	$question3=$_POST['question3'];
 	$question4=$_POST['question4'];
 	$question5=$_POST['question5'];
-
-	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', question5='$question5', datejoined=CURRENT_TIMESTAMP");
+	//$id=$_SESSION['id'];
+	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', question5='$question5'");
 
 	if($query)
 		{
-		echo "<script>alert('Patient Added');</script>";
+		echo "<script>alert('Data updated');</script>";
 		}
 }
 ?>

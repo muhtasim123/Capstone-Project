@@ -153,8 +153,8 @@ if(isset($_POST['submit']))
 
 			<div class="form-group" id="q1Type">
 			<div class="col-sm-10">
-				<label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Question:</label><input id="question1" type="text" class="form-control" name="question1" value="<?php echo $row['question1'];?>">
-				<label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Answer:</label><input id="answer1" type="text" class="form-control" name="answer1" value="<?php echo $row['answer1'];?>">
+				<input id="question1" type="text" class="form-control" name="question1" value="<?php echo $row['question1'];?>">
+				<input id="answer1" type="text" class="form-control" name="answer1" value="<?php echo $row['answer1'];?>">
 				</div>
 			</div>
 
@@ -193,7 +193,7 @@ if(isset($_POST['submit']))
                                   <input type="text" class="form-control" name="regdate" value="<?php echo $row['datejoined'];?>" readonly >
                               </div>
                           </div>
-                          <div style="margin-left:100px;">
+                          <div style="margin-left:50px;">
                           <input type="submit" name="submit" value="Update" class="btn btn-theme">
 						 </div>
                           </form>
