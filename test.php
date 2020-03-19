@@ -101,7 +101,7 @@ try {
 // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
 $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
 $tmplink = $_FILES['userfile']['name'];
-$link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink
+$link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 	$album=$_POST['album'];
 	$filelink=$_POST['link'];
 	$patientid=$_POST['patientid'];
