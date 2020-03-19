@@ -111,8 +111,8 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink
 <?php
 	$pid=$_SESSION['pid'];
 	$ret=mysqli_query($con,"select * from patient where id='$pid'");	
-	$row=mysqli_fetch_array($ret)
-	//$tmpid=$row['id'];
+	$row=mysqli_fetch_array($ret);
+	$tmpid=$row['id'];
 ?>
 <h3><i class="fa fa-angle-right"></i>Upload Media for <?php echo $row['fname']?></h3>
 <p><?php echo $link ?><p>
@@ -122,7 +122,9 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink
 <label for="tags">Tags:</label>
 <input type="text" id="tags" name="tags"><br><br>	
 <label for="type">Tags:</label>
-<?php echo $tmpid?>">
+<input type="text" id="type" name="type"><br><br>
+<input type="hidden" id="link" name="link" value="<?php echo $link ?>">
+<input type="hidden" id="patientid" name="patientid" value="<?php echo $tmpid?>">
   <input name="userfile" type="file"><br><br>
     <input type="submit" name="upload" value="Upload">
 </form>
