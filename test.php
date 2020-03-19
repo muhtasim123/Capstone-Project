@@ -9,9 +9,14 @@ $s3 = Aws\S3\S3Client::factory();
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 
 // for updating user info
-if(isset($_POST['submit']))
+if(isset($_POST['upload']))
 {
-
+	$album=$_POST['album'];
+	$query=mysqli_query($con,"INSERT media SET link='$link', patientid='$pid', album='$album'");	
+	if($query)
+		{
+		echo "<script>alert('Media Added');</script>";
+		}
 }
 ?>
 
@@ -110,7 +115,7 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink
 <label for="album">Album Name:</label>
 <input type="text" id="album" name="album"><br><br>
   <input name="userfile" type="file"><br><br>
-    <input type="submit" value="Upload">
+    <input type="submit" name="upload" value="Upload">
 </form>
 </div></div>
 </div>
