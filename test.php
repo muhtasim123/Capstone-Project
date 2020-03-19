@@ -10,7 +10,7 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 
 // for updating user info
 if(isset($_POST['upload']))
-{
+{/*
 	$album=$_POST['album'];
 	$filelink=$_POST['link'];
 	$patientid=$_POST['patientid'];
@@ -21,7 +21,7 @@ if(isset($_POST['upload']))
 		{
 		echo "<script>alert('Media Added');</script>";
 		}
-}
+*/}
 ?>
 
 <!DOCTYPE html>
