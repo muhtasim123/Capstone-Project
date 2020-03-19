@@ -13,7 +13,7 @@ if(isset($_POST['upload']))
 {
 	$album=$_POST['album'];
 	$filelink=$_POST['link'];
-	$patientid=$_SESSION['patientid'];
+	$patientid=$_POST['patientid'];
 	$tags=$_POST['tags'];
 	$query=mysqli_query($con,"INSERT media SET link='$filelink', patientid='$patientid', album='$album', tags='$tags'");	
 	if($query)
@@ -120,6 +120,7 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink
 <label for="tags">Tags:</label>
 <input type="text" id="tags" name="tags"><br><br>
 <input type="hidden" id="link" name="link" value="<?php echo $link ?>">
+<input type="hidden" id="patientid" name="patientid" value="<?php echo $row['id'] ?>">
   <input name="userfile" type="file"><br><br>
     <input type="submit" name="upload" value="Upload">
 </form>
