@@ -91,7 +91,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
 try {
 // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
 $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
-$link = $_FILES['userfile']['name'];
+$tmplink = $_FILES['userfile']['name'];
+$link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink
 ?>
 
 <?php } catch(Exception $e) { ?>
@@ -104,7 +105,7 @@ $link = $_FILES['userfile']['name'];
 	$row=mysqli_fetch_array($ret)
 ?>
 <h3><i class="fa fa-angle-right"></i>Upload Media for <?php echo $row['fname']?></h3>
-<p>https://ontario-shores.s3.amazonaws.com/<?php echo $link ?><p>
+<p><?php echo $link ?><p>
 
 <label for="album">Album Name:</label>
 <input type="text" id="album" name="album"><br><br>
