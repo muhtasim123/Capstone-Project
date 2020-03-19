@@ -1,7 +1,21 @@
 <?php
 	session_start();
-	include'dbconnection.php';
-	//phpinfo();
+include'dbconnection.php';
+//Checking session is valid or not
+
+// for updating user info
+if(isset($_POST['register']))
+{
+	@$username=$_POST['username'];
+	@$email=$_POST['email'];
+	@$password=$_POST['password'];
+	
+	$query=mysqli_query($con,"INSERT staff set name='$username',password='$password', email=$email, datejoined=CURRENT_TIMESTAMP");
+
+	if($query)
+		{
+		echo "<script>alert('Staff Added');</script>";
+		}
 ?>
 <!DOCTYPE html>
 <html>
@@ -134,61 +148,8 @@
               </div>
 		</section>
       </section></section>
-		
 	
-
-		<?php
-			if(isset($_POST['register']))
-			{
-				@$username=$_POST['username'];
-				@$email=$_POST['email'];
-				@$password=$_POST['password'];
-				@$cpassword=$_POST['cpassword'];
-
-				if($password==$cpassword)
-				{
-					$query = "select * from staff where name='$username'";
-					//echo $query;
-				$query_run = mysqli_query($con,$query);
-				//echo mysql_num_rows($query_run);
-				if($query_run)
-					{
-						if(mysqli_num_rows($query_run)>0)
-						{
-							echo '<script type="text/javascript">alert("This Username Already exists.. Please try another username!")</script>';
-						}
-						else
-						{
-							$query = "INSERT staff set name='$username',password='$password', email=$email, datejoined=CURRENT_TIMESTAMP";
-							$query_run = mysqli_query($con,$query);
-							if($query_run)
-							{
-								echo '<script type="text/javascript">alert("User Registered.. Welcome")</script>';
-								$_SESSION['username'] = $username;
-								$_SESSION['password'] = $password;
-								header( "Location: manage-patients.php");
-							}
-							else
-							{
-								echo '<p class="bg-danger msg-block">Registration Unsuccessful due to server error. Please try later</p>';
-							}
-						}
-					}
-					else
-					{
-						echo '<script type="text/javascript">alert("DB error")</script>';
-					}
-				}
-				else
-				{
-					echo '<script type="text/javascript">alert("Password and Confirm Password do not match")</script>';
-				}
-
-			}
-			else
-			{
-			}
-		?>
+			
 	</div>
 </body>
 </html>
