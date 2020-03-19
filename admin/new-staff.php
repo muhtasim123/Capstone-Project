@@ -140,7 +140,8 @@
 		<?php
 			if(isset($_POST['register']))
 			{
-				@$username=$_POST['name'];
+				@$username=$_POST['username'];
+				@$email=$_POST['email'];
 				@$password=$_POST['password'];
 				@$cpassword=$_POST['cpassword'];
 
@@ -163,7 +164,9 @@
 							if($query_run)
 							{
 								echo '<script type="text/javascript">alert("User Registered.. Welcome")</script>';
-							
+								$_SESSION['username'] = $username;
+								$_SESSION['password'] = $password;
+								header( "Location: manage-patients.php");
 							}
 							else
 							{
@@ -181,6 +184,9 @@
 					echo '<script type="text/javascript">alert("Password and Confirm Password do not match")</script>';
 				}
 
+			}
+			else
+			{
 			}
 		?>
 	</div>
