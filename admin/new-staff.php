@@ -163,8 +163,6 @@
 							if($query_run)
 							{
 								echo '<script type="text/javascript">alert("User Registered.. Welcome")</script>';
-								$_SESSION['name'] = $username;
-								$_SESSION['password'] = $password;
 							}
 							else
 							{
