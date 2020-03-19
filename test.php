@@ -24,7 +24,7 @@ if(isset($_POST['submit']))
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Admin | Create Profile</title>
+    <title>Caregiver | Upload Media</title>
     <link href="admin/assets/css/bootstrap.css" rel="stylesheet">
     <link href="admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="admin/assets/css/style.css" rel="stylesheet">
@@ -38,7 +38,7 @@ if(isset($_POST['submit']))
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
-            <a href="#" class="logo"><b>Staff Dashboard</b></a>
+            <a href="#" class="logo"><b>Caregiver Dashboard</b></a>
             <div class="nav notify-row" id="top_menu">
 
 
@@ -70,7 +70,7 @@ if(isset($_POST['submit']))
 				  <li class="sub-menu">
                       <a href="test.php" >
                           <i class="fa fa-users"></i>
-                          <span>Upload</span>
+                          <span>Upload Media</span>
                       </a>
 
                   </li>
