@@ -96,7 +96,13 @@ $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userf
 <?php } catch(Exception $e) { ?>
 <p>Upload error :(</p>
 <?php } } ?>
-<h3><i class="fa fa-angle-right"></i>Upload</h3>
+		
+<?php
+	$pid=$_SESSION['pid'];
+	$ret=mysqli_query($con,"select * from patient where id='$pid'");	
+	$row=mysqli_fetch_array($ret)
+?>
+<h3><i class="fa fa-angle-right"></i>Upload Media for <?php echo $row['fname']?></h3>
 
 <label for="album">Album Name:</label>
 <input type="text" id="album" name="album"><br><br>
