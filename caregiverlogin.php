@@ -36,7 +36,7 @@
 
 					$_SESSION['pid'] = $row['patientid'];
 
-					header( "Location: questions.php");
+					header( "Location: test.php");
 					echo '<script type="text/javascript">alert("Database Worked")</script>';
 
 					}
