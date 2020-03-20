@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 
-		
+
 <head>
 <html lang="en">
     <meta charset="utf-8">
@@ -63,7 +63,7 @@
                       </a>
 
                   </li>
-				  
+
 				   <li class="sub-menu">
                       <a href="new-staff.php" >
                           <i class="fa fa-users"></i>
@@ -71,7 +71,7 @@
                       </a>
 
                   </li>
-				  
+
 				  <li class="sub-menu">
                       <a href="new-caregiver.php" >
                           <i class="fa fa-users"></i>
@@ -118,14 +118,14 @@
                                   <input type="text" placeholder="Enter Password" class="form-control" name="password" required>
                               </div>
                           </div>
-						  
+
 						  <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Confirm Password</label>
                               <div class="col-sm-10">
                                   <input type="text" placeholder="Enter Password" class="form-control" name="cpassword" required >
                               </div>
                           </div>
-						  
+
                           <div style="margin-left:100px;">
 						  <button name="register" type="submit" class="btn btn-theme">Sign Up</button>
                           </form>
@@ -134,8 +134,8 @@
               </div>
 		</section>
       </section></section>
-		
-	
+
+
 
 		<?php
 			if(isset($_POST['register']))
@@ -158,7 +158,7 @@
 						}
 						else
 						{
-							$query = "INSERT staff set name='$username',password='$password', email=$email, datejoined=CURRENT_TIMESTAMP";
+							$query = "INSERT INTO caregiver set name='$username',password='$password', email=$email, datejoined=CURRENT_TIMESTAMP";
 							$query_run = mysqli_query($con,$query);
 							if($query_run)
 							{
