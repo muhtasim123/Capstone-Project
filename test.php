@@ -11,16 +11,7 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 // for updating user info
 if(isset($_POST['upload']))
 {
-	$album=$_POST['album'];
-	$filelink=$_POST['link'];
-	$patientid=$_POST['patientid'];
-	$tags=$_POST['tags'];
-	$type=$_POST['type'];
-	$query=mysqli_query($con,"INSERT new_media SET link='$filelink', type='$type', patientid='$patientid', album='$album', tags='$tags'");	
-	if($query)
-		{
-		echo "<script>alert('Media Added');</script>";
-		}
+	
 }
 ?>
 
@@ -101,7 +92,17 @@ try {
 // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
 $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
 $tmplink = $_FILES['userfile']['name'];
-$link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink
+$link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
+	$album=$_POST['album'];
+	$filelink=$_POST['link'];
+	$patientid=$_POST['patientid'];
+	$tags=$_POST['tags'];
+	$type=$_POST['type'];
+	$query=mysqli_query($con,"INSERT new_media SET link='$link', type='$type', patientid='$patientid', album='$album', tags='$tags'");	
+	if($query)
+		{
+		echo "<script>alert('Media Added');</script>";
+		}
 ?>
 
 <?php } catch(Exception $e) { ?>
@@ -111,17 +112,17 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink
 <?php
 	$pid=$_SESSION['pid'];
 	$ret=mysqli_query($con,"select * from patient where id='$pid'");	
-	$row=mysqli_fetch_array($ret)
+	$row=mysqli_fetch_array($ret);
 	$tmpid=$row['id'];
 ?>
-<h3><i class="fa fa-angle-right"></i>Upload Media for <?php echo $row['fname']?></h3>
+<h3><i class="fa fa-angle-right"></i>Upload Media for <?php echo $row['fname']?> <?php echo $row['lname']?></h3>
 <p><?php echo $link ?><p>
 
 <label for="album">Album Name:</label>
 <input type="text" id="album" name="album"><br><br>
 <label for="tags">Tags:</label>
 <input type="text" id="tags" name="tags"><br><br>	
-<label for="type">Tags:</label>
+<label for="type">Type:</label>
 <input type="text" id="type" name="type"><br><br>
 <input type="hidden" id="link" name="link" value="<?php echo $link ?>">
 <input type="hidden" id="patientid" name="patientid" value="<?php echo $tmpid?>">

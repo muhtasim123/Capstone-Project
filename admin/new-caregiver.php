@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 
-		
+
 <head>
 <html lang="en">
     <meta charset="utf-8">
@@ -63,7 +63,7 @@
                       </a>
 
                   </li>
-				  
+
 				   <li class="sub-menu">
                       <a href="new-staff.php" >
                           <i class="fa fa-users"></i>
@@ -71,7 +71,7 @@
                       </a>
 
                   </li>
-				  
+
 				  <li class="sub-menu">
                       <a href="new-caregiver.php" >
                           <i class="fa fa-users"></i>
@@ -90,8 +90,6 @@
           	<h3><i class="fa fa-angle-right"></i> Caregiver Sign Up Form</h3>
 
 				<div class="row">
-
-
 
                   <div class="col-md-12">
                       <div class="content-panel">
@@ -118,35 +116,33 @@
                                   <input type="text" placeholder="Enter Password" class="form-control" name="password" required>
                               </div>
                           </div>
-						  
+
 						  <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Confirm Password</label>
                               <div class="col-sm-10">
                                   <input type="text" placeholder="Enter Password" class="form-control" name="cpassword" required >
                               </div>
                           </div>
-						  
+
                           <div style="margin-left:100px;">
-						  <button name="register" type="submit" class="btn btn-theme">Sign Up</button>
+						  <button name="sumbit" type="submit" class="btn btn-theme">Sign Up</button>
                           </form>
                       </div>
                   </div>
               </div>
 		</section>
       </section></section>
-		
-	
 
 		<?php
-			if(isset($_POST['register']))
+			if(isset($_POST['submit']))
 			{
-				@$username=$_POST['username'];
-				@$password=$_POST['password'];
-				@$cpassword=$_POST['cpassword'];
+				$username=$_POST['username'];
+				$password=$_POST['password'];
+				$cpassword=$_POST['cpassword'];
 
 				if($password==$cpassword)
 				{
-					$query = "select * from staff where name='$username'";
+					$query = "select * from caregiver where name='$username'";
 					//echo $query;
 				$query_run = mysqli_query($con,$query);
 				//echo mysql_num_rows($query_run);
@@ -158,7 +154,7 @@
 						}
 						else
 						{
-							$query = "INSERT staff set name='$username',password='$password', email=$email, datejoined=CURRENT_TIMESTAMP";
+							$query = "INSERT INTO caregiver set name='$username', password='$password', email='$email'";
 							$query_run = mysqli_query($con,$query);
 							if($query_run)
 							{
