@@ -102,8 +102,6 @@ if(isset($_POST['submit']))
 
                   <li class="sub-menu">
                       <a href="questions.php" >
-                      <a href="test.php" >
-
                           <i class="fa fa-users"></i>
                           <span>Questions</span>
                       </a>
