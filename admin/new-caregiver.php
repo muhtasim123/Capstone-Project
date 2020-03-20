@@ -166,7 +166,7 @@
                                   <input type="text" placeholder="Enter Password" class="form-control" name="cpassword" required >
                               </div>
                           </div>
-				   <input type="text" name="patientid" value="<?php echo $patientid?>">
+				   <input type="hidden" name="patientid" value="<?php echo $patientid?>">
 
 
 									<div class="form-group">
