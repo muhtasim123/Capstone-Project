@@ -123,13 +123,13 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 <input type="text" id="album" name="album"><br><br>
 <label for="tags">Tags:</label>
 <input type="text" id="tags" name="tags"><br><br>	
+ <label for="tags">Type:</label>
  <input type="radio" id="picture" name="type" value="picture">
   <label for="male">Picture</label><br>
   <input type="radio" id="video" name="type" value="video">
   <label for="female">Video</label><br>
   <input type="radio" id="audio" name="type" value="audio">
   <label for="Audio">Audio</label>
-<input type="text" id="type" name="type"><br><br>
 <input type="hidden" id="link" name="link" value="<?php echo $link ?>">
 <input type="hidden" id="patientid" name="patientid" value="<?php echo $tmpid?>">
   <input name="userfile" type="file"><br><br>
