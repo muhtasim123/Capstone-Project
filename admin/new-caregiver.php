@@ -138,6 +138,7 @@
 			{
 				$username=$_POST['username'];
 				$password=$_POST['password'];
+				$email=$_POST['email'];
 				$cpassword=$_POST['cpassword'];
 
 				if($password==$cpassword)
