@@ -88,12 +88,12 @@
 
       $item = $row['album'];
 
-      $query = "SELECT url FROM profile_data WHERE profile_id='$profile' AND album='$item' LIMIT 1";
+      $query = "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1";
       $img = mysqli_query($connect, $query);
       $url = mysqli_fetch_assoc($img);
       $urlstr = $url['url'];
 
-      $opt .= "<div class='grid-item'><h5>$item</h5><a href='albumgallery.php?profileid=$profile&albumname=$item'><img id='$urlstr' src='data/$urlstr' style='width: 100%; height: 100%; padding: 3px;'></a></div>";
+      $opt .= "<div class='grid-item'><h5>$item</h5><a href='albumgallery.php?profileid=$profile&albumname=$item'><img id='$urlstr' src='$urlstr' style='width: 100%; height: 100%; padding: 3px;'></a></div>";
     }
   ?>
 
