@@ -82,7 +82,7 @@ if(isset($_POST['upload']))
         <section class="wrapper">
         <div class="row">
           <div class="col-md-12">
-              <div class="content-panel">
+              <div class="content-panel" style="margin-top: 1em;">
         <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST" style="padding-left:1%; margin-top:-3.5%; padding-bottom:1%"><br><br>
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
@@ -116,7 +116,6 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 	$tmpid=$row['id'];
 ?>
 <h3><i class="fa fa-angle-right"></i>Upload Media for <?php echo $row['fname']?> <?php echo $row['lname']?></h3>
-<p><?php echo $link ?><p>
 
 <label for="album">Album Name:</label>
 <input type="text" id="album" name="album"><br><br>
@@ -133,36 +132,13 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 <input type="hidden" id="patientid" name="patientid" value="<?php echo $tmpid?>">
   <input name="userfile" type="file"><br><br>
     <input type="submit" name="upload" value="Upload">
-</form>
+		      </form>
+
+<a href="albumspat.php?uid=<?php echo $row['id'];?>">
+<button class="btn btn-success btn-xs"><i class="fa fa-play"></i></button></a>
 </div></div>
 </div>
 </section>
       </section></section>
-      <?php
-      require('vendor/autoload.php');
-      // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
-      $s3 = Aws\S3\S3Client::factory();
-      $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-      ?>
-      <html>
-          <head><meta charset="UTF-8"></head>
-          <body>
-             <center><h1>Your Stored Files</h1></center>
-      <?php
-        try {
-          $objects = $s3->getIterator('ListObjects', array(
-            "Bucket" => $bucket
-          ));
-          foreach ($objects as $object) {
-      ?>
-          <center><p><a href="<?=htmlspecialchars($s3->getObjectUrl($bucket, $object['Key']))?>"> <?echo $object['Key'] . "<br>";?></a></p></center>
-
-      <?		}?>
-
-      <?php } catch(Exception $e) { ?>
-              <p>error :(</p>
-      <?php }  ?>
-
-
   </body>
 </html>
