@@ -129,7 +129,9 @@ include'dbconnection.php';
 
                                   <td><?php echo $row['datejoined'];?></td>
                                   <td>
-
+								  
+									<a href="">
+                                     <button class="btn btn-success btn-xs"><i class="fa fa-play"></i></button></a>
                                      <a href="update-files.php?uid=<?php echo $row['id'];?>">
                                      <button class="btn btn-primary btn-xs"><i class="fa fa-upload"></i></button></a>
 									 <a href="update-profile.php?uid=<?php echo $row['id'];?>">
