@@ -144,7 +144,7 @@
 	$password=$_POST['password'];
 	$email=$_POST['email'];
     $cpassword=$_POST['cpassword'];
-	$query=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email', datejoined = CURRENT_TIMESTAMP");
+	$query=mysqli_query($con,"INSERT staff set name='$username', password='$password', email='$email', datejoined = CURRENT_TIMESTAMP");
 
 	if($query)
 		{
