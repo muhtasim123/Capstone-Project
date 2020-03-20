@@ -24,7 +24,7 @@ if(isset($_POST['upload']))
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Admin | Upload Media</title>
+    <title>Staff | Upload Media</title>
     <link href="admin/assets/css/bootstrap.css" rel="stylesheet">
     <link href="admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="admin/assets/css/style.css" rel="stylesheet">
@@ -38,7 +38,7 @@ if(isset($_POST['upload']))
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
-            <a href="#" class="logo"><b>Admin Dashboard</b></a>
+            <a href="#" class="logo"><b>Staff Dashboard</b></a>
             <div class="nav notify-row" id="top_menu">
 
 
@@ -58,34 +58,10 @@ if(isset($_POST['upload']))
               	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" class="img-circle" width="100"></a></p>
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
 
-
-<li class="mt">
-                      <a href="admin/change-password.php">
-                          <i class="fa fa-file"></i>
-                          <span>Change Password</span>
-                      </a>
-                  </li>
-
                   <li class="sub-menu">
-                      <a href="admin/manage-patients.php" >
+                      <a href="staff/manage-patients.php" >
                           <i class="fa fa-users"></i>
                           <span>Manage Patients</span>
-                      </a>
-
-                  </li>
-				  
-				   <li class="sub-menu">
-                      <a href="admin/new-staff.php" >
-                          <i class="fa fa-users"></i>
-                          <span>Add Staff</span>
-                      </a>
-
-                  </li>
-				  
-				  <li class="sub-menu">
-                      <a href="admin/new-admin.php" >
-                          <i class="fa fa-users"></i>
-                          <span>Add Admin</span>
                       </a>
 
                   </li>
