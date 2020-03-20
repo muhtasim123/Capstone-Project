@@ -112,7 +112,7 @@ if(isset($_POST['submit']))
       </aside>
       <?php 
     	$pid=$_SESSION['pid'];
-	$query="select * from patient where id='$pid'";
+	$query="select * from patient where id='2';";
 	$query_run = mysqli_query($con,$query);	
 	  if($query_run)
 	  {?>
