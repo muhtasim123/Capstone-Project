@@ -12,6 +12,7 @@ include'dbconnection.php';
 		if($msg && $caregiverdelete && $mediadelete)
 		{
 		echo "<script>alert('Patient data, associated caregivers and media deleted');</script>";
+		header( "Location: manage-patients.php");
 		}
 	}
 
