@@ -10,7 +10,7 @@
 					$email=$_POST['email'];
 					$cpassword=$_POST['cpassword'];
 
-								$query_new=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email'");
+					$query_new=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email'");
 								if($query_new)
 								{
 									echo '<script>alert("User Registered.. Welcome");</script>';
