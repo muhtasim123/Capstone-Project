@@ -140,9 +140,10 @@
 		<?php
 			if(isset($_POST['register']))
 			{
-				@$username=$_POST['username'];
-				@$password=$_POST['password'];
-				@$cpassword=$_POST['cpassword'];
+				$username=$_POST['username'];
+				$email=$_POST['email'];
+				$password=$_POST['password'];
+				$cpassword=$_POST['cpassword'];
 
 				if($password==$cpassword)
 				{
@@ -183,9 +184,6 @@
 					echo '<script type="text/javascript">alert("Password and Confirm Password do not match")</script>';
 				}
 
-			}
-			else
-			{
 			}
 		?>
 	</div>
