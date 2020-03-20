@@ -12,7 +12,7 @@
   <style>
   .grid-container {
       display: grid;
-      grid-template-columns: auto auto auto auto auto;
+      grid-template-columns: 20% 20% 20% 20% 20%;
     }
   </style>
 </head>
@@ -21,7 +21,7 @@
   <!-- Navbar -->
   <div class="w3-top" >
     <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-        <a href="#home" class="w3-bar-item w3-button"><b>Capstone Project</b></a>
+        <a href="https://ontario-shores.herokuapp.com/admin/manage-patients.php" class="w3-bar-item w3-button"><b>Manage Patients</b></a>
         <!--Float to the right, hide in small screen -->
         <div class="w3-right w3-hide-small">
           <a href="#projects" class="w3-bar-item w3-button">Projects</a>
@@ -65,8 +65,8 @@
 
 <?php
   $connect = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
-  $profile = $_GET['profileid'];
-  $query = "SELECT name FROM patient WHERE id='$profile'";
+  $profile = $_GET['uid'];
+  $query = "SELECT fname FROM patient WHERE id='$profile'";
   $result = mysqli_query($connect, $query);
   $value = mysqli_fetch_assoc($result);
   $valuestr = $value['name'];
@@ -80,7 +80,7 @@
   <div class="grid-container">
   <?php
 
-  $sql = "SELECT DISTINCT album FROM profile_data WHERE profile_id='$profile' AND type='picture'";
+  $sql = "SELECT DISTINCT album FROM new_media WHERE patientid='$profile' AND type='picture'";
   $result2 = mysqli_query($connect, $sql);
   $opt = "";
 
@@ -88,12 +88,12 @@
 
       $item = $row['album'];
 
-      $query = "SELECT url FROM profile_data WHERE profile_id='$profile' AND album='$item' LIMIT 1";
+      $query = "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1";
       $img = mysqli_query($connect, $query);
       $url = mysqli_fetch_assoc($img);
-      $urlstr = $url['url'];
+      $urlstr = $url['link'];
 
-      $opt .= "<div class='grid-item'><h5>$item</h5><a href='albumgallery.php?profileid=$profile&albumname=$item'><img id='$urlstr' src='data/$urlstr' style='width: 100%; height: 100%; padding: 3px;'></a></div>";
+      $opt .= "<div class='grid-item'><h5>$item</h5><a href='albumgallery.php?profileid=$profile&albumname=$item'><img id='$urlstr' src='$urlstr' style='width: 100%; height: 100%; padding: 3px;'></a></div>";
     }
   ?>
 
