@@ -273,7 +273,7 @@ if(isset($_POST['submit']))
       </section></section>
     <script src="admin/assets/js/jquery.js"></script>
     <script src="admin/assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script class="include" type="text/javascript" src="admin/assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="admin/assets/js/jquery.scrollTo.min.js"></script>
     <script src="admin/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="admin/assets/js/common-scripts.js"></script>
