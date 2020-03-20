@@ -179,7 +179,7 @@
 								}
 								?>
 							</select>
-							<input id="patient_name" name="patient_name" type="hidden">
+							<input id="patient_name" name="patient_name" type="text" value="test">
 						</div>
 							</div>
 
@@ -207,7 +207,7 @@
      $(document).ready(function(){
     $('select[name=name]').change(function(){
 	var inputF = document.getElementById("patient_name");
-	inputF.value = $(this).val();
+	inputF.value = "this is testing";
 	</script>
 </body>
 </html>
