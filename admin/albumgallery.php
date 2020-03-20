@@ -30,7 +30,7 @@ function mergeStrings($carry, $item) {
 }
 
 // establish and check connection for the nth time
-$mysqli = new mysqli("db", "root", "toor", "sample", 3306);
+$mysqli = new mysqli("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
 if ($mysqli->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit(-1);
