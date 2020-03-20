@@ -12,7 +12,7 @@
   <style>
   .grid-container {
       display: grid;
-      grid-template-columns: auto auto auto auto auto;
+      grid-template-columns: 20% 20% 20% 20% 20%;
     }
   </style>
 </head>
