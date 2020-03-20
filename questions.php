@@ -4,7 +4,7 @@ include'dbconnection.php';
 //Checking session is valid or not
 require_once('dbconfig/config.php');
 require('vendor/autoload.php');
-
+$pid=$_SESSION['pid'];
 // for updating user info
 if(isset($_POST['update']))
 {
@@ -111,8 +111,8 @@ if(isset($_POST['update']))
                   </li>
 		      
 		   <li class="sub-menu">
-                      <a href="albumspat.php?uid=<?php echo $_SESSION['pid'];>?" >
-                          <i class="fa fa-users"></i>
+                      <a href="albumspat.php?uid=<?php echo $pid;>?" >
+                          <i class="fa fa-tv"></i>
                           <span>Play Media</span>
                       </a>
 
