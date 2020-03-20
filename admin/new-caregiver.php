@@ -15,20 +15,7 @@
 								{
 									echo '<script type="text/javascript">alert("User Registered.. Welcome")</script>';
 								}
-								else
-								{
-									echo '<p class="bg-danger msg-block">Registration Unsuccessful due to server error. Please try later</p>';
-								}
-							}
-						else
-						{
-							echo '<script type="text/javascript">alert("DB error")</script>';
-						}
-					else
-					{
-						echo '<script type="text/javascript">alert("Password and Confirm Password do not match")</script>';
-					}
-
+				}
 ?>
 <!DOCTYPE html>
 <html>
