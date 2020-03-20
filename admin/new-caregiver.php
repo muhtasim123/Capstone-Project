@@ -170,7 +170,7 @@
 							<div class="form-group">
 								<label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Select Patient</label>
 								<div class="col-sm-10">
-								<select name="patient_name">
+								<select name="name">
 								<?php $ret=mysqli_query($con,"select * from patient");
 								while($row=mysqli_fetch_array($ret))
 								{
@@ -179,6 +179,7 @@
 								}
 								?>
 							</select>
+							<input id="patient_name" name="patient_name" type="hidden">
 						</div>
 							</div>
 
@@ -196,6 +197,17 @@
       </section></section>
 
 	</div>
-
+	<script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="assets/js/common-scripts.js"></script>
+	<script>  
+     $(document).ready(function(){
+    $('select[name=name]').change(function(){
+	var inputF = document.getElementById("patient_name");
+	inputF.value = $(this).val();
+	</script>
 </body>
 </html>
