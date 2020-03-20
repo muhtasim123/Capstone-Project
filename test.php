@@ -68,7 +68,7 @@ if(isset($_POST['upload']))
                   </li>
 
 				  <li class="sub-menu">
-                      <a href="test.php" >
+                      <a href="questions.php" >
                           <i class="fa fa-users"></i>
                           <span>Questions</span>
                       </a>
