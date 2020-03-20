@@ -135,7 +135,7 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 		      </form>
 
 <a href="albumspat.php?uid=<?php echo $row['id'];?>">
-<button class="btn btn-success btn-xl" style="margin-left: 1em;padding-left:1.7em;padding-right:1.7em;"><i class="fa fa-play"></i></button></a>
+<button class="btn btn-success btn-xl" style="margin-left: 85em;margin-top: -5em;padding-left:1.7em;padding-right:1.7em;"><i class="fa fa-play"></i></button></a>
 </div></div>
 </div>
 </section>
