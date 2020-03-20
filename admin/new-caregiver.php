@@ -91,8 +91,6 @@
 
 				<div class="row">
 
-
-
                   <div class="col-md-12">
                       <div class="content-panel">
                       <p align="center" style="color:#F00;"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']=""; ?></p>
@@ -127,7 +125,7 @@
                           </div>
 
                           <div style="margin-left:100px;">
-						  <button name="register" type="submit" class="btn btn-theme">Sign Up</button>
+						  <button name="sumbit" type="submit" class="btn btn-theme">Sign Up</button>
                           </form>
                       </div>
                   </div>
@@ -135,18 +133,16 @@
 		</section>
       </section></section>
 
-
-
 		<?php
-			if(isset($_POST['register']))
+			if(isset($_POST['submit']))
 			{
-				@$username=$_POST['username'];
-				@$password=$_POST['password'];
-				@$cpassword=$_POST['cpassword'];
+				$username=$_POST['username'];
+				$password=$_POST['password'];
+				$cpassword=$_POST['cpassword'];
 
 				if($password==$cpassword)
 				{
-					$query = "select * from staff where name='$username'";
+					$query = "select * from caregiver where name='$username'";
 					//echo $query;
 				$query_run = mysqli_query($con,$query);
 				//echo mysql_num_rows($query_run);
@@ -158,7 +154,7 @@
 						}
 						else
 						{
-							$query = "INSERT INTO caregiver set name='$username',password='$password', email=$email, datejoined=CURRENT_TIMESTAMP";
+							$query = "INSERT caregiver set name='$username',password='$password', email=$email";
 							$query_run = mysqli_query($con,$query);
 							if($query_run)
 							{
