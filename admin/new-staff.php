@@ -127,7 +127,7 @@
                           </div>
 						  
                           <div style="margin-left:100px;">
-						  <button name="register" type="submit" class="btn btn-theme">Sign Up</button>
+						  <button name="submit" type="submit" class="btn btn-theme">Sign Up</button>
                           </form>
                       </div>
                   </div>
@@ -138,53 +138,19 @@
 	
 
 		<?php
-			if(isset($_POST['register']))
-			{
-				$username=$_POST['username'];
-				$email=$_POST['email'];
-				$password=$_POST['password'];
-				$cpassword=$_POST['cpassword'];
+			if(isset($_POST['submit']))
+{
+	$username=$_POST['username'];
+	$password=$_POST['password'];
+	$email=$_POST['email'];
+    $cpassword=$_POST['cpassword'];
+	$query=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email', datejoined = CURRENT_TIMESTAMP");
 
-				if($password==$cpassword)
-				{
-					$query = "select * from staff where name='$username'";
-					//echo $query;
-				$query_run = mysqli_query($con,$query);
-				//echo mysql_num_rows($query_run);
-				if($query_run)
-					{
-						if(mysqli_num_rows($query_run)>0)
-						{
-							echo '<script type="text/javascript">alert("This Username Already exists.. Please try another username!")</script>';
-						}
-						else
-						{
-							$query = "INSERT staff set name='$username',password='$password', email=$email, datejoined=CURRENT_TIMESTAMP";
-							$query_run = mysqli_query($con,$query);
-							if($query_run)
-							{
-								echo '<script type="text/javascript">alert("User Registered.. Welcome")</script>';
-								$_SESSION['username'] = $username;
-								$_SESSION['password'] = $password;
-								header( "Location: manage-patients.php");
-							}
-							else
-							{
-								echo '<p class="bg-danger msg-block">Registration Unsuccessful due to server error. Please try later</p>';
-							}
-						}
-					}
-					else
-					{
-						echo '<script type="text/javascript">alert("DB error")</script>';
-					}
-				}
-				else
-				{
-					echo '<script type="text/javascript">alert("Password and Confirm Password do not match")</script>';
-				}
-
-			}
+	if($query)
+		{
+		echo "<script>alert('Staff Added');</script>";
+		}
+}
 		?>
 	</div>
 </body>
