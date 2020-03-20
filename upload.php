@@ -73,10 +73,9 @@ if(isset($_POST['upload']))
                           <span>Questions</span>
                       </a>
 
-                  </li>
-		      
+		      </li>
 		        <li class="sub-menu">
-                      <a href="albumspat.php" >
+                      <a href="albumspat.php?uid=<?php echo $_SESSION['pid'];>?" >
                           <i class="fa fa-users"></i>
                           <span>Play Media</span>
                       </a>
