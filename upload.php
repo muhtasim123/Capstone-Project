@@ -74,6 +74,14 @@ if(isset($_POST['upload']))
                       </a>
 
                   </li>
+		      
+		        <li class="sub-menu">
+                      <a href="albumspat.php" >
+                          <i class="fa fa-users"></i>
+                          <span>Play Media</span>
+                      </a>
+
+                  </li>
 
               </ul>
           </div>
