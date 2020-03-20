@@ -129,7 +129,7 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
   <input type="radio" id="video" name="type" value="video">
   <label for="female">Video</label><br>
   <input type="radio" id="audio" name="type" value="audio">
-  <label for="Audio">Audio</label>
+  <label for="Audio">Audio</label><br>
 <input type="hidden" id="link" name="link" value="<?php echo $link ?>">
 <input type="hidden" id="patientid" name="patientid" value="<?php echo $tmpid?>">
   <input name="userfile" type="file"><br><br>
