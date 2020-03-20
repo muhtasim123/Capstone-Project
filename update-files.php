@@ -66,7 +66,7 @@ if(isset($_POST['submit']))
                   </li>
 
                   <li class="sub-menu">
-                      <a href="manage-patients.php" >
+                      <a href="admin/manage-patients.php" >
                           <i class="fa fa-users"></i>
                           <span>Manage Patients</span>
                       </a>
@@ -74,7 +74,7 @@ if(isset($_POST['submit']))
                   </li>
 
 				   <li class="sub-menu">
-                      <a href="new-staff.php" >
+                      <a href="admin/new-staff.php" >
                           <i class="fa fa-users"></i>
                           <span>Add Staff</span>
                       </a>
@@ -82,7 +82,7 @@ if(isset($_POST['submit']))
                   </li>
 
 				  <li class="sub-menu">
-                      <a href="new-caregiver.php" >
+                      <a href="admin/new-caregiver.php" >
                           <i class="fa fa-users"></i>
                           <span>Add Caregiver</span>
                       </a>
@@ -99,11 +99,51 @@ if(isset($_POST['submit']))
 	  {?>
       <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> <?php echo $row['fname'];?> <?php echo $row['lname'];?>'s Information</h3>
+          	<h3><i class="fa fa-angle-right"></i>Upload Media for <?php echo $row['fname'];?> <?php echo $row['lname'];?></h3>
 
 				<div class="row">
 
+<div class="col-md-12">
+              <div class="content-panel">
+        <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST" style="padding-left:1%; margin-top:-3.5%; padding-bottom:1%"><br><br>
+<?php
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
+// FIXME: add more validation, e.g. using ext/fileinfo
+try {
+// FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
+$upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
+$tmplink = $_FILES['userfile']['name'];
+$link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
+	$album=$_POST['album'];
+	$filelink=$_POST['link'];
+	$patientid=$_POST['patientid'];
+	$tags=$_POST['tags'];
+	$type=$_POST['type'];
+	$query=mysqli_query($con,"INSERT new_media SET link='$link', type='$type', patientid='$patientid', album='$album', tags='$tags'");	
+	if($query)
+		{
+		echo "<script>alert('Media Added');</script>";
+		}
+?>
 
+<?php } catch(Exception $e) { ?>
+<p>Upload error :(</p>
+<?php } } ?>
+		
+<p><?php echo $link ?><p>
+
+<label for="album">Album Name:</label>
+<input type="text" id="album" name="album"><br><br>
+<label for="tags">Tags:</label>
+<input type="text" id="tags" name="tags"><br><br>	
+<label for="type">Type:</label>
+<input type="text" id="type" name="type"><br><br>
+<input type="hidden" id="link" name="link" value="<?php echo $link ?>">
+<input type="hidden" id="patientid" name="patientid" value="<?php echo $tmpid?>">
+  <input name="userfile" type="file"><br><br>
+    <input type="submit" name="upload" value="Upload">
+</form>
+</div></div>
 
                                 </div>
 		</section>
