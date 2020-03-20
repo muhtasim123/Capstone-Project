@@ -23,7 +23,7 @@
 					            }
 					            else
 					            {
-												$query_new=mysqli_query($con,"INSERT staff set name='$username', password='$password', email='$email', datejoined = CURRENT_TIMESTAMP'");
+												$query_new=mysqli_query($con,"INSERT staff set name='$username', password='$password', email='$email', datejoined = 'CURRENT_TIMESTAMP'");
 												if($query_new)
 												{
 													echo '<script>alert("User Registered.. Welcome");</script>';
