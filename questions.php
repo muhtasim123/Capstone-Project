@@ -49,6 +49,9 @@ if(isset($_POST['submit']))
 		{
 		echo "<script>alert('Data updated');</script>";
 		}
+	else {
+		echo "<script>alert('DB error');</script>";
+	}
 }
 ?>
 
