@@ -179,7 +179,7 @@
 								}
 								?>
 							</select>
-							<input id="patient_name" name="patient_name" type="hidden">
+							<input id="patient_name" name="patient_name" type="text">
 						</div>
 							</div>
 
