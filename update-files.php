@@ -112,10 +112,7 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 	$filelink=$_POST['link'];
 	$patientid=$_POST['patientid'];
 	$tags=$_POST['tags'];
-	if(isset($_POST['radio']))
-	{
 	$type=$_POST['type'];
-	}
 	$query=mysqli_query($con,"INSERT new_media SET link='$link', type='$type', patientid='$patientid', album='$album', tags='$tags'");	
 	if($query)
 		{
