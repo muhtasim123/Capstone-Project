@@ -155,8 +155,7 @@
 						}
 						else
 						{
-							$query = "INSERT caregiver set name='$username', password='$password', email='$email'";
-							$query_run = mysqli_query($con,$query);
+							$query_run = mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email' ");
 							if($query_run)
 							{
 								echo '<script type="text/javascript">alert("User Registered.. Welcome")</script>';
