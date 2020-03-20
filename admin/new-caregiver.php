@@ -9,7 +9,7 @@
 					$password=$_POST['password'];
 					$email=$_POST['email'];
 					$cpassword=$_POST['cpassword'];
-					$pname=$_POST['patientname'];
+					$pname=$_POST['patient_name'];
 					
 					$query_run=$mysqli_query($con,"select * from patient where name='$pname'");
 					$row=mysqli_fetch_array($query_run);
