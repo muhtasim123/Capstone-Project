@@ -206,7 +206,7 @@
 	<script>  
      $(document).ready(function(){
     $('select[name=name]').change(function(){
-	document.getElementById("patient_name") = "This is a testing";
+	document.getElementById("patient_name").value = "This is a testing";
 	}
 	 }
 	</script>
