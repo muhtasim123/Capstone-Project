@@ -13,7 +13,7 @@ function emitCheckboxEntry($seqnumber, $url)
 	$output .= "<input type='checkbox' id='".$id."' name='".$name."' value = '".$seqnumber."' />";
 	$output .= PHP_EOL;
 	$output .= "<label for='".$id."'>";
-	$output .= "<img src='data/".$url."' />";
+	$output .= "<img class='gallery' src='".$url."' />";
 	$output .= "</label>";
 	$output .= "</li>";
 
@@ -41,7 +41,7 @@ $profile = $_GET['profileid'];
 $albumname = $_GET['albumname'];
 
 // we want to get the associated image paths from the db
-$query = "SELECT id, url FROM profile_data WHERE type='picture' AND profile_id=? AND album=?";
+$query = "SELECT id, link FROM new_media WHERE type='picture' AND patientid=? AND album=?";
 $stmt = $mysqli->prepare($query);
 
 if($stmt == FALSE) {
@@ -69,7 +69,7 @@ $galleryContents = array_map('emitCheckboxEntry', array_keys($urls), $urls);
 $galleryHtml = array_reduce($galleryContents, 'mergeStrings');
 
 // now we want to get the list of available albums
-$query = "SELECT DISTINCT album FROM profile_data WHERE profile_id=? AND album IS NOT NULL AND album <> ''";
+$query = "SELECT DISTINCT album FROM new_media WHERE patientid=? AND album IS NOT NULL AND album <> ''";
 $stmt = $mysqli->prepare($query);
 
 if($stmt == FALSE) {
@@ -97,10 +97,30 @@ $_SESSION['galleryDataURL'] = $urls;
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
         ul.gallery {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            grid-auto-rows: minmax(100px, auto);
+            
+            list-style-type: none;
+            float: left;
+        }
+        img.gallery {
+            height: 300px;
+            width: 300px;
+        }
+        aside {
+            float: right;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            /*height: 2.5rem;*/
         }
     </style>
 </head>
@@ -109,7 +129,7 @@ $_SESSION['galleryDataURL'] = $urls;
     <!-- Navbar -->
     <div class="w3-top">
         <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-            <a href="#home" class="w3-bar-item w3-button"><b>Capstone Project</b></a>
+            <a href="https://ontario-shores.herokuapp.com/admin/manage-patients.php" class="w3-bar-item w3-button"><b>Manage Patients</b></a>
             <!--Float to the right, hide in small screen -->
             <div class="w3-right w3-hide-small">
                 <a href="#projects" class="w3-bar-item w3-button">Projects</a>
