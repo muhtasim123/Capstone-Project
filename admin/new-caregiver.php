@@ -170,9 +170,11 @@
               </div>
 		</section>
       </section></section>
-<?php
-$ret=mysqli_query($con,"select * from patient");
-{?>
+			
+			<?php $ret=mysqli_query($con,"select * from patient");
+			$cnt=1;
+			while($row=mysqli_fetch_array($ret))
+			{?>
 							<tr>
 							<td><?php echo $cnt;?></td>
 									<td><?php echo $row['fname'];?></td>
