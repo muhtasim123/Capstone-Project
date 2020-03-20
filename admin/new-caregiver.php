@@ -9,6 +9,7 @@
 					$password=$_POST['password'];
 					$email=$_POST['email'];
 					$cpassword=$_POST['cpassword'];
+					$pid=$_POST['patientid'];
 
 					        if($password==$cpassword)
 					        {
@@ -23,7 +24,7 @@
 					            }
 					            else
 					            {
-											$query_new=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email', patientid='$patientid'");
+											$query_new=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email', patientid='$pid'");
 							    				if($query_new)
 												{
 													echo '<script>alert("User Registered.. Welcome");</script>';
@@ -124,7 +125,6 @@
       </aside>
 	  <?php $ret=mysqli_query($con,"select * from patient where id='".$_GET['uid']."'");
 	  $row=mysqli_fetch_array($ret);
-	  $patientid=$row['id'];
 	  ?>
 
       <section id="main-content">
@@ -165,6 +165,7 @@
                                   <input type="text" placeholder="Enter Password" class="form-control" name="cpassword" required >
                               </div>
                           </div>
+				   <input type="hidden" name="patientid" value="<?php echo $row['id']?>">
 
 
 									<div class="form-group">
