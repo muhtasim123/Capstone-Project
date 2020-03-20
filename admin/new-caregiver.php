@@ -125,6 +125,7 @@
       </aside>
 	  <?php $ret=mysqli_query($con,"select * from patient where id='".$_GET['uid']."'");
 	  $row=mysqli_fetch_array($ret);
+	  $patientid=$row['id'];
 	  ?>
 
       <section id="main-content">
@@ -165,7 +166,7 @@
                                   <input type="text" placeholder="Enter Password" class="form-control" name="cpassword" required >
                               </div>
                           </div>
-				   <input type="hidden" name="patientid" value="<?php echo $row['id']?>">
+				   <input type="text" name="patientid" value="<?php echo $patientid?>">
 
 
 									<div class="form-group">
