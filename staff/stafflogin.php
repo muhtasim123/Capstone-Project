@@ -7,12 +7,12 @@ include("dbconnection.php");
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin Login Page</title>
+<title>Staff Login Page</title>
 <link rel="stylesheet" href="css/style1.css">
 </head>
 <body style="background-color:#bdc3c7">
 	<div id="main-wrapper">
-	<center><h2>Admin Login Form</h2></center>
+	<center><h2>Staff Login Form</h2></center>
 			<div class="imgcontainer">
 				<img src="logo100.png" alt="Avatar" class="avatar">
 			</div>
@@ -22,7 +22,7 @@ if(isset($_POST['login']))
 			{
 				@$username=$_POST['username'];
 				@$password=$_POST['password'];
-				$query = "select * from admin where name='$username' and password='$password' ";
+				$query = "select * from staff where name='$username' and password='$password' ";
 				//echo $query;
 				$query_run = mysqli_query($con,$query);
 				//echo mysql_num_rows($query_run);
