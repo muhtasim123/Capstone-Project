@@ -23,7 +23,7 @@ session_start();
             
 			<div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6">
-								 <a style="text-decoration:none; color:black" href="<?php echo "admin/stafflogin.php"; ?>">
+								 <a style="text-decoration:none; color:black" href="<?php echo "staff/stafflogin.php"; ?>">
                     <div class="single_service">
                          <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
 							 <div class="service_icon">
@@ -40,7 +40,7 @@ session_start();
 				
 				
                 <div class="col-lg-4 col-md-6">
-                                 <a style="text-decoration:none; color:black" href="<?php echo "adminlogin.php"; ?>">
+                                 <a style="text-decoration:none; color:black" href="<?php echo "admin/adminlogin.php"; ?>">
                     <div class="single_service active">
                          <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
                              <div class="service_icon">
