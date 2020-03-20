@@ -9,6 +9,11 @@
 					$password=$_POST['password'];
 					$email=$_POST['email'];
 					$cpassword=$_POST['cpassword'];
+					$pname=$_POST['patientname'];
+					
+					$query_run=$mysqli_query($con,"select * from patient where name='$pname'");
+					$row=mysqli_fetch_array($query_run);
+					$patientid=$row['id'];
 
 					        if($password==$cpassword)
 					        {
@@ -23,8 +28,8 @@
 					            }
 					            else
 					            {
-												$query_new=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email', patientid='2'");
-												if($query_new)
+											$query_new=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email', patientid='$patientid'");
+							    				if($query_new)
 												{
 													echo '<script>alert("User Registered.. Welcome");</script>';
 												}
@@ -165,7 +170,7 @@
 							<div class="form-group">
 								<label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Select Patient</label>
 								<div class="col-sm-10">
-								<select name="name">
+								<select name="patient_name">
 								<?php $ret=mysqli_query($con,"select * from patient");
 								while($row=mysqli_fetch_array($ret))
 								{
