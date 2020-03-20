@@ -9,22 +9,22 @@ $s3 = Aws\S3\S3Client::factory();
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 
 // for updating user info
-if(isset($_POST['submit']))
+if(isset($_POST['upload']))
 {
 	
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
   <head>
+<html lang="en">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Admin | Upload Media</title>
+    <title>Caregiver | Upload Media</title>
     <link href="admin/assets/css/bootstrap.css" rel="stylesheet">
     <link href="admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="admin/assets/css/style.css" rel="stylesheet">
@@ -38,7 +38,7 @@ if(isset($_POST['submit']))
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
-            <a href="#" class="logo"><b>Staff Dashboard</b></a>
+            <a href="#" class="logo"><b>Caregiver Dashboard</b></a>
             <div class="nav notify-row" id="top_menu">
 
 
@@ -58,8 +58,9 @@ if(isset($_POST['submit']))
               	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" class="img-circle" width="100"></a></p>
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
 
-                  <li class="mt">
-                      <a href="change-password.php">
+
+<li class="mt">
+                      <a href="admin/change-password.php">
                           <i class="fa fa-file"></i>
                           <span>Change Password</span>
                       </a>
@@ -72,7 +73,7 @@ if(isset($_POST['submit']))
                       </a>
 
                   </li>
-
+				  
 				   <li class="sub-menu">
                       <a href="admin/new-staff.php" >
                           <i class="fa fa-users"></i>
@@ -80,7 +81,7 @@ if(isset($_POST['submit']))
                       </a>
 
                   </li>
-
+				  
 				  <li class="sub-menu">
                       <a href="admin/new-caregiver.php" >
                           <i class="fa fa-users"></i>
@@ -89,21 +90,14 @@ if(isset($_POST['submit']))
 
                   </li>
 
-
               </ul>
           </div>
       </aside>
-      <?php $ret=mysqli_query($con,"select * from patient where id='".$_GET['uid']."'");
-	  while($row=mysqli_fetch_array($ret))
 
-	  {?>
       <section id="main-content">
-          <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i>Upload Media for <?php echo $row['fname'];?> <?php echo $row['lname'];?></h3>
-
-				<div class="row">
-
-<div class="col-md-12">
+        <section class="wrapper">
+        <div class="row">
+          <div class="col-md-12">
               <div class="content-panel">
         <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST" style="padding-left:1%; margin-top:-3.5%; padding-bottom:1%"><br><br>
 <?php
@@ -123,15 +117,20 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 	if($query)
 		{
 		echo "<script>alert('Media Added');</script>";
-		header( "Location: manage-patients.php");
 		}
-	
 ?>
 
 <?php } catch(Exception $e) { ?>
 <p>Upload error :(</p>
 <?php } } ?>
 		
+<?php
+	$ret=mysqli_query($con,"select * from patient where id='".$_GET['uid']."'");	
+	$row=mysqli_fetch_array($ret);
+	$_SESSION['pid']=$row['id'];
+	$tmpid=$row['id'];
+?>
+<h3><i class="fa fa-angle-right"></i>Upload Media for <?php echo $row['fname']?> <?php echo $row['lname']?></h3>
 <p><?php echo $link ?><p>
 
 <label for="album">Album Name:</label>
@@ -146,10 +145,34 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
     <input type="submit" name="upload" value="Upload">
 </form>
 </div></div>
+</div>
+</section>
+      </section></section>
+      <?php
+      require('vendor/autoload.php');
+      // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
+      $s3 = Aws\S3\S3Client::factory();
+      $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+      ?>
+      <html>
+          <head><meta charset="UTF-8"></head>
+          <body>
+             <center><h1>Your Stored Files</h1></center>
+      <?php
+        try {
+          $objects = $s3->getIterator('ListObjects', array(
+            "Bucket" => $bucket
+          ));
+          foreach ($objects as $object) {
+      ?>
+          <center><p><a href="<?=htmlspecialchars($s3->getObjectUrl($bucket, $object['Key']))?>"> <?echo $object['Key'] . "<br>";?></a></p></center>
 
-                                </div>
-		</section>
-        <?php } ?>
+      <?		}?>
+
+      <?php } catch(Exception $e) { ?>
+              <p>error :(</p>
+      <?php }  ?>
+
 
   </body>
 </html>
