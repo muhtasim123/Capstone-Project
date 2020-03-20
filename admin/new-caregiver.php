@@ -143,9 +143,8 @@
 
 				if($password==$cpassword)
 				{
-					$query = "select * from caregiver where name='$username'";
 					//echo $query;
-				$query_run = mysqli_query($con,$query);
+				$query_run=mysqli_query($con,"select * from caregiver where name='$username'");
 				//echo mysql_num_rows($query_run);
 				if($query_run)
 					{
@@ -155,7 +154,7 @@
 						}
 						else
 						{
-							$query_run = mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email' ");
+							$query_run = mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email'");
 							if($query_run)
 							{
 								echo '<script type="text/javascript">alert("User Registered.. Welcome")</script>';
@@ -175,10 +174,6 @@
 				{
 					echo '<script type="text/javascript">alert("Password and Confirm Password do not match")</script>';
 				}
-
-			}
-			else
-			{
 			}
 		?>
 	</div>
