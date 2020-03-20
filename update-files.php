@@ -117,7 +117,7 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 	if($query)
 		{
 		echo "<script>alert('Media Added');</script>";
-		header( "Location: manage-patients.php");
+		header( "Location: admin/manage-patients.php");
 		}
 ?>
 
