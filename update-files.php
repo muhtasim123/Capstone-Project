@@ -58,14 +58,6 @@ if(isset($_POST['upload']))
               	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" class="img-circle" width="100"></a></p>
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
 
-
-<li class="mt">
-                      <a href="admin/change-password.php">
-                          <i class="fa fa-file"></i>
-                          <span>Change Password</span>
-                      </a>
-                  </li>
-
                   <li class="sub-menu">
                       <a href="admin/manage-patients.php" >
                           <i class="fa fa-users"></i>
@@ -117,8 +109,9 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 	if($query)
 		{
 		echo "<script>alert('Media Added');</script>";
-		header( "Location: admin/manage-patients.php");
 		}
+	
+		header( "Location: admin/manage-patients.php");
 ?>
 
 <?php } catch(Exception $e) { ?>
