@@ -6,7 +6,7 @@ require_once('dbconfig/config.php');
 require('vendor/autoload.php');
 
 // for updating user info
-if(isset($_POST['submit']))
+if(isset($_POST['update']))
 {
 	$fname=$_POST['fname'];
 	$lname=$_POST['lname'];
@@ -266,7 +266,7 @@ if(isset($_POST['submit']))
                           </div>
 			      <input type="text" name="pid" value="<?php echo $row['id']?>">
                           <div style="margin-left:50px;">
-                          <input type="submit" name="submit" value="Update" class="btn btn-theme">
+                          <input type="submit" name="update" value="Update" class="btn btn-theme">
 						 </div>
                           </form>
                       </div>
