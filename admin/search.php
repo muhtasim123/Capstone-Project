@@ -5,7 +5,7 @@ $connect = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", 
 function picture_query($connect)
 {
  $profile = $_GET['profileid'];
- $query = "SELECT * FROM profile_data WHERE type='picture' AND tag LIKE '%{$profile}%' ORDER BY id ASC"; 
+ $query = "SELECT * FROM new_media WHERE type='picture' AND tag LIKE '%{$profile}%' ORDER BY id ASC"; 
  $result = mysqli_query($connect, $query);
  return $result;
 }
@@ -13,7 +13,7 @@ function picture_query($connect)
 function video_query($connect)
 {
  $profile = $_GET['profileid'];
- $query = "SELECT * FROM profile_data WHERE type='video' AND tag LIKE '%{$profile}%' ORDER BY id ASC"; 
+ $query = "SELECT * FROM new_media WHERE type='video' AND tag LIKE '%{$profile}%' ORDER BY id ASC"; 
  $result = mysqli_query($connect, $query);
  return $result;
 }
@@ -21,7 +21,7 @@ function video_query($connect)
 function audio_query($connect)
 {
  $profile = $_GET['profileid'];
- $query = "SELECT * FROM profile_data WHERE type='music' AND tag LIKE '%{$profile}%' ORDER BY id ASC"; 
+ $query = "SELECT * FROM new_media WHERE type='music' AND tag LIKE '%{$profile}%' ORDER BY id ASC"; 
  $result = mysqli_query($connect, $query);
  return $result;
 }
@@ -66,9 +66,9 @@ function make_slides($connect)
    $output .= '<div class="item">';
   }
   $output .= '
-   <img src="data/'.$row["url"].'" alt="'.$row["id"].'" style="margin:auto;width:800px;height:700px;"/>
+   <img src="'.$row["link"].'" alt="'.$row["id"].'" style="margin:auto;width:800px;height:700px;"/>
    <div class="carousel-caption">
-    <h3>'.$row["url"].'</h3>
+    <h3>'.$row["link"].'</h3>
    </div>
   </div>
   ';
@@ -93,9 +93,9 @@ function make_video($connect)
    $output .= '<div class="item">';
   }
   $output .= '
-   <video src="data/'.$row["url"].'" alt="'.$row["id"].'" class="vid" controls/>
+   <video src="data/'.$row["link"].'" alt="'.$row["id"].'" class="vid" controls/>
    <div class="carousel-caption">
-    <h3>'.$row["url"].'</h3>
+    <h3>'.$row["link"].'</h3>
    </div>
   </div>
   ';
@@ -120,9 +120,9 @@ function make_audio($connect)
    $output .= '<div class="item">';
   }
   $output .= '
-   <audio controls src="data/'.$row["url"].'" alt="'.$row["id"].'" class="audio"/>
+   <audio controls src="data/'.$row["link"].'" alt="'.$row["id"].'" class="audio"/>
    <div class="carousel-caption">
-    <h3>'.$row["url"].'</h3>
+    <h3>'.$row["link"].'</h3>
    </div>
   </div>
   ';
