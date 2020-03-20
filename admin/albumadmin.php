@@ -65,8 +65,8 @@
 
 <?php
   $connect = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
-  $profile = $_GET['profileid'];
-  $query = "SELECT name FROM patient WHERE id='$profile'";
+  $profile = $_GET['uid'];
+  $query = "SELECT fname FROM patient WHERE id='$profile'";
   $result = mysqli_query($connect, $query);
   $value = mysqli_fetch_assoc($result);
   $valuestr = $value['name'];
@@ -80,7 +80,7 @@
   <div class="grid-container">
   <?php
 
-  $sql = "SELECT DISTINCT album FROM profile_data WHERE profile_id='$profile' AND type='picture'";
+  $sql = "SELECT DISTINCT album FROM new_media WHERE patientid='$profile' AND type='picture'";
   $result2 = mysqli_query($connect, $sql);
   $opt = "";
 
@@ -91,7 +91,7 @@
       $query = "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1";
       $img = mysqli_query($connect, $query);
       $url = mysqli_fetch_assoc($img);
-      $urlstr = $url['url'];
+      $urlstr = $url['link'];
 
       $opt .= "<div class='grid-item'><h5>$item</h5><a href='albumgallery.php?profileid=$profile&albumname=$item'><img id='$urlstr' src='$urlstr' style='width: 100%; height: 100%; padding: 3px;'></a></div>";
     }
