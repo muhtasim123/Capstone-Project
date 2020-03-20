@@ -113,6 +113,7 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 	$pid=$_SESSION['pid'];
 	$ret=mysqli_query($con,"select * from patient where id='$pid'");	
 	$row=mysqli_fetch_array($ret);
+	$_SESSION['pid']=$row['id'];
 	$tmpid=$row['id'];
 ?>
 <h3><i class="fa fa-angle-right"></i>Upload Media for <?php echo $row['fname']?> <?php echo $row['lname']?></h3>
