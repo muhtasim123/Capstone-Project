@@ -48,7 +48,6 @@ if(isset($_POST['upload']))
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     	<li><a class="logout" href="logout.php">Logout</a></li>
-			<li><a href="albumspat.php?uid=<?php echo $row['id'];?>"></li>
             	</ul>
             </div>
         </header>
