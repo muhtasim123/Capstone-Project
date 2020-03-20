@@ -206,9 +206,13 @@
 	<script>  
      $(document).ready(function(){
     $('select[name=name]').change(function(){
+<<<<<<< HEAD
 	document.getElementById("patient_name") = "This is a testing";
 	}
 	 }
+=======
+	document.getElementById("patient_name").value = "This is a testing";
+>>>>>>> 7baa0df6a2ba007befdc23d4d57c565dd768cb41
 	</script>
 </body>
 </html>
