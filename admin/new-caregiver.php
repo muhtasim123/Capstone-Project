@@ -167,21 +167,6 @@
                               </div>
                           </div>
 
-							<div class="form-group">
-								<label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Select Patient</label>
-								<div class="col-sm-10">
-								<select id="name">
-								<?php $ret=mysqli_query($con,"select * from patient");
-								while($row=mysqli_fetch_array($ret))
-								{
-									$drop_down = $row['fname'];//. " " . $row['lname'];
-									echo "<option value='$drop_down'>$drop_down</option>";
-								}
-								?>
-							</select>
-							<input id="patient_name" name="patient_name" type="text" value="test">
-						</div>
-							</div>
 
 									<div class="form-group">
 										<div class="col-sm-10">
