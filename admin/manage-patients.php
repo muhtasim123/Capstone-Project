@@ -82,9 +82,9 @@ include'dbconnection.php';
                   </li>
 				  
 				  <li class="sub-menu">
-                      <a href="new-caregiver.php" >
+                      <a href="add-admin.php" >
                           <i class="fa fa-users"></i>
-                          <span>Add Caregiver</span>
+                          <span>Add Admin</span>
                       </a>
 
                   </li>
