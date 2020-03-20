@@ -2,6 +2,19 @@
 	session_start();
 	include'dbconnection.php';
 	//phpinfo();
+			if(isset($_POST['submit']))
+{
+	$username=$_POST['username'];
+	$password=$_POST['password'];
+	$email=$_POST['email'];
+    $cpassword=$_POST['cpassword'];
+	$query=mysqli_query($con,"INSERT staff set name='$username', password='$password', email='$email', datejoined = CURRENT_TIMESTAMP");
+
+	if($query)
+		{
+		echo "<script>alert('Staff Added');</script>";
+		}
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -134,24 +147,7 @@
               </div>
 		</section>
       </section></section>
-		
 	
-
-		<?php
-			if(isset($_POST['submit']))
-{
-	$username=$_POST['username'];
-	$password=$_POST['password'];
-	$email=$_POST['email'];
-    $cpassword=$_POST['cpassword'];
-	$query=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email', datejoined = CURRENT_TIMESTAMP");
-
-	if($query)
-		{
-		echo "<script>alert('Staff Added');</script>";
-		}
-}
-		?>
 	</div>
 </body>
 </html>
