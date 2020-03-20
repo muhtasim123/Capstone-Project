@@ -126,7 +126,7 @@ include'dbconnection.php';
                                   <td><?php echo $row['datejoined'];?></td>
                                   <td>
 								  
-									<a href="albumadmin.php">
+									<a href="albumadmin.php?uid=<?php echo $row['id'];?>">
                                      <button class="btn btn-success btn-xs"><i class="fa fa-play"></i></button></a>
                                      <a href="https://ontario-shores.herokuapp.com/update-files.php?uid=<?php echo $row['id'];?>">
                                      <button class="btn btn-primary btn-xs"><i class="fa fa-upload"></i></button></a>
