@@ -160,9 +160,6 @@
 							if($query_run)
 							{
 								echo '<script type="text/javascript">alert("User Registered.. Welcome")</script>';
-								$_SESSION['username'] = $username;
-								$_SESSION['password'] = $password;
-								header( "Location: manage-patients.php");
 							}
 							else
 							{
