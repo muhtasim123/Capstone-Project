@@ -25,10 +25,10 @@ if(isset($_POST['upload']))
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
     <title>Caregiver | Upload Media</title>
-    <link href="admin/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="admin/assets/css/style.css" rel="stylesheet">
-    <link href="admin/assets/css/style-responsive.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
   </head>
 
   <body>
@@ -55,22 +55,37 @@ if(isset($_POST['upload']))
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
 
-              	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" class="img-circle" width="100"></a></p>
+              	  <p class="centered"><a href="#"><img src="assets/img/logo100.png" class="img-circle" width="100"></a></p>
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
 
 
-				   <li class="sub-menu">
-                      <a href="test.php" >
+                  <li class="mt">
+                      <a href="add-admin.php">
                           <i class="fa fa-file"></i>
-                          <span>Upload Media</span>
+                          <span>Add Admin</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="manage-patients.php" >
+                          <i class="fa fa-users"></i>
+                          <span>Manage Patients</span>
+                      </a>
+
+                  </li>
+
+				   <li class="sub-menu">
+                      <a href="new-staff.php" >
+                          <i class="fa fa-users"></i>
+                          <span>Add Staff</span>
                       </a>
 
                   </li>
 
 				  <li class="sub-menu">
-                      <a href="questions.php" >
+                      <a href="new-caregiver.php" >
                           <i class="fa fa-users"></i>
-                          <span>Questions</span>
+                          <span>Add Caregiver</span>
                       </a>
 
                   </li>

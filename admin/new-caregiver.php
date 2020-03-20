@@ -10,45 +10,43 @@
 					$email=$_POST['email'];
 					$cpassword=$_POST['cpassword'];
 
-					if($password==$cpassword)
-					{
-						//echo $query;
-					$query_run=mysqli_query($con,"select * from caregiver where name='$username'");
-					//echo mysql_num_rows($query_run);
-					if($query_run)
-						{
-							if(mysqli_num_rows($query_run)>0)
-							{
-								echo '<script type="text/javascript">alert("This Username Already exists.. Please try another username!")</script>';
-							}
-							else
-							{
-								$query_new=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email'");
-								if($query_new)
-								{
-									echo '<script type="text/javascript">alert("User Registered.. Welcome")</script>';
-								}
-								else
-								{
-									echo '<p class="bg-danger msg-block">Registration Unsuccessful due to server error. Please try later</p>';
-								}
-							}
-						}
-						else
-						{
-							echo '<script type="text/javascript">alert("DB error")</script>';
-						}
-					}
-					else
-					{
-						echo '<script type="text/javascript">alert("Password and Confirm Password do not match")</script>';
-					}
+					        if($password==$cpassword)
+					        {
+					          //echo $query;
+					        $query_run=mysqli_query($con,"select * from caregiver where name='$username'");
+					        //echo mysql_num_rows($query_run);
+					        if($query_run)
+					          {
+					            if(mysqli_num_rows($query_run)>0)
+					            {
+					              echo '<script type="text/javascript">alert("This Username Already exists.. Please try another username!")</script>';
+					            }
+					            else
+					            {
+												$query_new=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email', patientid='2'");
+												if($query_new)
+												{
+													echo '<script>alert("User Registered.. Welcome");</script>';
+												}
+												else
+												{
+													echo '<p class="bg-danger msg-block">Registration Unsuccessful due to server error. Please try later</p>';
+												}
+											}
+										}
+										else
+										{
+											echo '<script type="text/javascript">alert("DB error")</script>';
+										}
+									}
+									else
+									{
+										echo '<script type="text/javascript">alert("Password and Confirm Password do not match")</script>';
+									}
 				}
 ?>
 <!DOCTYPE html>
 <html>
-
-
 <head>
 <html lang="en">
     <meta charset="utf-8">
