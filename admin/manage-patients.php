@@ -132,7 +132,7 @@ include'dbconnection.php';
 								  
 									<a href="">
                                      <button class="btn btn-success btn-xs"><i class="fa fa-play"></i></button></a>
-                                     <a href="upload.php?uid=<?php echo $row['id'];?>">
+                                     <a href="update-files.php?uid=<?php echo $row['id'];?>">
                                      <button class="btn btn-primary btn-xs"><i class="fa fa-upload"></i></button></a>
 									 <a href="update-profile.php?uid=<?php echo $row['id'];?>">
                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
