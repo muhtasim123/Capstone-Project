@@ -7,8 +7,8 @@ include'dbconnection.php';
 	{
 	$userid=$_GET['id'];
 	$msg=mysqli_query($con,"delete from patient where id='$userid'");
-	$caregiverdelete=$mysqli_query($con,"delete from caregiver where patientid='$userid'");
-	$mediadelete=$mysqli_query($com,"delete from new_media where patientid='$userid'");
+	$caregiverdelete=mysqli_query($con,"delete from caregiver where patientid='$userid'");
+	$mediadelete=mysqli_query($con,"delete from new_media where patientid='$userid'");
 		if($msg && $caregiverdelete && $mediadelete)
 		{
 		echo "<script>alert('Patient data, associated caregivers and media deleted');</script>";
