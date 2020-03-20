@@ -130,7 +130,8 @@ if(isset($_POST['update']))
 
 
                   <div class="col-md-12">
-                      <div class="content-panel">           
+                      <div class="content-panel">  
+<form class="form-horizontal style-form" name="form1" method="post" action="" onSubmit="return valid();">					  
                 <div class="form-group">
                               <div class="col-sm-2 col-sm-2 control-label">
     <select class="form-control" name="qp_type" id="p_type" style="margin-left:10px" required>
