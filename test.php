@@ -60,9 +60,9 @@ if(isset($_POST['upload']))
 
 
 				   <li class="sub-menu">
-                      <a href="questions.php" >
-                          <i class="fa fa-users"></i>
-                          <span>Questions</span>
+                      <a href="test.php" >
+                          <i class="fa fa-file"></i>
+                          <span>Upload Media</span>
                       </a>
 
                   </li>
@@ -70,7 +70,7 @@ if(isset($_POST['upload']))
 				  <li class="sub-menu">
                       <a href="test.php" >
                           <i class="fa fa-users"></i>
-                          <span>Upload Media</span>
+                          <span>Questions</span>
                       </a>
 
                   </li>
