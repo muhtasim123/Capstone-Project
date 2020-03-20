@@ -23,7 +23,7 @@
 					            }
 					            else
 					            {
-											$query_new=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email', patientid='$id'");
+											$query_new=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email', patientid='$patientid'");
 							    				if($query_new)
 												{
 													echo '<script>alert("User Registered.. Welcome");</script>';
