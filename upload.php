@@ -60,7 +60,7 @@ if(isset($_POST['upload']))
 
 
 				   <li class="sub-menu">
-                      <a href="test.php" >
+                      <a href="upload.php" >
                           <i class="fa fa-file"></i>
                           <span>Upload Media</span>
                       </a>
