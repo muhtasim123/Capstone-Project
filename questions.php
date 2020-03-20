@@ -109,14 +109,6 @@ if(isset($_POST['update']))
                       </a>
 
                   </li>
-		      
-		   <li class="sub-menu">
-                      <a href="albumspat.php?uid=<?php echo $pid;>?" >
-                          <i class="fa fa-tv"></i>
-                          <span>Play Media</span>
-                      </a>
-
-                  </li>
               </ul>
           </div>
       </aside>
