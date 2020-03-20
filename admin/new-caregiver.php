@@ -161,20 +161,25 @@
                                   <input type="text" placeholder="Enter Password" class="form-control" name="cpassword" required >
                               </div>
                           </div>
+							<div class="form-group">
+								<label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Select Patient</label>
+								<div class="col-sm-10">
+								<select name="name">
+								<?php $ret=mysqli_query($con,"select * from patient");
+								while($row=mysqli_fetch_array($ret))
+								{
+									$drop_down = $row['fname']['lname'];
+									echo "<option value='$drop_down'>$drop_down</option>";
+								}?>
+							</div>
+							</select>
+
+							</div>
 
                           <div style="margin-left:100px;">
 						  <button name="submit" type="submit" class="btn btn-theme">Sign Up</button>
                           </form>
 
-													<select name="name">
-													<?php $ret=mysqli_query($con,"select * from patient");
-													while($row=mysqli_fetch_array($ret))
-													{
-														$drop_down = $row['fname']['lname'];
-														echo "<option value='$drop_down'>$drop_down</option>";
-													}?>
-												</select>
-												
                       </div>
                   </div>
               </div>
