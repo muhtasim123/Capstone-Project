@@ -72,8 +72,6 @@
             <a href="#" class="logo"><b>Staff Dashboard</b></a>
             <div class="nav notify-row" id="top_menu">
 
-
-
                 </ul>
             </div>
             <div class="top-menu">
@@ -172,7 +170,15 @@
               </div>
 		</section>
       </section></section>
-
+<?php
+$ret=mysqli_query($con,"select * from patient");
+{?>
+							<tr>
+							<td><?php echo $cnt;?></td>
+									<td><?php echo $row['fname'];?></td>
+								 <td><?php echo $row['lname'];?></td>
+							 </tr>
+							 <?php $cnt=$cnt+1; }?>
 	</div>
 </body>
 </html>
