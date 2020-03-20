@@ -169,7 +169,7 @@
 								<?php $ret=mysqli_query($con,"select * from patient");
 								while($row=mysqli_fetch_array($ret))
 								{
-									$drop_down = $row['fname'];
+									$drop_down = echo $row['fname'];
 									echo "<option value='$drop_down'>$drop_down</option>";
 								}
 								?>
