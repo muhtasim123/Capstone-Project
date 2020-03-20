@@ -173,15 +173,15 @@
 									echo "<option value='$drop_down'>$drop_down</option>";
 								}?>
 							</div>
+								</div>
 							</select>
 
-							</div>
-
-
 									<div class="form-group">
+										<div class="col-sm-10">
                       <div style="margin-left:100px;">
 						  <button name="submit" type="submit" class="btn btn-theme">Sign Up</button>
 							</div>
+										</div>
                           </form>
                       </div>
                   </div>
