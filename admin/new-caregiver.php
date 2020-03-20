@@ -125,7 +125,7 @@
                           </div>
 
                           <div style="margin-left:100px;">
-						  <button name="sumbit" type="submit" class="btn btn-theme">Sign Up</button>
+						  <button name="submit" type="submit" class="btn btn-theme">Sign Up</button>
                           </form>
                       </div>
                   </div>
@@ -154,7 +154,7 @@
 						}
 						else
 						{
-							$query = "INSERT INTO caregiver set name='$username', password='$password', email='$email'";
+							$query = "INSERT caregiver set name='$username', password='$password', email='$email'";
 							$query_run = mysqli_query($con,$query);
 							if($query_run)
 							{
