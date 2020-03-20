@@ -165,20 +165,23 @@
                           <div style="margin-left:100px;">
 						  <button name="submit" type="submit" class="btn btn-theme">Sign Up</button>
                           </form>
+													
+													<?php $ret=mysqli_query($con,"select * from patient");
+													$cnt=1;
+													while($row=mysqli_fetch_array($ret))
+													{?>
+																	<tr>
+																	<td><?php echo $cnt;?></td>
+																			<td><?php echo $row['fname'];?></td>
+																		 <td><?php echo $row['lname'];?></td>
+																	 </tr>
+																	 <?php $cnt=$cnt+1; }?>
                       </div>
                   </div>
               </div>
 		</section>
       </section></section>
-<?php
-$ret=mysqli_query($con,"select * from patient");
-{?>
-							<tr>
-							<td><?php echo $cnt;?></td>
-									<td><?php echo $row['fname'];?></td>
-								 <td><?php echo $row['lname'];?></td>
-							 </tr>
-							 <?php $cnt=$cnt+1; }?>
+
 	</div>
 </body>
 </html>
