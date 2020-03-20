@@ -9,11 +9,6 @@
 					$password=$_POST['password'];
 					$email=$_POST['email'];
 					$cpassword=$_POST['cpassword'];
-					$pname=$_POST['patient_name'];
-					
-					$query_run=$mysqli_query($con,"select * from patient where name='$pname'");
-					$row=mysqli_fetch_array($query_run);
-					$patientid=$row['id'];
 
 					        if($password==$cpassword)
 					        {
@@ -28,7 +23,7 @@
 					            }
 					            else
 					            {
-											$query_new=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email', patientid='$patientid'");
+											$query_new=mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email', patientid='$id'");
 							    				if($query_new)
 												{
 													echo '<script>alert("User Registered.. Welcome");</script>';
@@ -127,12 +122,16 @@
               </ul>
           </div>
       </aside>
+	  <?php $ret=mysqli_query($con,"select * from patient where id='".$_GET['uid']."'");
+	  $row=mysqli_fetch_array($ret);
+	  $patientid=$row['id'];
+	  ?>
 
       <section id="main-content">
           <section class="wrapper">
           	<h3><i class="fa fa-angle-right"></i> Caregiver Sign Up Form</h3>
 
-				<div class="row">
+		<div class="row">
 
                   <div class="col-md-12">
                       <div class="content-panel">
@@ -182,14 +181,6 @@
       </section></section>
 
 	</div>
-	<script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="assets/js/common-scripts.js"></script>
-	<script>  
-     
-	</script>
+
 </body>
 </html>
