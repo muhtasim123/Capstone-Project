@@ -48,12 +48,12 @@
 <?php
   $connect = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
   $profile = $_GET['profileid'];
-  $query = "SELECT name FROM patient WHERE id='$profile'";
+  $query = "SELECT fname FROM patient WHERE id='$profile'";
   $result = mysqli_query($connect, $query);
   $value = mysqli_fetch_assoc($result);
   $valuestr = $value['name'];
 
-  $query = "SELECT DISTINCT album FROM profile_data WHERE profile_id='$profile'";
+  $query = "SELECT DISTINCT album FROM new_media WHERE patientid='$profile'";
   $result = mysqli_query($connect, $query);
   $value = mysqli_fetch_assoc($result);
   $album = "";
@@ -84,7 +84,7 @@
   <div class="grid-container">
     <?php
 
-    $sql = "SELECT DISTINCT album FROM profile_data WHERE profile_id='$profile' AND type='picture'";
+    $sql = "SELECT DISTINCT album FROM new_media WHERE patientid='$profile' AND type='picture'";
     $result2 = mysqli_query($connect, $sql);
     $opt = "";
     $counter = 1;
@@ -93,12 +93,12 @@
 
         $item = $row['album'];
 
-        $query = "SELECT url FROM profile_data WHERE profile_id='$profile' AND album='$item' LIMIT 1";
+        $query = "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1";
         $img = mysqli_query($connect, $query);
         $url = mysqli_fetch_assoc($img);
         $urlstr = $url['url'];
 
-        $opt .= "<div class='grid-item'><input id='$urlstr' type='checkbox' name='check[]' value='$item'><h5>$item</h5><img src='data/$urlstr' style='width: 100%; height: 100%; padding: 3px;'></div>";
+        $opt .= "<div class='grid-item'><input id='$urlstr' type='checkbox' name='check[]' value='$item'><h5>$item</h5><img src='$urlstr' style='width: 100%; height: 100%; padding: 3px;'></div>";
 
         $opt .= "<input type='hidden' name='albumname' value='$item'/>";
         $counter+=1;
