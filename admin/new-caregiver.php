@@ -165,17 +165,16 @@
                           <div style="margin-left:100px;">
 						  <button name="submit" type="submit" class="btn btn-theme">Sign Up</button>
                           </form>
-													
+
+													<select name="name">
 													<?php $ret=mysqli_query($con,"select * from patient");
-													$cnt=1;
 													while($row=mysqli_fetch_array($ret))
-													{?>
-																	<tr>
-																	<td><?php echo $cnt;?></td>
-																			<td><?php echo $row['fname'];?></td>
-																		 <td><?php echo $row['lname'];?></td>
-																	 </tr>
-																	 <?php $cnt=$cnt+1; }?>
+													{
+														$drop_down = $row['fname']['lname'];
+														echo "<option value='$drop_down'>$drop_down</option>";
+													}?>
+												</select>
+												
                       </div>
                   </div>
               </div>
