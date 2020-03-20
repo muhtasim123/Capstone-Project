@@ -114,7 +114,7 @@ if(isset($_POST['submit']))
     	$pid=$_SESSION['pid'];
 	$query="select * from patient where id='$pid'";
 	$query_run = mysqli_query($con,$query);	
-	  if ($query_run)
+	  if($query_run)
 	  {?>
       <section id="main-content">
           <section class="wrapper">
