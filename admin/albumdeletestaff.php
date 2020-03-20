@@ -72,7 +72,7 @@
       if (isset($_POST['submit'])) {
         if (!empty($_POST['check'])) {
           foreach ($_POST['check'] as $key) {
-            $query = "DELETE FROM profile_data WHERE profile_id='$profile' AND album='$key'";
+            $query = "DELETE FROM new_media WHERE patientid='$profile' AND album='$key'";
             $delete = mysqli_query($connect, $query);
           }
         }
