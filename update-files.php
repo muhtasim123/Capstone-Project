@@ -112,7 +112,10 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 	$filelink=$_POST['link'];
 	$patientid=$_POST['patientid'];
 	$tags=$_POST['tags'];
+	if(isset($_POST['radio']))
+	{
 	$type=$_POST['type'];
+	}
 	$query=mysqli_query($con,"INSERT new_media SET link='$link', type='$type', patientid='$patientid', album='$album', tags='$tags'");	
 	if($query)
 		{
@@ -138,13 +141,13 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 <input type="text" id="album" name="album"><br><br>
 <label for="tags">Tags:</label>
 <input type="text" id="tags" name="tags"><br><br>	
- <label for="tags">Type:</label><br>
+ <label for="type">Type:</label><br>
  <input type="radio" id="picture" name="type" value="picture">
-  <label for="male">Picture</label><br>
+  <label for="picture">Picture</label><br>
   <input type="radio" id="video" name="type" value="video">
-  <label for="female">Video</label><br>
+  <label for="video">Video</label><br>
   <input type="radio" id="audio" name="type" value="audio">
-  <label for="Audio">Audio</label><br>
+  <label for="audio">Audio</label><br>
 <input type="hidden" id="link" name="link" value="<?php echo $link ?>">
 <input type="hidden" id="patientid" name="patientid" value="<?php echo $tmpid?>">
   <input name="userfile" type="file"><br><br>
