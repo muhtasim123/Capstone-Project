@@ -179,7 +179,7 @@
 								}
 								?>
 							</select>
-							<input id="patient_name" name="patient_name" type="text">
+							<input id="patient_name" name="patient_name" type="text" value="test">
 						</div>
 							</div>
 
