@@ -2,7 +2,8 @@
 session_start();
 include'dbconnection.php';
 //Checking session is valid or not
-
+require_once('dbconfig/config.php');
+require('vendor/autoload.php');
 
 // for updating user info
 if(isset($_POST['submit']))
@@ -112,7 +113,7 @@ if(isset($_POST['submit']))
       </aside>
       <?php 
     	$pid=$_SESSION['pid'];
-	$query="select * from patient where id='2';";
+	$query="select * from patient where id='2'";
 	$query_run = mysqli_query($con,$query);	
 	  if($query_run)
 	  {?>
