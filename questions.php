@@ -41,7 +41,7 @@ if(isset($_POST['update']))
 	$answer14=$_POST['answer14'];
 	$answer15=$_POST['answer15'];
 	
-	$id=intval($_GET['pid']);
+	$id=$_POST['pid'];
   	
 	$query=mysqli_query($con,"UPDATE patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', question5='$question5', question6='$question6', question7='$question7', question8='$question8', question9='$question9', question10='$question10', question11='$question11', question12='$question12', question13='$question13', question14='$question14', question15='$question15', answer1='$answer1', answer2='$answer2', answer3='$answer3', answer4='$answer4', answer5='$answer5', answer6='$answer6', answer7='$answer7', answer8='$answer8', answer9='$answer9', answer10='$answer10', answer11='$answer11', answer12='$answer12', answer13='$answer13', answer14='$answer14', answer15='$answer15' where id='$id'");
 
@@ -114,13 +114,15 @@ if(isset($_POST['update']))
               </ul>
           </div>
       </aside>
-      <?php $ret=mysqli_query($con,"select * from patient where id='".$_GET['pid']."'");
-	  while($row=mysqli_fetch_array($ret))
-
+      <?php 
+    	$pid=$_SESSION['pid'];
+	$query="select * from patient where id='$pid'";
+	$query_run = mysqli_query($con,$query);	
+	  if($query_run)
 	  {?>
       <section id="main-content">
           <section class="wrapper">
-		 
+		  <?php $row=mysqli_fetch_array($query_run); ?>
           	<h3><i class="fa fa-angle-right"></i> <?php echo $row['fname'];?> <?php echo $row['lname'];?>'s Information</h3>
 
 				<div class="row">
