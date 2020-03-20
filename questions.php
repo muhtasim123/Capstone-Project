@@ -8,8 +8,6 @@ require('vendor/autoload.php');
 // for updating user info
 if(isset($_POST['update']))
 {
-	$fname=$_POST['fname'];
-	$lname=$_POST['lname'];
 	$question1=$_POST['question1'];
 	$question2=$_POST['question2'];
 	$question3=$_POST['question3'];
@@ -43,7 +41,7 @@ if(isset($_POST['update']))
 	
 	$id=$_POST['pid'];
   	
-	$query=mysqli_query($con,"UPDATE patient set fname='$fname' ,lname='$lname', question1='$question1', question2='$question2', question3='$question3', question4='$question4', question5='$question5', question6='$question6', question7='$question7', question8='$question8', question9='$question9', question10='$question10', question11='$question11', question12='$question12', question13='$question13', question14='$question14', question15='$question15', answer1='$answer1', answer2='$answer2', answer3='$answer3', answer4='$answer4', answer5='$answer5', answer6='$answer6', answer7='$answer7', answer8='$answer8', answer9='$answer9', answer10='$answer10', answer11='$answer11', answer12='$answer12', answer13='$answer13', answer14='$answer14', answer15='$answer15' where id='$id'");
+	$query=mysqli_query($con,"UPDATE patient set question1='$question1', question2='$question2', question3='$question3', question4='$question4', question5='$question5', question6='$question6', question7='$question7', question8='$question8', question9='$question9', question10='$question10', question11='$question11', question12='$question12', question13='$question13', question14='$question14', question15='$question15', answer1='$answer1', answer2='$answer2', answer3='$answer3', answer4='$answer4', answer5='$answer5', answer6='$answer6', answer7='$answer7', answer8='$answer8', answer9='$answer9', answer10='$answer10', answer11='$answer11', answer12='$answer12', answer13='$answer13', answer14='$answer14', answer15='$answer15' where id='$id'");
 
 	if($query)
 		{
