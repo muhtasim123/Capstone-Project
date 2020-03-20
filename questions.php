@@ -114,12 +114,12 @@ if(isset($_POST['update']))
               </ul>
           </div>
       </aside>
-      <?php 
-    	$pid=$_SESSION['pid'];
-	$query="select * from patient where id='$pid'";
-	$query_run = mysqli_query($con,$query);	
-	  if($query_run)
+  
+		  <?php $ret=mysqli_query($con,"select * from patient where id='$pid'");
+	  while($row=mysqli_fetch_array($ret))
+
 	  {?>
+	  
       <section id="main-content">
           <section class="wrapper">
 		  <?php $row=mysqli_fetch_array($query_run); ?>
