@@ -1,19 +1,4 @@
-<?php
-session_start();
-include'dbconnection.php';
-
-// for deleting user
-	if(isset($_GET['id']))
-	{
-	$userid=$_GET['id'];
-	$msg=mysqli_query($con,"delete from patient where id='$userid'");
-		if($msg)
-		{
-		echo "<script>alert('Data deleted');</script>";
-		}
-	}
-
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
