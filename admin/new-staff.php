@@ -2,19 +2,48 @@
 	session_start();
 	include'dbconnection.php';
 	//phpinfo();
-			if(isset($_POST['submit']))
-{
-	$username=$_POST['username'];
-	$password=$_POST['password'];
-	$email=$_POST['email'];
-    $cpassword=$_POST['cpassword'];
-	$query=mysqli_query($con,"INSERT staff set name='$username', password='$password', email='$email', datejoined = CURRENT_TIMESTAMP");
 
-	if($query)
-		{
-		echo "<script>alert('Staff Added');</script>";
-		}
-}
+				if(isset($_POST['submit']))
+				{
+					$username=$_POST['username'];
+					$password=$_POST['password'];
+					$email=$_POST['email'];
+					$cpassword=$_POST['cpassword'];
+
+					        if($password==$cpassword)
+					        {
+					          //echo $query;
+					        $query_run=mysqli_query($con,"select * from staff where name='$username'");
+					        //echo mysql_num_rows($query_run);
+					        if($query_run)
+					          {
+					            if(mysqli_num_rows($query_run)>0)
+					            {
+					              echo '<script type="text/javascript">alert("This Username Already exists.. Please try another username!")</script>';
+					            }
+					            else
+					            {
+												$query_new=mysqli_query($con,"INSERT staff set name='$username', password='$password', email='$email', datejoined = 'CURRENT_TIMESTAMP'");
+												if($query_new)
+												{
+													echo '<script>alert("User Registered.. Welcome");</script>';
+												}
+												else
+												{
+													echo '<p class="bg-danger msg-block">Registration Unsuccessful due to server error. Please try later</p>';
+												}
+											}
+										}
+										else
+										{
+											echo '<script type="text/javascript">alert("DB error")</script>';
+										}
+									}
+									else
+									{
+										echo '<script type="text/javascript">alert("Password and Confirm Password do not match")</script>';
+									}
+				}
 ?>
 <!DOCTYPE html>
 <html>
@@ -146,27 +175,7 @@
                   </div>
               </div>
 		</section>
-      </section></section>
-	
-<<<<<<< HEAD
-=======
-
-		<?php
-			if(isset($_POST['submit']))
-{
-	$username=$_POST['username'];
-	$password=$_POST['password'];
-	$email=$_POST['email'];
-    $cpassword=$_POST['cpassword'];
-	$query=mysqli_query($con,"INSERT staff set name='$username', password='$password', email='$email', datejoined = CURRENT_TIMESTAMP");
-
-	if($query)
-		{
-		echo "<script>alert('Staff Added');</script>";
-		}
-}
-		?>
->>>>>>> 12c16ab2f6d57d96fd8a682d5146ec3b0a231048
+      </section></section>		
 	</div>
 </body>
 </html>
