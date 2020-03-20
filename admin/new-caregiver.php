@@ -2,6 +2,48 @@
 	session_start();
 	include'dbconnection.php';
 	//phpinfo();
+
+				if(isset($_POST['submit']))
+				{
+					$username=$_POST['username'];
+					$password=$_POST['password'];
+					$email=$_POST['email'];
+					$cpassword=$_POST['cpassword'];
+
+					if($password==$cpassword)
+					{
+						//echo $query;
+					$query_run=mysqli_query($con,"select * from caregiver where name='$username'");
+					//echo mysql_num_rows($query_run);
+					if($query_run)
+						{
+							if(mysqli_num_rows($query_run)>0)
+							{
+								echo '<script type="text/javascript">alert("This Username Already exists.. Please try another username!")</script>';
+							}
+							else
+							{
+								$query_run = mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email'");
+								if($query_run)
+								{
+									echo '<script type="text/javascript">alert("User Registered.. Welcome")</script>';
+								}
+								else
+								{
+									echo '<p class="bg-danger msg-block">Registration Unsuccessful due to server error. Please try later</p>';
+								}
+							}
+						}
+						else
+						{
+							echo '<script type="text/javascript">alert("DB error")</script>';
+						}
+					}
+					else
+					{
+						echo '<script type="text/javascript">alert("Password and Confirm Password do not match")</script>';
+					}
+				}
 ?>
 <!DOCTYPE html>
 <html>
@@ -133,49 +175,6 @@
 		</section>
       </section></section>
 
-		<?php
-			if(isset($_POST['submit']))
-			{
-				$username=$_POST['username'];
-				$password=$_POST['password'];
-				$email=$_POST['email'];
-				$cpassword=$_POST['cpassword'];
-
-				if($password==$cpassword)
-				{
-					//echo $query;
-				$query_run=mysqli_query($con,"select * from caregiver where name='$username'");
-				//echo mysql_num_rows($query_run);
-				if($query_run)
-					{
-						if(mysqli_num_rows($query_run)>0)
-						{
-							echo '<script type="text/javascript">alert("This Username Already exists.. Please try another username!")</script>';
-						}
-						else
-						{
-							$query_run = mysqli_query($con,"INSERT caregiver set name='$username', password='$password', email='$email'");
-							if($query_run)
-							{
-								echo '<script type="text/javascript">alert("User Registered.. Welcome")</script>';
-							}
-							else
-							{
-								echo '<p class="bg-danger msg-block">Registration Unsuccessful due to server error. Please try later</p>';
-							}
-						}
-					}
-					else
-					{
-						echo '<script type="text/javascript">alert("DB error")</script>';
-					}
-				}
-				else
-				{
-					echo '<script type="text/javascript">alert("Password and Confirm Password do not match")</script>';
-				}
-			}
-		?>
 	</div>
 </body>
 </html>
