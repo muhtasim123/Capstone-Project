@@ -13,7 +13,7 @@ function emitCheckboxEntry($seqnumber, $url)
 	$output .= "<input type='checkbox' id='".$id."' name='".$name."' value = '".$seqnumber."' />";
 	$output .= PHP_EOL;
 	$output .= "<label for='".$id."'>";
-	$output .= "<img src='".$url."' />";
+	$output .= "<img class='gallery' src='".$url."' />";
 	$output .= "</label>";
 	$output .= "</li>";
 
@@ -30,7 +30,7 @@ function mergeStrings($carry, $item) {
 }
 
 // establish and check connection for the nth time
-$mysqli = new mysqli("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
+$mysqli = new mysqli("db", "root", "toor", "sample", 3306);
 if ($mysqli->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit(-1);
@@ -97,10 +97,30 @@ $_SESSION['galleryDataURL'] = $urls;
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
         ul.gallery {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            grid-auto-rows: minmax(100px, auto);
+            
+            list-style-type: none;
+            float: left;
+        }
+        img.gallery {
+            height: 300px;
+            width: 300px;
+        }
+        aside {
+            float: right;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            /*height: 2.5rem;*/
         }
     </style>
 </head>
