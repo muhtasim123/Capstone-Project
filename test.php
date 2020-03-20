@@ -10,17 +10,8 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 
 // for updating user info
 if(isset($_POST['upload']))
-{/*
-	$album=$_POST['album'];
-	$filelink=$_POST['link'];
-	$patientid=$_POST['patientid'];
-	$tags=$_POST['tags'];
-	$type=$_POST['type'];
-	$query=mysqli_query($con,"INSERT new_media SET link='$filelink', type='$type', patientid='$patientid', album='$album', tags='$tags'");	
-	if($query)
-		{
-		echo "<script>alert('Media Added');</script>";
-		}*/
+{
+	
 }
 ?>
 
@@ -124,7 +115,7 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 	$row=mysqli_fetch_array($ret);
 	$tmpid=$row['id'];
 ?>
-<h3><i class="fa fa-angle-right"></i>Upload Media for <?php echo $row['fname']?></h3>
+<h3><i class="fa fa-angle-right"></i>Upload Media for <?php echo $row['fname']?> <?php echo $row['lname']?></h3>
 <p><?php echo $link ?><p>
 
 <label for="album">Album Name:</label>
