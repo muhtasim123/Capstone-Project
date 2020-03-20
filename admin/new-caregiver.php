@@ -174,12 +174,12 @@
 								<?php $ret=mysqli_query($con,"select * from patient");
 								while($row=mysqli_fetch_array($ret))
 								{
-									$drop_down = $row['fname']. " " . $row['lname'];
+									$drop_down = $row['fname'];//. " " . $row['lname'];
 									echo "<option value='$drop_down'>$drop_down</option>";
 								}
 								?>
 							</select>
-							<input type="hidden" id="patient_name" name="patient_name">
+							<input id="patient_name" name="patient_name" type="hidden">
 						</div>
 							</div>
 
@@ -197,7 +197,6 @@
       </section></section>
 
 	</div>
-	
 	<script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
