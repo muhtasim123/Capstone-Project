@@ -69,7 +69,7 @@
   $query = "SELECT fname FROM patient WHERE id='$profile'";
   $result = mysqli_query($connect, $query);
   $value = mysqli_fetch_assoc($result);
-  $valuestr = $value['name'];
+  $valuestr = $value['fname'];
 ?>
 
   <div class="w3-container w3-padding-32" id="projects">
