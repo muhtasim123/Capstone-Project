@@ -24,9 +24,7 @@
     <div class="w3-bar w3-white w3-wide w3-padding w3-card">
 <a href="https://ontario-shores.herokuapp.com/admin/manage-patients.php" class="w3-bar-item w3-button"><b>Manage Patients</b></a>        <!--Float to the right, hide in small screen -->
         <div class="w3-right w3-hide-small">
-          <a href="#projects" class="w3-bar-item w3-button">Projects</a>
-          <a href="#about" class="w3-bar-item w3-button">About</a>
-          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+        	<a href="help2.php" class="w3-bar-item w3-button" target="_blank">Help</a>
         </div>
     </div>
   </div><br>
