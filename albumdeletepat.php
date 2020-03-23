@@ -22,8 +22,7 @@
   <!-- Navbar -->
   <div class="w3-top" >
     <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-        <a href="#home" class="w3-bar-item w3-button"><b>Capstone Project</b></a>
-        <!--Float to the right, hide in small screen -->
+<a href="https://ontario-shores.herokuapp.com/admin/manage-patients.php" class="w3-bar-item w3-button"><b>Manage Patients</b></a>        <!--Float to the right, hide in small screen -->
         <div class="w3-right w3-hide-small">
           <a href="#projects" class="w3-bar-item w3-button">Projects</a>
           <a href="#about" class="w3-bar-item w3-button">About</a>
@@ -48,12 +47,12 @@
 <?php
   $connect = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
   $profile = $_GET['profileid'];
-  $query = "SELECT name FROM patient WHERE id='$profile'";
+  $query = "SELECT fname FROM patient WHERE id='$profile'";
   $result = mysqli_query($connect, $query);
   $value = mysqli_fetch_assoc($result);
-  $valuestr = $value['name'];
+  $valuestr = $value['fname'];
 
-  $query = "SELECT DISTINCT album FROM profile_data WHERE profile_id='$profile'";
+  $query = "SELECT DISTINCT album FROM new_media WHERE patientid='$profile'";
   $result = mysqli_query($connect, $query);
   $value = mysqli_fetch_assoc($result);
   $album = "";
@@ -72,7 +71,7 @@
       if (isset($_POST['submit'])) {
         if (!empty($_POST['check'])) {
           foreach ($_POST['check'] as $key) {
-            $query = "DELETE FROM profile_data WHERE profile_id='$profile' AND album='$key'";
+            $query = "DELETE FROM new_media WHERE patientid='$profile' AND album='$key'";
             $delete = mysqli_query($connect, $query);
           }
         }
@@ -84,7 +83,7 @@
   <div class="grid-container">
     <?php
 
-    $sql = "SELECT DISTINCT album FROM profile_data WHERE profile_id='$profile' AND type='picture'";
+    $sql = "SELECT DISTINCT album FROM new_media WHERE patientid='$profile' AND type='picture'";
     $result2 = mysqli_query($connect, $sql);
     $opt = "";
     $counter = 1;
@@ -93,12 +92,12 @@
 
         $item = $row['album'];
 
-        $query = "SELECT url FROM profile_data WHERE profile_id='$profile' AND album='$item' LIMIT 1";
+        $query = "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1";
         $img = mysqli_query($connect, $query);
         $url = mysqli_fetch_assoc($img);
-        $urlstr = $url['url'];
+        $urlstr = $url['link'];
 
-        $opt .= "<div class='grid-item'><input id='$urlstr' type='checkbox' name='check[]' value='$item'><h5>$item</h5><img src='data/$urlstr' style='width: 100%; height: 100%; padding: 3px;'></div>";
+        $opt .= "<div class='grid-item'><input id='$urlstr' type='checkbox' name='check[]' value='$item'><h5>$item</h5><img src='$urlstr' style='width: 100%; height: 100%; padding: 3px;'></div>";
 
         $opt .= "<input type='hidden' name='albumname' value='$item'/>";
         $counter+=1;
@@ -109,7 +108,7 @@
   </div>
   <button type="submit" name="submit" class="w3-button w3-right w3-red">Delete Albums</button>
 </form>
-<button class="w3-button w3-right w3-light-grey" onclick="location.href='albumspat.php?profileid=<?php echo $profile ?>'">Cancel</button>
+<button class="w3-button w3-right w3-light-grey" onclick="location.href='albumadmin.php?profileid=<?php echo $profile ?>'">Cancel</button>
 
 <br>
 <br>
