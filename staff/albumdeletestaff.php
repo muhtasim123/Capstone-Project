@@ -50,7 +50,7 @@
   $query = "SELECT fname FROM patient WHERE id='$profile'";
   $result = mysqli_query($connect, $query);
   $value = mysqli_fetch_assoc($result);
-  $valuestr = $value['name'];
+  $valuestr = $value['fname'];
 
   $query = "SELECT DISTINCT album FROM new_media WHERE patientid='$profile'";
   $result = mysqli_query($connect, $query);
@@ -95,7 +95,7 @@
         $query = "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1";
         $img = mysqli_query($connect, $query);
         $url = mysqli_fetch_assoc($img);
-        $urlstr = $url['url'];
+        $urlstr = $url['link'];
 
         $opt .= "<div class='grid-item'><input id='$urlstr' type='checkbox' name='check[]' value='$item'><h5>$item</h5><img src='$urlstr' style='width: 100%; height: 100%; padding: 3px;'></div>";
 
