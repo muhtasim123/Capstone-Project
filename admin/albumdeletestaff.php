@@ -50,7 +50,7 @@
   $query = "SELECT fname FROM patient WHERE id='$profile'";
   $result = mysqli_query($connect, $query);
   $value = mysqli_fetch_assoc($result);
-  $valuestr = $value['name'];
+  $valuestr = $value['fname'];
 
   $query = "SELECT DISTINCT album FROM new_media WHERE patientid='$profile'";
   $result = mysqli_query($connect, $query);
