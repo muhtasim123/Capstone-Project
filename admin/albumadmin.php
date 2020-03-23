@@ -24,7 +24,7 @@
         <a href="https://ontario-shores.herokuapp.com/admin/manage-patients.php" class="w3-bar-item w3-button"><b>Manage Patients</b></a>
         <!--Float to the right, hide in small screen -->
         <div class="w3-right w3-hide-small">
-        	<a href="help.php" class="w3-bar-item w3-button" target="_blank">Help</a>
+        	<a href="help1.php" class="w3-bar-item w3-button" target="_blank">Help</a>
         </div>
     </div>
   </div><br>
