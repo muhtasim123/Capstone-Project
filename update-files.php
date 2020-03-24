@@ -147,30 +147,6 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 </div>
 </section>
       </section></section>
-      <?php
-      require('vendor/autoload.php');
-      // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
-      $s3 = Aws\S3\S3Client::factory();
-      $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-      ?>
-      <html>
-          <head><meta charset="UTF-8"></head>
-          <body>
-             <center><h1>Your Stored Files</h1></center>
-      <?php
-        try {
-          $objects = $s3->getIterator('ListObjects', array(
-            "Bucket" => $bucket
-          ));
-          foreach ($objects as $object) {
-      ?>
-          <center><p><a href="<?=htmlspecialchars($s3->getObjectUrl($bucket, $object['Key']))?>"> <?echo $object['Key'] . "<br>";?></a></p></center>
-
-      <?		}?>
-
-      <?php } catch(Exception $e) { ?>
-              <p>error :(</p>
-      <?php }  ?>
 
 
   </body>
