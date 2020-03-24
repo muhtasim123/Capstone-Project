@@ -108,7 +108,7 @@
   </div>
   <button type="submit" name="submit" class="w3-button w3-right w3-red">Delete Albums</button>
 </form>
-<button class="w3-button w3-right w3-light-grey" onclick="location.href='albumadmin.php?profileid=<?php echo $profile ?>'">Cancel</button>
+<button class="w3-button w3-right w3-light-grey" onclick="location.href='albumadmin.php?uid=<?php echo $profile ?>'">Cancel</button>
 
 <br>
 <br>
