@@ -1,11 +1,11 @@
 <?php
 
-$connect = mysqli_connect("localhost", "root", "", "sample");
+$connect = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
 
 function picture_query($connect)
 {
  $profile = $_GET['profileid'];
- $query = "SELECT * FROM profile_data WHERE type='picture' AND tag LIKE '%{$profile}%' ORDER BY id ASC"; 
+ $query = "SELECT * FROM new_media WHERE type='picture' AND tag LIKE '%{$profile}%' ORDER BY id ASC"; 
  $result = mysqli_query($connect, $query);
  return $result;
 }
@@ -13,7 +13,7 @@ function picture_query($connect)
 function video_query($connect)
 {
  $profile = $_GET['profileid'];
- $query = "SELECT * FROM profile_data WHERE type='video' AND tag LIKE '%{$profile}%' ORDER BY id ASC"; 
+ $query = "SELECT * FROM new_media WHERE type='video' AND tag LIKE '%{$profile}%' ORDER BY id ASC"; 
  $result = mysqli_query($connect, $query);
  return $result;
 }
@@ -21,7 +21,7 @@ function video_query($connect)
 function audio_query($connect)
 {
  $profile = $_GET['profileid'];
- $query = "SELECT * FROM profile_data WHERE type='music' AND tag LIKE '%{$profile}%' ORDER BY id ASC"; 
+ $query = "SELECT * FROM new_media WHERE type='music' AND tag LIKE '%{$profile}%' ORDER BY id ASC"; 
  $result = mysqli_query($connect, $query);
  return $result;
 }
@@ -66,9 +66,9 @@ function make_slides($connect)
    $output .= '<div class="item">';
   }
   $output .= '
-   <img src="data/'.$row["url"].'" alt="'.$row["id"].'" style="margin:auto;width:800px;height:700px;"/>
+   <img src="'.$row["link"].'" alt="'.$row["id"].'" style="margin:auto;width:800px;height:700px;"/>
    <div class="carousel-caption">
-    <h3>'.$row["url"].'</h3>
+    <h3>'.$row["link"].'</h3>
    </div>
   </div>
   ';
@@ -93,9 +93,9 @@ function make_video($connect)
    $output .= '<div class="item">';
   }
   $output .= '
-   <video src="data/'.$row["url"].'" alt="'.$row["id"].'" class="vid" controls/>
+   <video src="data/'.$row["link"].'" alt="'.$row["id"].'" class="vid" controls/>
    <div class="carousel-caption">
-    <h3>'.$row["url"].'</h3>
+    <h3>'.$row["link"].'</h3>
    </div>
   </div>
   ';
@@ -120,9 +120,9 @@ function make_audio($connect)
    $output .= '<div class="item">';
   }
   $output .= '
-   <audio controls src="data/'.$row["url"].'" alt="'.$row["id"].'" class="vid"/>
+   <audio controls src="data/'.$row["link"].'" alt="'.$row["id"].'" class="vid"/>
    <div class="carousel-caption">
-    <h3>'.$row["url"].'</h3>
+    <h3>'.$row["link"].'</h3>
    </div>
   </div>
   ';
@@ -140,7 +140,7 @@ function make_audio($connect)
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script>
- $(document).ready(function() {
+  $(document).ready(function() {
 	$(".begin1").click(function(){
 		$("#dynamic_slide_show").carousel('cycle');
 	});
@@ -204,6 +204,9 @@ function make_audio($connect)
   </style>
  </head>
  <body  style="background-color:#919191">
+	 <div class="links">
+        <a href="help4.html" target="_blank"><h3>Help</h3></a>
+    </div>
   <br />
   <?php $profile = $_GET['profileid']; ?>
  <div class="box">
@@ -229,13 +232,14 @@ function make_audio($connect)
         </a>
        </div>
        
-       <div class="control"><br>
-
-        <button type="button" class="begin" >
-        <span class="glyphicon glyphicon-play" ></span></button>
-        <button type="button" class="pause">
-        <span class="glyphicon glyphicon-pause" ></span></button>
-       </div>
+       <div class="control">
+            <br>
+            <button type="button" class="begin1" >
+            	<span class="glyphicon glyphicon-play" ></span></button>
+            <button type="button" class="pause1">
+            	<span class="glyphicon glyphicon-pause" ></span></button>
+        </div>
+        <h3 align="center">Play/Pause to Control Automatic Slideshow</h3>
 <br>
 <br>
 <br>
@@ -261,6 +265,14 @@ function make_audio($connect)
          <span class="sr-only">Next</span>
         </a>
 	</div>
+	  <div class="control">
+        <br>
+        <button type="button" class="begin2" >
+        	<span class="glyphicon glyphicon-play" ></span></button>
+        <button type="button" class="pause2">
+        	<span class="glyphicon glyphicon-pause" ></span></button>
+    </div>
+    <h3 align="center">Play/Pause to Control Automatic Slideshow</h3>
 <br>
 <br>
 <br>
@@ -286,7 +298,7 @@ function make_audio($connect)
          <span class="sr-only">Next</span>
         </a>
     </div>
-    <div class="control">
+	 <div class="control">
         <br>
         <button type="button" class="begin3" >
         	<span class="glyphicon glyphicon-play" ></span></button>
@@ -294,6 +306,7 @@ function make_audio($connect)
        		<span class="glyphicon glyphicon-pause" ></span></button>
     </div>
     <h3 align="center">Play/Pause to Control Automatic Slideshow</h3>
+<br>
 <br>
 <br>
 <br>
