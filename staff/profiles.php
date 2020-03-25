@@ -6,7 +6,7 @@ function picture_query($connect)
 {
  $profile = $_GET['profileid'];
  $album = $_GET['albumname'];
- $query = "SELECT * FROM profile_data WHERE type='picture' AND profile_id='$profile' AND album='$album' ORDER BY id ASC";
+ $query = "SELECT * FROM new_media WHERE type='picture' AND patientid='$profile' AND album='$album' ORDER BY id ASC";
  $result = mysqli_query($connect, $query);
  return $result;
 }
@@ -15,7 +15,7 @@ function video_query($connect)
 {
  $profile = $_GET['profileid'];
  $album = $_GET['albumname'];
- $query = "SELECT * FROM profile_data WHERE type='video' AND profile_id='$profile' AND album='$album' ORDER BY id ASC"; 
+ $query = "SELECT * FROM new_media WHERE type='video' AND patientid='$profile' AND album='$album' ORDER BY id ASC"; 
  $result = mysqli_query($connect, $query);
  return $result;
 }
@@ -24,7 +24,7 @@ function audio_query($connect)
 {
  $profile = $_GET['profileid'];
  $album = $_GET['albumname'];
- $query = "SELECT * FROM profile_data WHERE type='music' AND profile_id='$profile' AND album='$album' ORDER BY id ASC"; 
+ $query = "SELECT * FROM new_media WHERE type='music' AND patientid='$profile' AND album='$album' ORDER BY id ASC"; 
  $result = mysqli_query($connect, $query);
  return $result;
 }
@@ -69,7 +69,7 @@ function make_slides($connect)
    $output .= '<div class="item">';
   }
   $output .= '
-   <img src="data/'.$row["url"].'" alt="'.$row["id"].'" style="margin:auto;width:800px;height:700px;"/>
+   <img src="'.$row["link"].'" alt="'.$row["id"].'" style="margin:auto;width:800px;height:700px;"/>
    <div class="carousel-caption">
     <h3></h3>
    </div>
@@ -96,9 +96,9 @@ function make_video($connect)
    $output .= '<div class="item">';
   }
   $output .= '
-   <video src="data/'.$row["url"].'" alt="'.$row["id"].'" class="vid" controls/>
+   <video src="data/'.$row["link"].'" alt="'.$row["id"].'" class="vid" controls/>
    <div class="carousel-caption">
-    <h3>'.$row["url"].'</h3>
+    <h3>'.$row["link"].'</h3>
    </div>
   </div>
   ';
@@ -123,9 +123,9 @@ function make_audio($connect)
    $output .= '<div class="item">';
   }
   $output .= '
-   <audio controls src="data/'.$row["url"].'" alt="'.$row["id"].'" class=""/>
+   <audio controls src="data/'.$row["link"].'" alt="'.$row["id"].'" class=""/>
    <div class="carousel-caption">
-    <h3>'.$row["url"].'</h3>
+    <h3>'.$row["link"].'</h3>
    </div>
   </div>
   ';
@@ -199,15 +199,23 @@ function make_audio($connect)
 		margin-left: auto;
 		margin-right: auto;
 		width: 50%;}
+	.links{
+		position:absolute;
+		top:0;
+		right:0;
+		padding:5px;}
   </style>
  </head>
  <body  style="background-color:#919191">
+	<div class="links">
+		<a href="help4.html" target="_blank"><h3>Help</h3></a>
+	</div>
   <br />
   <?php $profile = $_GET['profileid'];
-  $query = "SELECT name FROM patient WHERE id='$profile'";
+  $query = "SELECT fname FROM patient WHERE id='$profile'";
   $result = mysqli_query($connect, $query);
   $value = mysqli_fetch_assoc($result);
-  $valuestr = $value['name'];
+  $valuestr = $value['fname'];
    ?>
  <div class="box">
      <!--<div class="container">-->
@@ -238,6 +246,7 @@ function make_audio($connect)
        <button type="button" class="pause1">
        <span class="glyphicon glyphicon-pause" ></span></button>
        </div>
+	 <h4 align="center">Play/Pause to Control Automatic Slideshow</h4>
 <br>
 <br>
 <br>
@@ -270,6 +279,7 @@ function make_audio($connect)
        <button type="button" class="pause2">
        <span class="glyphicon glyphicon-pause" ></span></button>
     </div>
+		<h4 align="center">Play/Pause to Control Automatic Slideshow</h4>
 <br>
 <br>
 <br>
@@ -302,6 +312,7 @@ function make_audio($connect)
        <button type="button" class="pause3">
        <span class="glyphicon glyphicon-pause" ></span></button>
     </div>
+	<h4 align="center">Play/Pause to Control Automatic Slideshow</h4>
 <br>
 <br>
 <br>
