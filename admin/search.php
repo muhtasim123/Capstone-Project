@@ -204,6 +204,9 @@ function make_audio($connect)
   </style>
  </head>
  <body  style="background-color:#919191">
+	 <div class="links">
+        <a href="help4.html" target="_blank"><h3>Help</h3></a>
+    </div>
   <br />
   <?php $profile = $_GET['profileid']; ?>
  <div class="box">
