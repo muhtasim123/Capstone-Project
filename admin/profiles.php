@@ -199,9 +199,17 @@ function make_audio($connect)
 		margin-left: auto;
 		margin-right: auto;
 		width: 50%;}
+	.links{
+		position:absolute;
+		top:0;
+		right:0;
+		padding:5px;}
   </style>
  </head>
  <body  style="background-color:#919191">
+	<div class="links">
+		<a href="help4.html" target="_blank"><h3>Help</h3></a>
+	</div>
   <br />
   <?php $profile = $_GET['profileid'];
   $query = "SELECT fname FROM patient WHERE id='$profile'";
