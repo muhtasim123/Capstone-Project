@@ -120,7 +120,7 @@ function make_audio($connect)
    $output .= '<div class="item">';
   }
   $output .= '
-   <audio controls src="data/'.$row["link"].'" alt="'.$row["id"].'" class="audio"/>
+   <audio controls src="data/'.$row["link"].'" alt="'.$row["id"].'" class="vid"/>
    <div class="carousel-caption">
     <h3>'.$row["link"].'</h3>
    </div>
@@ -141,11 +141,27 @@ function make_audio($connect)
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script>
   $(document).ready(function() {
-	$(".begin").click(function(){
+	$(".begin1").click(function(){
 		$("#dynamic_slide_show").carousel('cycle');
 	});
-	$(".pause").click(function() {
+	$(".pause1").click(function() {
 		$("#dynamic_slide_show").carousel('pause');
+	});
+  });
+  $(document).ready(function() {
+	$(".begin2").click(function(){
+		$("#dynamic_slide_show2").carousel('cycle');
+	});
+	$(".pause2").click(function() {
+		$("#dynamic_slide_show2").carousel('pause');
+	});
+  });
+  $(document).ready(function() {
+	$(".begin3").click(function(){
+		$("#dynamic_slide_show3").carousel('cycle');
+	});
+	$(".pause3").click(function() {
+		$("#dynamic_slide_show3").carousel('pause');
 	});
   });
   </script>
@@ -154,10 +170,22 @@ function make_audio($connect)
 		width: 70%;
 		height: 200px;
 		margin:auto;}
-	.begin{
+	.begin1{
 		height: 50px;
 		width: 50px;}
-	.pause{
+	.pause1{
+		height: 50px;
+		width: 50px;}		
+	.begin2{
+		height: 50px;
+		width: 50px;}
+	.pause2{
+		height: 50px;
+		width: 50px;}
+	.begin3{
+		height: 50px;
+		width: 50px;}
+	.pause3{
 		height: 50px;
 		width: 50px;}
 	.control{
@@ -167,11 +195,12 @@ function make_audio($connect)
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
-		width: 50%; }
-	.audio{
-		display: block;
-		margin:auto;
-		width: 30%;}
+		width: 50%;}
+	.links{
+		position:absolute;
+		top:0;
+		right:0;
+		padding:5px;}
   </style>
  </head>
  <body  style="background-color:#919191">
@@ -200,13 +229,14 @@ function make_audio($connect)
         </a>
        </div>
        
-       <div class="control"><br>
-
-        <button type="button" class="begin" >
-        <span class="glyphicon glyphicon-play" ></span></button>
-        <button type="button" class="pause">
-        <span class="glyphicon glyphicon-pause" ></span></button>
-       </div>
+       <div class="control">
+            <br>
+            <button type="button" class="begin1" >
+            	<span class="glyphicon glyphicon-play" ></span></button>
+            <button type="button" class="pause1">
+            	<span class="glyphicon glyphicon-pause" ></span></button>
+        </div>
+        <h3 align="center">Play/Pause to Control Automatic Slideshow</h3>
 <br>
 <br>
 <br>
@@ -232,6 +262,14 @@ function make_audio($connect)
          <span class="sr-only">Next</span>
         </a>
 	</div>
+	  <div class="control">
+        <br>
+        <button type="button" class="begin2" >
+        	<span class="glyphicon glyphicon-play" ></span></button>
+        <button type="button" class="pause2">
+        	<span class="glyphicon glyphicon-pause" ></span></button>
+    </div>
+    <h3 align="center">Play/Pause to Control Automatic Slideshow</h3>
 <br>
 <br>
 <br>
@@ -257,6 +295,15 @@ function make_audio($connect)
          <span class="sr-only">Next</span>
         </a>
     </div>
+	 <div class="control">
+        <br>
+        <button type="button" class="begin3" >
+        	<span class="glyphicon glyphicon-play" ></span></button>
+        <button type="button" class="pause3">
+       		<span class="glyphicon glyphicon-pause" ></span></button>
+    </div>
+    <h3 align="center">Play/Pause to Control Automatic Slideshow</h3>
+<br>
 <br>
 <br>
 <br>
