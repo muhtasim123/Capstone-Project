@@ -238,7 +238,7 @@ function make_audio($connect)
        <button type="button" class="pause1">
        <span class="glyphicon glyphicon-pause" ></span></button>
        </div>
-	 <h3 align="center">Play/Pause to Control Automatic Slideshow</h3>
+	 <h4 align="center">Play/Pause to Control Automatic Slideshow</h4>
 <br>
 <br>
 <br>
@@ -271,7 +271,7 @@ function make_audio($connect)
        <button type="button" class="pause2">
        <span class="glyphicon glyphicon-pause" ></span></button>
     </div>
-	 	<h3 align="center">Play/Pause to Control Automatic Slideshow</h3>
+		<h4 align="center">Play/Pause to Control Automatic Slideshow</h4>
 <br>
 <br>
 <br>
@@ -304,7 +304,7 @@ function make_audio($connect)
        <button type="button" class="pause3">
        <span class="glyphicon glyphicon-pause" ></span></button>
     </div>
-	<h3 align="center">Play/Pause to Control Automatic Slideshow</h3>
+	<h4 align="center">Play/Pause to Control Automatic Slideshow</h4>
 <br>
 <br>
 <br>
