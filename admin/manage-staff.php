@@ -54,7 +54,7 @@ include'dbconnection.php';
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
 
-              	  <p class="centered"><a href="#"><img src="assets/img/logo100.png" class="img-circle" width="125"></a></p>
+              	  <p class="centered"><a href="#"><img src="assets/img/logo100.png" width="125"></a></p>
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
 
                   <li class="sub-menu">
@@ -72,20 +72,11 @@ include'dbconnection.php';
                   </li>
 				  
 				  <li class="sub-menu">
-                      <a href="new-staff.php" >
+                      <a href="manage-admin.php" >
                           <i class="fa fa-users"></i>
-                          <span>Add Staff</span>
+                          <span>Manage Admin</span>
                       </a>
                   </li>
-				  
-				  <li class="sub-menu">
-                      <a href="add-admin.php" >
-                          <i class="fa fa-users"></i>
-                          <span>Add Admin</span>
-                      </a>
-                  </li>
-
-
               </ul>
           </div>
       </aside>
