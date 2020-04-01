@@ -122,9 +122,8 @@ include'dbconnection.php';
 							  {?>
                               <tr>
                               <td><?php echo $cnt;?></td>
-                                  <td><?php echo $row['username'];?></td>
+                                  <td><?php echo $row['name'];?></td>
                                  <td><?php echo $row['email'];?></td>
-                                  <td><?php echo $row['datejoined'];?></td>
                                   <td>
 								  
 									<a href="albumadmin.php?uid=<?php echo $row['id'];?>">
