@@ -1,32 +1,29 @@
 <?php
 session_start();
 include'dbconnection.php';
-//Checking session is valid or not
 
-// for updating user info
-if(isset($_POST['submit']))
-{
-	$fname=$_POST['fname'];
-	$lname=$_POST['lname'];
-	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', datejoined=CURRENT_TIMESTAMP");
-
-	if($query)
+// for deleting user
+	if(isset($_GET['id']))
+	{
+	$userid=$_GET['id'];
+	$msg=mysqli_query($con,"delete from admin where id='$userid'");
+		if($msg)
 		{
-		echo "<script>alert('Patient Added');</script>";
+		echo "<script>alert('Admin data deleted');</script>";
+		header( "Location: manage-admin.php");
 		}
-}
-?>
+	}
 
-<!DOCTYPE html>
-  <head>
+?><!DOCTYPE html>
 <html lang="en">
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Admin | Create Profile</title>
+    <title>Admin | Manage Admin</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet">
@@ -83,39 +80,65 @@ if(isset($_POST['submit']))
               </ul>
           </div>
       </aside>
-
       <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> New Patient's Information</h3>
-
+          	<h3><i class="fa fa-angle-right"></i> Manage Admin</h3>
 				<div class="row">
+
+
 
                   <div class="col-md-12">
                       <div class="content-panel">
-                      <p align="center" style="color:#F00;"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']=""; ?></p>
-                           <form class="form-horizontal style-form" name="form1" method="post" action="" onSubmit="return valid();">
-                           <p style="color:#F00"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']="";?></p>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">First Name </label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="fname"  >
-                              </div>
-                          </div>
+                          <table class="table table-striped table-advance table-hover">
+	                  	  	  <h4><i class="fa fa-angle-right"></i> All Admin Details </h4>
+							  <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="add-admin.php" style="margin-top:-35px";>Add Admin</a></li>
+            	</ul>
+							  
+	                  	  	  <hr>
+                              <thead>
+                              <tr>
+                                  <th></th>
+                                  <th class="hidden-phone">Username</th>
+                                  <th>Email</th>            
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <?php $ret=mysqli_query($con,"select * from admin");
+							  $cnt=1;
+							  while($row=mysqli_fetch_array($ret))
+							  {?>
+                              <tr>
+                              <td><?php echo $cnt;?></td>
+                                  <td><?php echo $row['name'];?></td>
+                                 <td><?php echo $row['email'];?></td>
+                                  <td>
+                                     <a href="manage-admin.php?id=<?php echo $row['id'];?>">
+                                     <button class="btn btn-danger btn-xs" onClick="return confirm('Do you really want to delete');"><i class="fa fa-trash-o " title="Delete"></i></button></a>
+                                  </td>
+                              </tr>
+                              <?php $cnt=$cnt+1; }?>
 
-                              <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Last Name</label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="lname"  >
-                              </div>
-                          </div>
-
-                          <div style="margin-left:50px;">
-                          <input type="submit" name="submit" value="Add" class="btn btn-theme"></div>
-                          </form>
+                              </tbody>
+                          </table>
                       </div>
                   </div>
+              </div>
 		</section>
-      </section></section>
+      </section
+  ></section>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="assets/js/common-scripts.js"></script>
+  <script>
+      $(function(){
+          $('select.styled').customSelect();
+      });
+
+  </script>
 
   </body>
 </html>
