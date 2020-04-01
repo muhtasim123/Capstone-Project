@@ -122,7 +122,7 @@ include'dbconnection.php';
                                   <td><?php echo $row['name'];?></td>
                                  <td><?php echo $row['email'];?></td>
                                   <td>
-                                     <a href="manage-patients.php?id=<?php echo $row['id'];?>">
+                                     <a href="manage-staff.php?id=<?php echo $row['id'];?>">
                                      <button class="btn btn-danger btn-xs" onClick="return confirm('Do you really want to delete');"><i class="fa fa-trash-o " title="Delete"></i></button></a>
                                   </td>
                               </tr>
