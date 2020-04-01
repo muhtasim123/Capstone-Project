@@ -96,7 +96,13 @@
                           <i class="fa fa-users"></i>
                           <span>Manage Patients</span>
                       </a>
-
+                  </li>
+				  
+				  <li class="sub-menu">
+                      <a href="manage-staff.php" >
+                          <i class="fa fa-users"></i>
+                          <span>Manage Staff</span>
+                      </a>
                   </li>
 				  
 				   <li class="sub-menu">
@@ -104,7 +110,6 @@
                           <i class="fa fa-users"></i>
                           <span>Add Staff</span>
                       </a>
-
                   </li>
 				  
 				  <li class="sub-menu">
@@ -112,7 +117,6 @@
                           <i class="fa fa-users"></i>
                           <span>Add Admin</span>
                       </a>
-
                   </li>
 
 
