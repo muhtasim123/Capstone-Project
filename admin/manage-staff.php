@@ -108,8 +108,8 @@ include'dbconnection.php';
                               <thead>
                               <tr>
                                   <th></th>
-                                  <th class="hidden-phone">First Name</th>
-                                  <th> Last Name</th>
+                                  <th class="hidden-phone">Username</th>
+                                  <th>Email</th>
 
 
                                   <th>Reg. Date</th>
@@ -122,9 +122,8 @@ include'dbconnection.php';
 							  {?>
                               <tr>
                               <td><?php echo $cnt;?></td>
-                                  <td><?php echo $row['fname'];?></td>
-                                 <td><?php echo $row['lname'];?></td>
-
+                                  <td><?php echo $row['username'];?></td>
+                                 <td><?php echo $row['email'];?></td>
                                   <td><?php echo $row['datejoined'];?></td>
                                   <td>
 								  
