@@ -109,10 +109,7 @@ include'dbconnection.php';
                               <tr>
                                   <th></th>
                                   <th class="hidden-phone">Username</th>
-                                  <th>Email</th>
-
-
-                                  <th>Reg. Date</th>
+                                  <th>Email</th>            
                               </tr>
                               </thead>
                               <tbody>
@@ -125,15 +122,6 @@ include'dbconnection.php';
                                   <td><?php echo $row['name'];?></td>
                                  <td><?php echo $row['email'];?></td>
                                   <td>
-								  
-									<a href="albumadmin.php?uid=<?php echo $row['id'];?>">
-                                     <button class="btn btn-success btn-xs"><i class="fa fa-play" title="Play Media"></i></button></a>
-                                     <a href="https://ontario-shores.herokuapp.com/update-files.php?uid=<?php echo $row['id'];?>">
-                                     <button class="btn btn-primary btn-xs"><i class="fa fa-upload" title="Upload Files"></i></button></a>
-									 <a href="update-profile.php?uid=<?php echo $row['id'];?>">
-                                     <button class="btn btn-primary btn-xs"><i class="fa fa-pencil" title="Edit Profile"></i></button></a>
-									 <a href="new-caregiver.php?uid=<?php echo $row['id'];?>">
-                                     <button class="btn btn-primary btn-xs"><i class="fa fa-plus" title="Add Caregiver"></i></button></a>
                                      <a href="manage-patients.php?id=<?php echo $row['id'];?>">
                                      <button class="btn btn-danger btn-xs" onClick="return confirm('Do you really want to delete');"><i class="fa fa-trash-o " title="Delete"></i></button></a>
                                   </td>
