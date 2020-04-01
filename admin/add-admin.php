@@ -98,27 +98,19 @@
                       </a>
                   </li>
 				  
-				  <li class="sub-menu">
+				   <li class="sub-menu">
                       <a href="manage-staff.php" >
                           <i class="fa fa-users"></i>
                           <span>Manage Staff</span>
                       </a>
                   </li>
 				  
-				   <li class="sub-menu">
-                      <a href="new-staff.php" >
-                          <i class="fa fa-users"></i>
-                          <span>Add Staff</span>
-                      </a>
-                  </li>
-				  
 				  <li class="sub-menu">
-                      <a href="add-admin.php" >
+                      <a href="manage-admin.php" >
                           <i class="fa fa-users"></i>
-                          <span>Add Admin</span>
+                          <span>Manage Admin</span>
                       </a>
                   </li>
-
 
               </ul>
           </div>

@@ -55,31 +55,28 @@ if(isset($_POST['upload']))
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
 
-              	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" class="img-circle" width="100"></a></p>
+              	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" width="125"></a></p>
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
 
                   <li class="sub-menu">
-                      <a href="admin/manage-patients.php" >
+                      <a href="manage-patients.php" >
                           <i class="fa fa-users"></i>
                           <span>Manage Patients</span>
                       </a>
-
                   </li>
 				  
 				   <li class="sub-menu">
-                      <a href="admin/new-staff.php" >
+                      <a href="manage-staff.php" >
                           <i class="fa fa-users"></i>
-                          <span>Add Staff</span>
+                          <span>Manage Staff</span>
                       </a>
-
                   </li>
 				  
 				  <li class="sub-menu">
-                      <a href="admin/new-admin.php" >
+                      <a href="manage-admin.php" >
                           <i class="fa fa-users"></i>
-                          <span>Add Admin</span>
+                          <span>Manage Admin</span>
                       </a>
-
                   </li>
 
               </ul>
