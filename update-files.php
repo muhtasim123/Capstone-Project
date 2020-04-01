@@ -59,21 +59,21 @@ if(isset($_POST['upload']))
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
 
                   <li class="sub-menu">
-                      <a href="manage-patients.php" >
+                      <a href="admin/manage-patients.php" >
                           <i class="fa fa-users"></i>
                           <span>Manage Patients</span>
                       </a>
                   </li>
 				  
 				   <li class="sub-menu">
-                      <a href="manage-staff.php" >
+                      <a href="admin/manage-staff.php" >
                           <i class="fa fa-users"></i>
                           <span>Manage Staff</span>
                       </a>
                   </li>
 				  
 				  <li class="sub-menu">
-                      <a href="manage-admin.php" >
+                      <a href="admin/manage-admin.php" >
                           <i class="fa fa-users"></i>
                           <span>Manage Admin</span>
                       </a>
