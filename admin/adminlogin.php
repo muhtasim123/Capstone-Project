@@ -34,7 +34,7 @@ if(isset($_POST['login']))
 
 					$_SESSION['name'] = $username;
 					$_SESSION['password'] = $password;
-
+					$_SESSION['login'] = "1";
 					header( "Location: manage-patients.php");
 					echo '<script type="text/javascript">alert("Database Worked")</script>';
 
