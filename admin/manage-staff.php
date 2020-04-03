@@ -1,7 +1,9 @@
 <?php
 session_start();
 include'dbconnection.php';
-
+if($_SESSION['login']!="1"){
+	header( "Location: adminlogin.php");
+}
 // for deleting user
 	if(isset($_GET['id']))
 	{
