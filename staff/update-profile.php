@@ -93,7 +93,7 @@ if(isset($_POST['submit']))
               <ul class="sidebar-menu" id="nav-accordion">
 
               	  <p class="centered"><a href="#"><img src="assets/img/logo100.png" class="img-circle" width="100"></a></p>
-              	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
+              	
 		      
                   <li class="sub-menu">
                       <a href="manage-patients.php" >
