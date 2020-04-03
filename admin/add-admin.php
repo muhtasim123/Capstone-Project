@@ -2,7 +2,9 @@
 	session_start();
 	include'dbconnection.php';
 	//phpinfo();
-
+if($_SESSION['login']!="1"){
+	header( "Location: adminlogin.php");
+}
 				if(isset($_POST['submit']))
 				{
 					$username=$_POST['username'];
