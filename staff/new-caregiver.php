@@ -2,6 +2,9 @@
 	session_start();
 	include'dbconnection.php';
 	//phpinfo();
+if($_SESSION['login']!="1"){
+	header( "Location: stafflogin.php");
+}
 
 				if(isset($_POST['submit']))
 				{
