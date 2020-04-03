@@ -8,6 +8,10 @@ require('vendor/autoload.php');
 $s3 = Aws\S3\S3Client::factory();
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 
+if($_SESSION['login']!="1"){
+	header( "Location: caregiverlogin.php");
+}
+
 // for updating user info
 if(isset($_POST['upload']))
 {
@@ -56,9 +60,6 @@ if(isset($_POST['upload']))
               <ul class="sidebar-menu" id="nav-accordion">
 
               	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" class="img-circle" width="100"></a></p>
-              	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
-
-
 				   <li class="sub-menu">
                       <a href="upload.php" >
                           <i class="fa fa-file"></i>
