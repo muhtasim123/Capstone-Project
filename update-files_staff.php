@@ -59,7 +59,7 @@ if(isset($_POST['upload']))
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
 
-              	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" class="img-circle" width="100"></a></p>
+              	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" width="125"></a></p>
               	 
 
                   <li class="sub-menu">
