@@ -56,7 +56,7 @@ include'dbconnection.php';
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
 
-              	  <p class="centered"><a href="#"><img src="assets/img/logo100.png" class="img-circle" width="125"></a></p>
+              	  <p class="centered"><a href="#"><img src="assets/img/logo100.png" width="125"></a></p>
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
 
                   <li class="sub-menu">
@@ -109,15 +109,15 @@ include'dbconnection.php';
                                   <td>
 								  
 									<a href="albumsstaff.php?uid=<?php echo $row['id'];?>">
-                                     <button class="btn btn-success btn-xs"><i class="fa fa-play"></i></button></a>
+                                     <button class="btn btn-success btn-xs"><i class="fa fa-play" alt="Play Media" title="Play Media"></i></button></a>
                                      <a href="https://ontario-shores.herokuapp.com/update-files_staff.php?uid=<?php echo $row['id'];?>">
-                                     <button class="btn btn-primary btn-xs"><i class="fa fa-upload"></i></button></a>
+                                     <button class="btn btn-primary btn-xs"><i class="fa fa-upload" alt="Upload Files" title="Upload Files"></i></button></a>
 									 <a href="update-profile.php?uid=<?php echo $row['id'];?>">
-                                     <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                     <button class="btn btn-primary btn-xs"><i class="fa fa-pencil" alt="Edit Profile" title="Edit Profile"></i></button></a>
 									 <a href="new-caregiver.php?uid=<?php echo $row['id'];?>">
-                                     <button class="btn btn-primary btn-xs"><i class="fa fa-plus"></i></button></a>
+                                     <button class="btn btn-primary btn-xs"><i class="fa fa-plus" alt="Add Caregiver" title="Add Caregiver"></i></button></a>
                                      <a href="manage-patients.php?id=<?php echo $row['id'];?>">
-                                     <button class="btn btn-danger btn-xs" onClick="return confirm('Do you really want to delete');"><i class="fa fa-trash-o "></i></button></a>
+                                     <button class="btn btn-danger btn-xs" onClick="return confirm('Do you really want to delete');"><i class="fa fa-trash-o" alt="Delete" title="Delete"></i></button></a>
                                   </td>
                               </tr>
                               <?php $cnt=$cnt+1; }?>
