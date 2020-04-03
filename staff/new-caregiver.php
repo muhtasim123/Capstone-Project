@@ -2,6 +2,9 @@
 	session_start();
 	include'dbconnection.php';
 	//phpinfo();
+if($_SESSION['login']!="1"){
+	header( "Location: stafflogin.php");
+}
 
 				if(isset($_POST['submit']))
 				{
@@ -87,6 +90,10 @@
 
               	  <p class="centered"><a href="#"><img src="assets/img/logo100.png" width="125"></a></p>
               	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
+
+              	  <p class="centered"><a href="#"><img src="assets/img/logo100.png" class="img-circle" width="100"></a></p>
+            
+
 
                   <li class="sub-menu">
                       <a href="manage-patients.php" >

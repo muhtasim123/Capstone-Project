@@ -4,6 +4,9 @@ include'dbconnection.php';
 //Checking session is valid or not
 require_once('dbconfig/config.php');
 require('vendor/autoload.php');
+if($_SESSION['login']!="1"){
+	header( "Location: caregiverlogin.php");
+}
 $pid=$_SESSION['pid'];
 // for updating user info
 if(isset($_POST['update']))
@@ -93,8 +96,7 @@ if(isset($_POST['update']))
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
 
-              	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" class="img-circle" width="100"></a></p>
-              	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>                 
+              	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" class="img-circle" width="100"></a></p>                
 				 <li class="mt">
                       <a href="upload.php">
                           <i class="fa fa-file"></i>
@@ -263,7 +265,7 @@ if(isset($_POST['update']))
                                   <input type="text" class="form-control" name="regdate" value="<?php echo $row['datejoined'];?>" readonly >
                               </div>
                           </div>
-			      <input type="text" name="pid" value="<?php echo $row['id']?>">
+			      <input type="hidden" name="pid" value="<?php echo $row['id']?>">
                           <div style="margin-left:50px;">
                           <input type="submit" name="update" value="Update" class="btn btn-theme">
 						 </div>
