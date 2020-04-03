@@ -4,6 +4,9 @@ include'dbconnection.php';
 //Checking session is valid or not
 
 // for updating user info
+if($_SESSION['login']!="1"){
+	header( "Location: stafflogin.php");
+}
 if(isset($_POST['submit']))
 {
 	$fname=$_POST['fname'];
