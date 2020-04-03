@@ -3,6 +3,11 @@ session_start();
 include'dbconnection.php';
 
 // for deleting user
+
+if($_SESSION['login']!="1"){
+	header( "Location: stafflogin.php");
+}
+
 	if(isset($_GET['id']))
 	{
 	$userid=$_GET['id'];
