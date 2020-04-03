@@ -3,7 +3,9 @@ session_start();
 include'dbconnection.php';
 //Checking session is valid or not
 
-
+if($_SESSION['login']!="1"){
+	header( "Location: staff.php");
+}
 // for updating user info
 if(isset($_POST['submit']))
 {
