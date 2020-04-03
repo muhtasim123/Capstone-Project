@@ -58,7 +58,7 @@ if(isset($_POST['upload']))
               <ul class="sidebar-menu" id="nav-accordion">
 
               	  <p class="centered"><a href="#"><img src="admin/assets/img/logo100.png" width="125"></a></p>
-              	  <h5 class="centered"><?php echo $_SESSION['login'];?></h5>
+              	 
 
                   <li class="sub-menu">
                       <a href="admin/manage-patients.php" >
