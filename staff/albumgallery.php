@@ -1,4 +1,8 @@
-<?php session_start(); 
+<?php 
+if($_SESSION['login']!="1"){
+header("Location: stafflogin.php");}
+
+session_start(); 
 
 // function for the list items
 // sequence number -> url string -> html list item
