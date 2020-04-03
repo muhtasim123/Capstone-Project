@@ -33,7 +33,7 @@
 
 					$_SESSION['name'] = $username;
 					$_SESSION['password'] = $password;
-
+					$_SESSION['login'] = "1";
 					$_SESSION['pid'] = $row['patientid'];
 
 					header( "Location: upload.php");
