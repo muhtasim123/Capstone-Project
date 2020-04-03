@@ -1,5 +1,8 @@
 <?php
 
+if($_SESSION['login']!="1"){
+header("Location: stafflogin.php");}
+
 $connect = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
 
 function picture_query($connect)
