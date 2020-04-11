@@ -20,8 +20,10 @@ include("dbconnection.php");
 <?php
 if(isset($_POST['login']))
 			{
+	//gets username and password from input field
 				@$username=$_POST['username'];
 				@$password=$_POST['password'];
+	//checks whether username and password exist in db
 				$query = "select * from admin where name='$username' and password='$password' ";
 				//echo $query;
 				$query_run = mysqli_query($con,$query);
@@ -32,6 +34,7 @@ if(isset($_POST['login']))
 					{
 					$row = mysqli_fetch_array($query_run,MYSQLI_ASSOC);
 
+						//updates session variables
 					$_SESSION['name'] = $username;
 					$_SESSION['password'] = $password;
 					$_SESSION['login'] = "1";
