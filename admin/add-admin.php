@@ -1,22 +1,24 @@
 <?php
 	session_start();
 	include'dbconnection.php';
-	//phpinfo();
+//ensures that user is logged in
 if($_SESSION['login']!="1"){
 	header( "Location: adminlogin.php");
 }
 				if(isset($_POST['submit']))
 				{
+					//gets input field values
 					$username=$_POST['username'];
 					$password=$_POST['password'];
 					$email=$_POST['email'];
 					$cpassword=$_POST['cpassword'];
 
+					//ensures password and confirmed password matches
 					        if($password==$cpassword)
 					        {
-					          //echo $query;
+					        
 					        $query_run=mysqli_query($con,"select * from admin where name='$username'");
-					        //echo mysql_num_rows($query_run);
+					     
 					        if($query_run)
 					          {
 					            if(mysqli_num_rows($query_run)>0)
@@ -80,12 +82,14 @@ if($_SESSION['login']!="1"){
 
                 </ul>
             </div>
+	  <!-- logout button -->
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><a class="logout" href="logout.php">Logout</a></li>
             	</ul>
             </div>
         </header>
+	  <!-- sidebar -->
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
@@ -130,7 +134,9 @@ if($_SESSION['login']!="1"){
                       <p align="center" style="color:#F00;"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']=""; ?></p>
                            <form class="form-horizontal style-form" name="form1" method="post" action="" onSubmit="return valid();">
                            <p style="color:#F00"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']="";?></p>
-                          <div class="form-group">
+                         <!-- input fields -->
+							   
+							   <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Username</label>
                               <div class="col-sm-10">
                                   <input type="text" placeholder="Enter Username" class="form-control" name="username" required>
