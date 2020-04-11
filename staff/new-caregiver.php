@@ -1,19 +1,21 @@
 <?php
 	session_start();
 	include'dbconnection.php';
-	//phpinfo();
+	//ensures user is logged in
 if($_SESSION['login']!="1"){
 	header( "Location: stafflogin.php");
 }
 
 				if(isset($_POST['submit']))
 				{
+					//gets values from input field
 					$username=$_POST['username'];
 					$password=$_POST['password'];
 					$email=$_POST['email'];
 					$cpassword=$_POST['cpassword'];
 					$pid=$_POST['patientid'];
-
+		
+					//ensures password matches confirmed password
 					        if($password==$cpassword)
 					        {
 					          //echo $query;
@@ -84,6 +86,7 @@ if($_SESSION['login']!="1"){
             	</ul>
             </div>
         </header>
+	  <!-- sidebar -->
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
@@ -118,6 +121,8 @@ if($_SESSION['login']!="1"){
                       <p align="center" style="color:#F00;"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']=""; ?></p>
                            <form class="form-horizontal style-form" name="form1" method="post" action="" onSubmit="return valid();">
                            <p style="color:#F00"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']="";?></p>
+				   
+				   <!-- start of input fields -->
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label" style="padding-left:40px;">Username</label>
                               <div class="col-sm-10">
