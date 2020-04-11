@@ -20,7 +20,7 @@ session_start();
                     </div>
                 </div>
             </div>
-            
+            <!--Staff login button-->
 			<div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6">
 								 <a style="text-decoration:none; color:black" href="<?php echo "staff/stafflogin.php"; ?>">
@@ -38,7 +38,7 @@ session_start();
 					
                 </div>
 				
-				
+		<!--Admin login button-->
                 <div class="col-lg-4 col-md-6">
                                  <a style="text-decoration:none; color:black" href="<?php echo "admin/adminlogin.php"; ?>">
                     <div class="single_service active">
@@ -56,7 +56,7 @@ session_start();
 
                 </div>
 			
-				
+		<!--Caregiver login button-->
                 <div class="col-lg-4 col-md-6">
                                  <a style="text-decoration:none; color:black" href="<?php echo "caregiverlogin.php"; ?>">
                     <div class="single_service">
