@@ -20,8 +20,10 @@ include("dbconnection.php");
 <?php
 if(isset($_POST['login']))
 			{
+	//gets info from input fields
 				@$username=$_POST['username'];
 				@$password=$_POST['password'];
+	//searchs db for matching username and password
 				$query = "select * from staff where name='$username' and password='$password' ";
 				//echo $query;
 				$query_run = mysqli_query($con,$query);
