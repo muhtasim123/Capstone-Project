@@ -8,6 +8,7 @@ require('vendor/autoload.php');
 $s3 = Aws\S3\S3Client::factory();
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 
+//ensuring user is corrected logged in
 if($_SESSION['login']!="1"){
 	header( "Location: caregiverlogin.php");
 }
@@ -49,12 +50,14 @@ if(isset($_POST['upload']))
 
                 </ul>
             </div>
+	  <!-- logout button -->
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     	<li><a class="logout" href="logout.php">Logout</a></li>
             	</ul>
             </div>
         </header>
+	  <!-- sidebar -->
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
@@ -86,11 +89,12 @@ if(isset($_POST['upload']))
               <div class="content-panel" style="margin-top: 1em;">
         <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST" style="padding-left:1%; margin-top:-3.5%; padding-bottom:1%"><br><br>
 <?php
+	//ensures that file is correctly selected
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
-// FIXME: add more validation, e.g. using ext/fileinfo
 try {
-// FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
+	//uploads file to amazon aws bucket
 $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
+	//gets input field values and file link to upload to db
 $tmplink = $_FILES['userfile']['name'];
 $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 	$album=$_POST['album'];
