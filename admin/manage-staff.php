@@ -1,6 +1,8 @@
 <?php
 session_start();
 include'dbconnection.php';
+
+//ensuring user is logged in
 if($_SESSION['login']!="1"){
 	header( "Location: adminlogin.php");
 }
@@ -52,6 +54,7 @@ if($_SESSION['login']!="1"){
             	</ul>
             </div>
         </header>
+	  <!-- sidebar -->
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
@@ -106,8 +109,11 @@ if($_SESSION['login']!="1"){
                               </tr>
                               </thead>
                               <tbody>
-                              <?php $ret=mysqli_query($con,"select * from staff");
+                              <?php 
+				      //searchs db for all staff users
+				      $ret=mysqli_query($con,"select * from staff");
 							  $cnt=1;
+				      //loops through every result
 							  while($row=mysqli_fetch_array($ret))
 							  {?>
                               <tr>
@@ -115,6 +121,7 @@ if($_SESSION['login']!="1"){
                                   <td><?php echo $row['name'];?></td>
                                  <td><?php echo $row['email'];?></td>
                                   <td>
+					  <!-- side icons -->
                                      <a href="manage-staff.php?id=<?php echo $row['id'];?>">
                                      <button class="btn btn-danger btn-xs" onClick="return confirm('Do you really want to delete');"><i class="fa fa-trash-o " title="Delete"></i></button></a>
                                   </td>
