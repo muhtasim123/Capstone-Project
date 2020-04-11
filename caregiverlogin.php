@@ -1,7 +1,6 @@
 <?php
 	session_start();
 	require_once('dbconfig/config.php');
-	//phpinfo();
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,34 +18,38 @@
 <?php
 			if(isset($_POST['login']))
 			{
+				//gets username and password from input fields for a SQL query
 				@$username=$_POST['username'];
 				@$password=$_POST['password'];
 				$query = "select * from caregiver where name='$username' and password='$password' ";
-				//echo $query;
 				$query_run = mysqli_query($con,$query);
-				//echo mysql_num_rows($query_run);
+				//if name and password exists, enter if statement
 				if($query_run)
 				{
+					//if there is more than 0 rows, enter if statement
 					if(mysqli_num_rows($query_run)>0)
 					{
 					$row = mysqli_fetch_array($query_run,MYSQLI_ASSOC);
-
+					//assign session values
 					$_SESSION['name'] = $username;
 					$_SESSION['password'] = $password;
 					$_SESSION['login'] = "1";
 					$_SESSION['pid'] = $row['patientid'];
-
+					
+					//take user to upload page
 					header( "Location: upload.php");
 					echo '<script type="text/javascript">alert("Database Worked")</script>';
 
 					}
 					else
 					{
+						//in case of incorrect credentials
 						echo '<script type="text/javascript">alert("No such User exists. Invalid Credentials")</script>';
 					}
 				}
 				else
 				{
+					//in case of database connection error
 					echo '<script type="text/javascript">alert("Database Error")</script>';
 				}
 			}
