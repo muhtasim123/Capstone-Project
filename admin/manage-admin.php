@@ -2,10 +2,11 @@
 session_start();
 include'dbconnection.php';
 
-// for deleting user
+//ensures user is logged in
 if($_SESSION['login']!="1"){
 	header( "Location: adminlogin.php");
 }
+//for admin delete
 	if(isset($_GET['id']))
 	{
 	$userid=$_GET['id'];
@@ -47,12 +48,14 @@ if($_SESSION['login']!="1"){
 
                 </ul>
             </div>
+	  <!-- logout button -->
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><a class="logout" href="logout.php">Logout</a></li>
             	</ul>
             </div>
         </header>
+	  <!-- sidebar -->
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
@@ -107,8 +110,11 @@ if($_SESSION['login']!="1"){
                               </tr>
                               </thead>
                               <tbody>
-                              <?php $ret=mysqli_query($con,"select * from admin");
+                              <?php 
+				      //pulls all of the admin users in db
+				     		 $ret=mysqli_query($con,"select * from admin");
 							  $cnt=1;
+								  //loops for every user in db
 							  while($row=mysqli_fetch_array($ret))
 							  {?>
                               <tr>
