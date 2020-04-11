@@ -4,6 +4,7 @@ include'dbconnection.php';
 //Checking session is valid or not
 require_once('dbconfig/config.php');
 require('vendor/autoload.php');
+//ensures that user is logged in
 if($_SESSION['login']!="1"){
 	header( "Location: caregiverlogin.php");
 }
@@ -11,6 +12,7 @@ $pid=$_SESSION['pid'];
 // for updating user info
 if(isset($_POST['update']))
 {
+	//assigns all input field values to variables
 	$question1=$_POST['question1'];
 	$question2=$_POST['question2'];
 	$question3=$_POST['question3'];
@@ -44,8 +46,10 @@ if(isset($_POST['update']))
 	
 	$id=$_POST['pid'];
   	
+	//SQL injection based on the ID from the session
 	$query=mysqli_query($con,"UPDATE patient set question1='$question1', question2='$question2', question3='$question3', question4='$question4', question5='$question5', question6='$question6', question7='$question7', question8='$question8', question9='$question9', question10='$question10', question11='$question11', question12='$question12', question13='$question13', question14='$question14', question15='$question15', answer1='$answer1', answer2='$answer2', answer3='$answer3', answer4='$answer4', answer5='$answer5', answer6='$answer6', answer7='$answer7', answer8='$answer8', answer9='$answer9', answer10='$answer10', answer11='$answer11', answer12='$answer12', answer13='$answer13', answer14='$answer14', answer15='$answer15' where id='$id'");
 
+	//ensuring db was updated
 	if($query)
 		{
 		echo "<script>alert('Data updated');</script>";
@@ -86,12 +90,14 @@ if(isset($_POST['update']))
 
                 </ul>
             </div>
+	  <!--Logout button-->
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><a class="logout" href="logout.php">Logout</a></li>
             	</ul>
             </div>
         </header>
+	  <!--Sidebar-->
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
@@ -115,6 +121,7 @@ if(isset($_POST['update']))
           </div>
       </aside>
       <?php 
+	  //query to find which patient is associated to logged in caregiver
     	$pid=$_SESSION['pid'];
 	$query="select * from patient where id='$pid'";
 	$query_run = mysqli_query($con,$query);	
@@ -152,7 +159,7 @@ if(isset($_POST['update']))
 		<option  value="Question 15">Question 15</option>
     </select>
     </div>
-
+<!--All of the input fields-->
 			<div class="form-group" id="q1Type">
 			<div class="col-sm-10" style=" padding: 20px 250px 10px;">
 				<input id="question1" type="text" class="form-control" name="question1" value="<?php echo $row['question1'];?>">
@@ -283,6 +290,7 @@ if(isset($_POST['update']))
     <script src="admin/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="admin/assets/js/common-scripts.js"></script>
   <script>  
+	  //Javascript for the drop down menu to display the correct input fields
      $(document).ready(function(){
     $('select[name=qp_type]').change(function(){
         if($(this).val() == 'Question 1') {
