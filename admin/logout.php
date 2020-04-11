@@ -1,5 +1,6 @@
 <?php
 session_start();
+//clears session variable
 $_SESSION['login']=="";
 
 session_unset();
