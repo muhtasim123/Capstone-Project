@@ -1,6 +1,7 @@
 <?php
 session_start();
 include'dbconnection.php';
+//to ensure user is logged in
 if($_SESSION['login']!="1"){
 	header( "Location: adminlogin.php");
 }
@@ -8,6 +9,7 @@ if($_SESSION['login']!="1"){
 	if(isset($_GET['id']))
 	{
 	$userid=$_GET['id'];
+//has to delete all caregivers associated to patient, media, and patient 
 	$caregiverdelete=mysqli_query($con,"delete from caregiver where patientid='$userid'");
 	$mediadelete=mysqli_query($con,"delete from new_media where patientid='$userid'");
 	$msg=mysqli_query($con,"delete from patient where id='$userid'");
@@ -54,6 +56,7 @@ if($_SESSION['login']!="1"){
             	</ul>
             </div>
         </header>
+	  <!-- sidebar -->
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
@@ -111,8 +114,11 @@ if($_SESSION['login']!="1"){
                               </tr>
                               </thead>
                               <tbody>
-                              <?php $ret=mysqli_query($con,"select * from patient");
+                              <?php 
+				      //searchs for all patients in db
+				      $ret=mysqli_query($con,"select * from patient");
 							  $cnt=1;
+				      //loops through every patient found
 							  while($row=mysqli_fetch_array($ret))
 							  {?>
                               <tr>
@@ -122,7 +128,7 @@ if($_SESSION['login']!="1"){
 
                                   <td><?php echo $row['datejoined'];?></td>
                                   <td>
-								  
+								  <!-- icons beside each patient -->
 									<a href="albumadmin.php?uid=<?php echo $row['id'];?>">
                                      <button class="btn btn-success btn-xs"><i class="fa fa-play" title="Play Media"></i></button></a>
                                      <a href="https://ontario-shores.herokuapp.com/update-files.php?uid=<?php echo $row['id'];?>">
