@@ -2,12 +2,13 @@
 session_start();
 include'dbconnection.php';
 
-// for deleting user
-
+//ensures user is logged in
 if($_SESSION['login']!="1"){
 	header( "Location: stafflogin.php");
 }
 
+
+//for deleting patients
 	if(isset($_GET['id']))
 	{
 	$userid=$_GET['id'];
@@ -59,6 +60,7 @@ if($_SESSION['login']!="1"){
             	</ul>
             </div>
         </header>
+	  <!-- sidebar -->
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
@@ -103,8 +105,11 @@ if($_SESSION['login']!="1"){
                               </tr>
                               </thead>
                               <tbody>
-                              <?php $ret=mysqli_query($con,"select * from patient");
+                              <?php 
+				      //gets all patients from db
+				      $ret=mysqli_query($con,"select * from patient");
 							  $cnt=1;
+				      //loops through every result
 							  while($row=mysqli_fetch_array($ret))
 							  {?>
                               <tr>
@@ -114,7 +119,7 @@ if($_SESSION['login']!="1"){
 
                                   <td><?php echo $row['datejoined'];?></td>
                                   <td>
-								  
+								  <!-- icons for each patient -->
 									<a href="albumsstaff.php?uid=<?php echo $row['id'];?>">
                                      <button class="btn btn-success btn-xs"><i class="fa fa-play" alt="Play Media" title="Play Media"></i></button></a>
                                      <a href="https://ontario-shores.herokuapp.com/update-files_staff.php?uid=<?php echo $row['id'];?>">
