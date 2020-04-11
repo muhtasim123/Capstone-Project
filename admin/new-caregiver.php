@@ -1,18 +1,19 @@
 <?php
 	session_start();
 	include'dbconnection.php';
-	//phpinfo();
+	//ensuring user is logged in
 if($_SESSION['login']!="1"){
 	header( "Location: adminlogin.php");
 }
 				if(isset($_POST['submit']))
 				{
+					//gets input field values
 					$username=$_POST['username'];
 					$password=$_POST['password'];
 					$email=$_POST['email'];
 					$cpassword=$_POST['cpassword'];
 					$pid=$_POST['patientid'];
-
+	//ensures password is same as confirmed password
 					        if($password==$cpassword)
 					        {
 					          //echo $query;
@@ -83,6 +84,7 @@ if($_SESSION['login']!="1"){
             	</ul>
             </div>
         </header>
+	  <!-- sidebar -->
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
