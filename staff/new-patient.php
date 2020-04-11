@@ -3,12 +3,15 @@ session_start();
 include'dbconnection.php';
 //Checking session is valid or not
 
-// for updating user info
+// ensures user is logged in
 if($_SESSION['login']!="1"){
 	header( "Location: stafflogin.php");
 }
+
+//for adding patient info
 if(isset($_POST['submit']))
 {
+	//gets input field values
 	$fname=$_POST['fname'];
 	$lname=$_POST['lname'];
 	$query=mysqli_query($con,"INSERT patient set fname='$fname' ,lname='$lname', datejoined=CURRENT_TIMESTAMP");
@@ -56,6 +59,7 @@ if(isset($_POST['submit']))
             	</ul>
             </div>
         </header>
+	  <!-- sidebar -->
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
