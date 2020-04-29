@@ -27,7 +27,8 @@
   <!-- Navbar -->
   <div class="w3-top" >
     <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-        <a href="https://ontario-shores.herokuapp.com/admin/manage-patients.php" class="w3-bar-item w3-button"><b>Manage Patients</b></a>
+	    <!--changed admin/manage-patients.php to staff/manage-patients.php -Danny-->
+        <a href="https://ontario-shores.herokuapp.com/staff/manage-patients.php" class="w3-bar-item w3-button"><b>Manage Patients</b></a>
         <!--Float to the right, hide in small screen -->
         <div class="w3-right w3-hide-small">
           <a href="#projects" class="w3-bar-item w3-button">Projects</a>
