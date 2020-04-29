@@ -1,4 +1,4 @@
-//cannot redirect from manage-patients.php to this page
+//cannot redirect from manage-patients.php to this page - danny
 //<?php
 //if($_SESSION['login']!="1"){
 //header("Location: stafflogin.php");}
