@@ -1,7 +1,8 @@
 <?php 
 
-if($_SESSION['login']!="1"){
-header("Location: adminlogin.php");}
+//not connecting to the page - danny
+//if($_SESSION['login']!="1"){
+//header("Location: adminlogin.php");}
 
 session_start();
 //creating a connection
