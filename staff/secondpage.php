@@ -3,7 +3,7 @@
 //if($_SESSION['login']!="1"){
 //header("Location: stafflogin.php");}
 
-session_start();
+//session_start();
 //creating a connection
 $mysqli = new mysqli("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
 
