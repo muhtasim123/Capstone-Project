@@ -1,10 +1,12 @@
 //not connecting - danny
 //<?php 
+session_start();
+include'dbconnection.php';
 
-//if($_SESSION['login']!="1"){
-//header("Location: adminlogin.php");}
+if($_SESSION['login']!="1"){
+header("Location: adminlogin.php");}
 
-//session_start(); 
+
 
 // function for the list items
 // sequence number -> url string -> html list item
