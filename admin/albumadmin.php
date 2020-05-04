@@ -1,8 +1,8 @@
 //not working from manage-patients.php - danny
-//<?php
-//if($_SESSION['login']!="1"){
-//header("Location: adminlogin.php");}
-//?>
+<?php
+if($_SESSION['login']!="1"){
+header("Location: adminlogin.php");}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
