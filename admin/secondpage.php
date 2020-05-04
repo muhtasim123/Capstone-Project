@@ -1,7 +1,7 @@
 <?php 
 //danny put this on 5/4/2020
 session_start();
-//include'dbconnection.php';
+include'dbconnection.php';
 
 if($_SESSION['login'] !="1"){
 header("Location: adminlogin.php");}
