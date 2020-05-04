@@ -1,11 +1,11 @@
 <?php 
 //danny put this on 5/4/2020
-session_start();
-//include'dbconnection.php';
 
-if($_SESSION['login'] !="1"){
+
+if($_SESSION['login'] ="1"){
 header("Location: adminlogin.php");}
 
+session_start();
 
 //Danny comment out lines 11-17
 //creating a connection
