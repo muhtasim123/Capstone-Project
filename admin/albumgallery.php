@@ -1,5 +1,6 @@
 //not connecting - danny
 //<?php 
+//Danny changed this 5/4/2020
 session_start();
 include'dbconnection.php';
 
