@@ -1,5 +1,8 @@
 //not working from manage-patients.php - danny
 <?php
+//May 4 - Danny
+session_start();
+include'dbconnection.php';
 if($_SESSION['login']!="1"){
 header("Location: adminlogin.php");}
 ?>
