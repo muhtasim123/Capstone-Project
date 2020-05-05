@@ -13,10 +13,11 @@ header("Location: caregiverlogin.php");}
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	 <style>
   form{
 	width: 500px;
 	margin:0 auto;
-  <style>
+ 
   .grid-container {
       display: grid;
       grid-template-columns: 20% 20% 20% 20% 20%;
