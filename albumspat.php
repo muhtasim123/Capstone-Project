@@ -29,9 +29,9 @@ header("Location: caregiverlogin.php");}
   <!-- Navbar -->
   <div class="w3-top" >
     <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-	    /*Security Issue Found at 5/5/20
+	    <!--Security Issue Found at 5/5/20
 	    -Redirecting to admin manage-patients.php
-	    */
+	    -->
         <a href="https://ontario-shores.herokuapp.com/upload.php" class="w3-bar-item w3-button"><b>Manage Patients</b></a>
         <!--Float to the right, hide in small screen -->
         <div class="w3-right w3-hide-small">
