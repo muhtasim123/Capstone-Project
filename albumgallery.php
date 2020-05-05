@@ -149,7 +149,7 @@ $_SESSION['galleryDataURL'] = $urls;
     <br>
     <br>
 
-<form action="secondpage.php" method="post">
+<form action="nextpage.php" method="post">
 <ul class="gallery">
 <?php
     echo $galleryHtml;
