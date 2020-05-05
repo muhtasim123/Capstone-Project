@@ -1,8 +1,14 @@
-<?php 
-session_start();
+<?php session_start();
+
+if($_SESSION['login']!="1"){
+header("Location: caregiverlogin.php");}
 //creating a connection
-$con=mysqli_connect ("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6") or die ('I cannot connect to the database because: ' . mysql_error());
-mysqli_select_db ($con,'heroku_dbefbfd5b04ac35');
+$mysqli = new mysqli("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
+
+//checking connection
+if($mysqli->connect_error){
+    die("Connection failed: " . $mysqli->connect_error);
+}
 
 $currAlbum = $_REQUEST['currentAlbum'];
 $currProfile = $_REQUEST['currentProfileID'];
@@ -78,7 +84,7 @@ if(!isset($_REQUEST['gallery'])) {
 
 function moveToAlbum($connect, $tableIDs, $album) {
 
-    $query = "UPDATE profile_data SET album=? WHERE id=?";
+    $query = "UPDATE new_media SET album=? WHERE id=?";
     $stmt = $connect->prepare($query);
 
     $stmt->bind_param('si', $album, $id);
@@ -91,7 +97,7 @@ function moveToAlbum($connect, $tableIDs, $album) {
 }
 
 function deleteFromAlbum($connect, $tableIDs, $tableURLs) {
-    $query = "DELETE FROM profile_data WHERE id=?";
+    $query = "DELETE FROM new_media WHERE id=?";
     $stmt = $connect->prepare($query);
 
     $stmt->bind_param('i', $id);
@@ -108,7 +114,7 @@ function deleteFromAlbum($connect, $tableIDs, $tableURLs) {
 }
 
 function copyToAlbum($connect, $currProfile, $tableURLs, $album) {
-    $query = "INSERT INTO profile_data (profile_id, type, url, album, tag) VALUES (?, \"picture\", ?, ?, \"\")";
+    $query = "INSERT INTO new_media (patientid, type, link, album, tags) VALUES (?, \"picture\", ?, ?, \"\")";
     $stmt = $connect->prepare($query);
 
     $stmt->bind_param('iss', $currProfile, $newurl, $album);
@@ -132,60 +138,6 @@ function copyToAlbum($connect, $currProfile, $tableURLs, $album) {
     $stmt->close();
 }
 
-/*
-print_r($_SESSION['galleryDataID']);
-print_r($_SESSION['galleryDataURL']);
-print_r($_REQUEST['gallery']);
-print_r(transformGallery($_REQUEST['gallery']));
-/*
-print_r($_REQUEST);
-
-print_r($redirectURL);
-*/
-/*
-//function to copy images from one album to another
-function copyAlbum($connect){
-    $profile = $_GET['profileid'];
-    $album = $_GET['albumname'];
-    $copyFile="path/filename";//might need to change this
-    $copied = copy($album, $copyfile);
-    if(!$copied){
-        echo "Copy Failed";
-    }
-    else{
-        echo "Copy Successful";
-    }
-}
-
-//function to move images from album to another
-function moveAlbum($connect, $file, $to){
-    $profile = $_GET['profileid'];
-    $album = $_GET['albumname'];
-    $file = $album;
-    $path_parts = pathinfo($file);
-    $newplace = "$to/{$path_parts['basename']}";
-    if(rename($file, $newplace))
-    {
-        return $newplace;
-    }
-    return null;
-}
-
-//functio to move files from one album to another
-function moveAlbum2($connect){
-    $profile = $_GET['profileid'];
-    $album = $_GET['albumname'];
-    $moveFile="path/filename";//might need to change this
-    $moved = copy($album, $moveFile);
-    if(!moved){
-       echo "Moved Failed";
-    }
-    else{
-        unlink($album);
-        echo "Move Successfull";
-    }
-}
-*/
 ?>
 
-<meta http-equiv="refresh" content="<?php echo $redirectTime; ?>; URL='<?php echo $redirectURL; ?>'"/> 
+<meta http-equiv="refresh" content="<?php echo $redirectTime; ?>; URL='<?php echo $redirectURL; ?>'"/>
