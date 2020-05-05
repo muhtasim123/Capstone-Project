@@ -20,7 +20,7 @@ $curralbm = $_REQUEST['currentAlbum'];
 $currprof = $_REQUEST['currentProfileID'];
 
 
-$rediirurl = "/";
+$redirurl = "/";
 $redirtime = 3;
 
 function checkAlbumSelected($currprof, $curralbm, &$redirurl, &$redirtime) {
