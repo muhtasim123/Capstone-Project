@@ -1,12 +1,8 @@
 <?php 
 session_start();
 //creating a connection
-$mysqli = new mysqli("db", "root", "toor", "sample", 3306);
-
-//checking connection
-if($mysqli->connect_error){
-    die("Connection failed: " . $mysqli->connect_error);
-}
+$con=mysqli_connect ("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6") or die ('I cannot connect to the database because: ' . mysql_error());
+mysqli_select_db ($con,'heroku_dbefbfd5b04ac35');
 
 $currAlbum = $_REQUEST['currentAlbum'];
 $currProfile = $_REQUEST['currentProfileID'];
