@@ -1,20 +1,21 @@
 <?php 
-session_start();
-include'dbconnection.php';
+
+//include'dbconnection.php';
 //if($_SESSION['login']!="1"){
 //header("Location: caregiverlogin.php");}
 
 
 
 //session_start();
-//creating a connection
-//$mysqli = new mysqli("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
+creating a connection
+$mysqli = new mysqli("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
 
-//checking connection
-//if($mysqli->connect_error){
-    //die("Connection failed: " . $mysqli->connect_error);
-//}
+checking connection
+if($mysqli->connect_error){
+    die("Connection failed: " . $mysqli->connect_error);
+}
 
+session_start();
 $currAlbum = $_REQUEST['currentAlbum'];
 $currProfile = $_REQUEST['currentProfileID'];
 
