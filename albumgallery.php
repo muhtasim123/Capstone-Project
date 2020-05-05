@@ -5,7 +5,7 @@ if($_SESSION['login']!="1"){
 header("Location: caregiverlogin.php");}
 
 
-session_start(); 
+//session_start(); 
 
 // function for the list items
 // sequence number -> url string -> html list item
@@ -136,7 +136,7 @@ $_SESSION['galleryDataURL'] = $urls;
     <!-- Navbar -->
     <div class="w3-top">
         <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-            <a href="https://ontario-shores.herokuapp.com/admin/manage-patients.php" class="w3-bar-item w3-button"><b>Manage Patients</b></a>
+            <a href="https://ontario-shores.herokuapp.com/upload.php" class="w3-bar-item w3-button"><b>Manage Patients</b></a>
             <!--Float to the right, hide in small screen -->
             <div class="w3-right w3-hide-small">
                 <a href="help3.html" class="w3-bar-item w3-button" target="_blank">Help</a>
