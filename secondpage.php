@@ -1,8 +1,8 @@
 <?php 
 session_start();
 include'dbconnection.php';
-if($_SESSION['login']!="1"){
-header("Location: caregiverlogin.php");}
+//if($_SESSION['login']!="1"){
+//header("Location: caregiverlogin.php");}
 
 
 
