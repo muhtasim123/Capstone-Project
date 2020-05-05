@@ -13,16 +13,31 @@ header("Location: caregiverlogin.php");}
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	 <style>
-  form{
-	width: 500px;
-	margin:0 auto;
- 
-  .grid-container {
-      display: grid;
-      grid-template-columns: 20% 20% 20% 20% 20%;
-    }
-  </style>
+	<style>
+        ul.gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            grid-auto-rows: minmax(100px, auto);
+            
+            list-style-type: none;
+            float: left;
+        }
+        img.gallery {
+            height: 300px;
+            width: 300px;
+        }
+        aside {
+            float: right;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            /*height: 2.5rem;*/
+        }
+    </style>
 </head>
 
 <body>
