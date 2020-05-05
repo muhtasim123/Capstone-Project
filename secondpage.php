@@ -16,12 +16,12 @@ if($mysqli->connect_error){
 }
 
 session_start();
-$currAlbum = $_REQUEST['currentAlbum'];
-$currProfile = $_REQUEST['currentProfileID'];
+$curralbm = $_REQUEST['currentAlbum'];
+$currprof = $_REQUEST['currentProfileID'];
 
 
-$redirectURL = "/";
-$redirectTime = 3;
+$rediirurl = "/";
+$redirtime = 3;
 
 function checkAlbumSelected($currprof, $curralbm, &$redirurl, &$redirtime) {
     if(!isset($_REQUEST['selectedAlbum'])) {
