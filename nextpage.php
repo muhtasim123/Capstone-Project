@@ -1,6 +1,5 @@
-
-
 <?php
+session_start();
 
 $currAlbum = $_REQUEST['currentAlbum'];
 $currProfile = $_REQUEST['currentProfileID'];
