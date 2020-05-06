@@ -1,8 +1,11 @@
 <?php
 session_start();
 include'dbconnection.php';
-//Checking session is valid or not
-require_once('dbconfig/config.php');
+if($_SESSION['login']!="1"){
+header("Location: caregiverlogin.php");}
+?>
+
+<?php
 
 $currAlbum = $_REQUEST['currentAlbum'];
 $currProfile = $_REQUEST['currentProfileID'];
