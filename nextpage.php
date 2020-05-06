@@ -1,5 +1,8 @@
 <?php
 session_start();
+include'dbconnection.php';
+//Checking session is valid or not
+require_once('dbconfig/config.php');
 
 $currAlbum = $_REQUEST['currentAlbum'];
 $currProfile = $_REQUEST['currentProfileID'];
