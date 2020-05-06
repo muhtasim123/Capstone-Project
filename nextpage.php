@@ -1,9 +1,6 @@
 <?php
  session_start();
 
-if($_SESSION['login']!="1"){
-header("Location: adminlogin.php");}
-
 ini_set('display_errors',1);
 error_reporting(E_ALL);
 
