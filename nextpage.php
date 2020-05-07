@@ -1,12 +1,14 @@
 <?php
  session_start();
 
-$conn = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
+ini_set('display_errors',1);
+error_reporting(E_ALL);
 
-//checking connection
-if($conn->connect_error){
-    die("Connection failed: " . $conn->connect_error);
-}
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$conn1 = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
+$conn2 = new mysqli("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
+var_dump($conn1->stat, $conn2->stat);
+
 
 $currAlbum = $_REQUEST['currentAlbum'];
 $currProfile = $_REQUEST['currentProfileID'];
