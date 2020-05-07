@@ -13,44 +13,28 @@ header("Location: caregiverlogin.php");}
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<style>
-        ul.gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 10px;
-            grid-auto-rows: minmax(100px, auto);
-            
-            list-style-type: none;
-            float: left;
-        }
-        img.gallery {
-            height: 300px;
-            width: 300px;
-        }
-        aside {
-            float: right;
-        }
-
-        footer {
-            position: fixed;
-            bottom: 0px;
-            width: 100%;
-            /*height: 2.5rem;*/
-        }
-    </style>
+  form{
+	width: 500px;
+	margin:0 auto;
+  <style>
+  .grid-container {
+      display: grid;
+      grid-template-columns: 20% 20% 20% 20% 20%;
+    }
+  </style>
 </head>
 
 <body>
   <!-- Navbar -->
   <div class="w3-top" >
     <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-	    <!--Security Issue Found at 5/5/20
-	    -Redirecting to admin manage-patients.php
-	    -->
+	    <!--changed admin/manage-patients.php to staff/manage-patients.php -Danny-->
         <a href="https://ontario-shores.herokuapp.com/upload.php" class="w3-bar-item w3-button"><b>Manage Patients</b></a>
         <!--Float to the right, hide in small screen -->
         <div class="w3-right w3-hide-small">
-        	<a href="help1.html" class="w3-bar-item w3-button" target="_blank">Help</a>
+          <a href="#projects" class="w3-bar-item w3-button">Projects</a>
+          <a href="#about" class="w3-bar-item w3-button">About</a>
+          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
         </div>
     </div>
   </div><br>
