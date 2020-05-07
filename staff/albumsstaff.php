@@ -1,8 +1,9 @@
-//cannot redirect from manage-patients.php to this page - danny
-//<?php
-//if($_SESSION['login']!="1"){
-//header("Location: stafflogin.php");}
-//?>
+<?php
+session_start();
+include'dbconnection.php';
+if($_SESSION['login']!="1"){
+header("Location: stafflogin.php");}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
