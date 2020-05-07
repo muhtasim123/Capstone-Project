@@ -1,6 +1,4 @@
-//not working from manage-patients.php - danny
 <?php
-//May 4 - Danny
 session_start();
 include'dbconnection.php';
 if($_SESSION['login']!="1"){
@@ -30,10 +28,13 @@ header("Location: adminlogin.php");}
   <!-- Navbar -->
   <div class="w3-top" >
     <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+	    <!--changed admin/manage-patients.php to staff/manage-patients.php -Danny-->
         <a href="https://ontario-shores.herokuapp.com/admin/manage-patients.php" class="w3-bar-item w3-button"><b>Manage Patients</b></a>
         <!--Float to the right, hide in small screen -->
         <div class="w3-right w3-hide-small">
-        	<a href="help1.html" class="w3-bar-item w3-button" target="_blank">Help</a>
+          <a href="#projects" class="w3-bar-item w3-button">Projects</a>
+          <a href="#about" class="w3-bar-item w3-button">About</a>
+          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
         </div>
     </div>
   </div><br>
