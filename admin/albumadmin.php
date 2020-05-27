@@ -76,7 +76,7 @@ session_start();
   $result = mysqli_query($connect, $query);
   $value = mysqli_fetch_assoc($result);
   $valuestr = $value['fname'];
-
+?>
 
   <div class="w3-container w3-padding-32" id="projects">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Albums in Patient Profile: <?php echo ucfirst($valuestr); ?></h3>
@@ -85,7 +85,7 @@ session_start();
 
   <div class="grid-container">
   
-
+<?php
   $sql = "SELECT DISTINCT album FROM new_media WHERE patientid='$profile' AND type='picture'";
   $result2 = mysqli_query($connect, $sql);
   $opt = "";
