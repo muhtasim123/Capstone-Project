@@ -1,16 +1,17 @@
 <?php
 session_start();
 include'dbconnection.php';
-//Checking session is valid or not
-require_once('dbconfig/config.php');
+if($_SESSION['login']!="1"){
+header("Location: caregiverlogin.php");}
+?>
+
+<?php
+
 require('vendor/autoload.php');
 // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
 $s3 = Aws\S3\S3Client::factory();
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-//ensuring user is logged in
-if($_SESSION['login']!="1"){
-	header( "Location: admin/adminlogin.php");
-}
+
 // for updating user info
 if(isset($_POST['upload']))
 {
