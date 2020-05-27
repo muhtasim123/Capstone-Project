@@ -68,7 +68,7 @@ session_start();
 
 
 <!--Patient Profiles -->
-<form action="profiles.php">
+
 <?php
   $connect = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
   $profile = $_GET['uid'];
@@ -106,9 +106,7 @@ session_start();
   <?php echo $opt ?>
 
   </div>
-<input type="hidden" name="profileid" value="<?php echo $profile;?>">
-  		<input type="submit" value="Submit">
-	</form><br>
+
 <br>
 <br>
 <br>
