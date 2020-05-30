@@ -1,4 +1,9 @@
-
+<?php
+session_start();
+include'dbconnection.php';
+if($_SESSION['login']!="1"){
+header("Location: adminlogin.php");}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +98,7 @@
 
       
       $img = mysqli_query($connect, "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1");
-      $url = mysqli_fetch_assoc($img);
+      $url = mysqli_fetch_array($img);
       $urlstr = $url['link'];
 
       $opt .= "<div class='grid-item'><h5>$item</h5><a href='albumgallery.php?profileid=$profile&albumname=$item'><img id='$urlstr' src='$urlstr' style='width: 100%; height: 100%; padding: 3px;'></a></div>";
