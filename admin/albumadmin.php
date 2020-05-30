@@ -97,7 +97,7 @@ header("Location: adminlogin.php");}
       $item = $row['album'];
 
       
-      $img = mysqli_query($connect, "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1");
+      $img = mysqli_query($connect, "SELECT * FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1");
       $url = mysqli_fetch_array($img);
       $urlstr = $url['link'];
 
