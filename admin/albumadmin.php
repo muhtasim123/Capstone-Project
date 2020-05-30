@@ -86,8 +86,8 @@ session_start();
   <div class="grid-container">
   
 <?php
-  $sql = "SELECT DISTINCT album FROM new_media WHERE patientid='$profile' AND type='picture'";
-  $result2 = mysqli_query($connect, $sql);
+  
+  $result2 = mysqli_query($connect, "SELECT DISTINCT album FROM new_media WHERE patientid='$profile' AND type='picture'");
   $opt = "";
 
     while($row = mysqli_fetch_assoc($result2)) {
