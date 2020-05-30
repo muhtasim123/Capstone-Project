@@ -99,7 +99,7 @@ session_start();
       $url = mysqli_fetch_assoc($img);
       $urlstr = $url['link'];
 
-      $opt .= "<div class='grid-item'><h5>$item</h5><a href='albumgallery.php?profileid=$profile&albumname=$item'><img id='$urlstr' src='$urlstr' style='width: 100%; height: 100%; padding: 3px;'></a></div>";
+      $opt .= "<div class='grid-item'><h5>$item</h5><a href='albumgallery.php?profileid=$profile&album=$item'><img id='$urlstr' src='$urlstr' style='width: 100%; height: 100%; padding: 3px;'></a></div>";
     }
   ?>
 
