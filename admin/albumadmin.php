@@ -94,19 +94,19 @@ session_start();
 
       $item = $row['album'];
 
-      $query = "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1";
-      $img = mysqli_query($connect, $query);
+      
+      $img = mysqli_query($connect, "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1");
       $url = mysqli_fetch_assoc($img);
       $urlstr = $url['link'];
 
-      $opt .= "<div class='grid-item'><h5>$item</h5><a href='albumgallery.php?profileid=$profile&album=$item'><img id='$urlstr' src='$urlstr' style='width: 100%; height: 100%; padding: 3px;'></a></div>";
+      $opt .= "<div class='grid-item'><h5>$item</h5><a href='albumgallery.php?profileid=$profile&albumname=$item'><img id='$urlstr' src='$urlstr' style='width: 100%; height: 100%; padding: 3px;'></a></div>";
     }
   ?>
 
   <?php echo $opt ?>
 
   </div>
-/*changed line 102 from $profile&albumname=$item*/
+///*changed line 102 from $profile&albumname=$item*/
 <br>
 <br>
 <br>
