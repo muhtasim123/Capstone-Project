@@ -106,7 +106,7 @@ session_start();
   <?php echo $opt ?>
 
   </div>
-
+/*changed line 102 from $profile&albumname=$item*/
 <br>
 <br>
 <br>
