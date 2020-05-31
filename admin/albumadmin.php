@@ -88,6 +88,8 @@ header("Location: adminlogin.php");}
   <div class="grid-container">
   
 <?php
+
+	$connect = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
   
   $result2 = mysqli_query($connect, "SELECT DISTINCT album FROM new_media WHERE patientid='$profile' AND type='picture'");
   $opt = "";
