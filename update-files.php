@@ -96,6 +96,8 @@ if(isset($_POST['upload']))
               <div class="content-panel">
         <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST" style="padding-left:1%; margin-top:-3.5%; padding-bottom:1%"><br><br>
 <?php
+	//added this at 5/31/2020
+	$con = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
 	//checks is file is corrected selected
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
 try {
@@ -123,6 +125,8 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 <?php } } ?>
 		
 <?php
+		//added connection line at 5/31/2020
+	$con = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
 	$ret=mysqli_query($con,"select * from patient where id='".$_GET['uid']."'");	
 	$row=mysqli_fetch_array($ret);
 	$_SESSION['pid']=$row['id'];
