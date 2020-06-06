@@ -158,9 +158,9 @@ if($_SESSION['login']!="1"){
     <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="assets/js/common-scripts.js"></script>
   <script>
-      $(function(){
-          $('select.styled').customSelect();
-      });
+    //  $(function(){
+        //  $('select.styled').customSelect();
+     // });
 
   </script>
 
