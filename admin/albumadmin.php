@@ -89,18 +89,17 @@ header("Location: adminlogin.php");}
   
 <?php
 
-	$connect = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
-  
-  $result2 = mysqli_query($connect, "SELECT DISTINCT album FROM new_media WHERE patientid='$profile' AND type='picture'");
+	$sql = "SELECT DISTINCT album FROM new_media WHERE patientid='$profile' AND type='picture'";
+  $result2 = mysqli_query($connect, $sql);
   $opt = "";
 
     while($row = mysqli_fetch_assoc($result2)) {
 
       $item = $row['album'];
-	$link = "https://ontario-shores.s3.amazonaws.com/";
-      
-      $img = mysqli_query($connect, "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' and link='$link' LIMIT 1");
-      $url = mysqli_fetch_array($img);
+
+      $query = "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1";
+      $img = mysqli_query($connect, $query);
+      $url = mysqli_fetch_assoc($img);
       $urlstr = $url['link'];
 
       $opt .= "<div class='grid-item'><h5>$item</h5><a href='albumgallery.php?profileid=$profile&albumname=$item'><img id='$urlstr' src='$urlstr' style='width: 100%; height: 100%; padding: 3px;'></a></div>";
