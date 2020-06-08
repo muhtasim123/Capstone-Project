@@ -94,10 +94,9 @@ if(isset($_POST['upload']))
         <div class="row">
           <div class="col-md-12">
               <div class="content-panel">
-        <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST" style="padding-left:1%; margin-top:-3.5%; padding-bottom:1%"><br><br>
+       
 <?php
-	//added this at 5/31/2020
-	$con = mysqli_connect("us-cdbr-iron-east-04.cleardb.net", "bc9da719e482f3", "deea7ef6", "heroku_dbefbfd5b04ac35");
+	
 	//checks is file is corrected selected
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
 try {
@@ -132,6 +131,7 @@ $link = "https://ontario-shores.s3.amazonaws.com/" . $tmplink;
 	$_SESSION['pid']=$row['id'];
 	$tmpid=$row['id'];
 ?>
+ <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST" style="padding-left:1%; margin-top:-3.5%; padding-bottom:1%"><br><br>		      
 <h3><i class="fa fa-angle-right"></i>Upload Media for <?php echo $row['fname']?> <?php echo $row['lname']?></h3>
 <p><?php echo $link ?><p>
 
