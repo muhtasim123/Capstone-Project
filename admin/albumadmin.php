@@ -96,8 +96,13 @@ header("Location: adminlogin.php");}
     while($row = mysqli_fetch_assoc($result2)) {
 
       $item = $row['album'];
+	
+	//$profile = $_GET['profileid'];
+ 	$query = "SELECT * FROM new_media WHERE type='picture' AND tag LIKE '%{$profile}%' LIMIT 1"; 
+ 	
+ 	return $result;
 
-      $query = "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1";
+      //$query = "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1";
       $img = mysqli_query($connect, $query);
       $url = mysqli_fetch_assoc($img);
       $urlstr = $url['link'];
