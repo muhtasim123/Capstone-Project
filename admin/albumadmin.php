@@ -98,9 +98,9 @@ header("Location: adminlogin.php");}
       $item = $row['album'];
 	
 	//$profile = $_GET['profileid'];
- 	$query = "SELECT * FROM new_media WHERE type='picture' AND tag LIKE '%{$profile}%' LIMIT 1"; 
+ 	$query = "SELECT link FROM new_media WHERE type='picture' AND tag LIKE '%{$profile}%' LIMIT 1"; 
  	
- 	return $result;
+ 	//return $result;
 
       //$query = "SELECT link FROM new_media WHERE patientid='$profile' AND album='$item' LIMIT 1";
       $img = mysqli_query($connect, $query);
